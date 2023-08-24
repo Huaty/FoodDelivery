@@ -3,15 +3,14 @@
 # FoodDelivery
 IE4717 Web Application
 
-    Markup : ```javascript
-             ```
-
 
 Project MUST contain at least 
 
 *One (1) home page and four(4) but no more than ten(10) additional content pages. Every page must contain appropriate text and images to convey the desired messages to the target audience.
 *Every page must contain appropriate page titles 
+
 *One (1) table display content effectively 
+
 *One (1) form (four (4) fields minimum), together with server-side processing of form data and transactions with database. 
 *Transactions with database must involve SQL commands such as Select, Insert, Update. 
 *One (1) server-side generated web page. 
