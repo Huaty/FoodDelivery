@@ -13,3 +13,15 @@ Project MUST contain at least
 *Data entries not validated by HTML5 should be validated by JavaScript except for those which can only be validated by server-side scripts together with the database. 
 *Data entries not validated on client-side must be validated on the server-side using PHP. 
 *Form must reside on project site (link to an external form is not allowed)  One (1) external style sheet (CSS) file which contains a minimum of four (4) styles should be found in the web folders 
+
+ Markup : * Bullet list
+              * Nested bullet
+                  * Sub-nested bullet etc
+          * Bullet list item 2
+
+-OR-
+
+ Markup : - Bullet list
+              - Nested bullet
+                  - Sub-nested bullet etc
+          - Bullet list item 2 
