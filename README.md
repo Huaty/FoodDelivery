@@ -4,7 +4,7 @@ IE4717 Web Application
 This project aims to create a food delivery system for different types of cuisine
 
 
-<img src="/path/to/Logo.png" alt="Alt text" title="Optional title">
+<img src="/path/to/Logo.png"> 
 # Project Requirments 
 Project MUST contain at least 
 
