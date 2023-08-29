@@ -5,7 +5,7 @@ This project aims to create a food delivery system for different types of cuisin
 
 
 <img src="/path/to/Logo.png">
-![Alt text](/path/to/Logo.png "Testing")
+![Alt text](/path/to/Logo.png)
 
 # Project Requirments 
 Project MUST contain at least 
