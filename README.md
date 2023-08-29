@@ -26,3 +26,6 @@ Project MUST contain at least
 * MYSQL
 
 # Still in production
+
+# Acknowledgments
+This project was created by Wen Huat and Bing Wei for IE4717 Final Assignment in Nanyang Technological University (NTU)
