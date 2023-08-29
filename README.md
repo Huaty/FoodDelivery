@@ -2,7 +2,6 @@
 # Majulah Munchies (Food Delivery System)
 IE4717 Web Application
 
-<img src="/path/to/Web Application.png">
 
 This project aims to create a food delivery system for different types of cuisine
 
