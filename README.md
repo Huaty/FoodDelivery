@@ -7,6 +7,8 @@ This project aims to create a food delivery system for different types of cuisin
   <img src="/Logo.png" > 
 </div>
 
+![](https://github.com/Huaty/MajulahMunchies/asset/Logo.png)
+
 # Project Requirments 
 Project MUST contain at least 
 
