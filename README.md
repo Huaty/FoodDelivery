@@ -3,9 +3,6 @@
 IE4717 Web Application
 This project aims to create a food delivery system for different types of cuisine
 
-<div style= "margin-left: 30px" >
-  <img src="/Logo.png" > 
-</div>
 
 ![LOGO](https://github.com/Huaty/MajulahMunchies/blob/main/asset/Logo.png)
 
