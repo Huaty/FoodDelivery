@@ -31,4 +31,4 @@ Project MUST contain at least
 # Still in production
 
 # Acknowledgments
-This project was created by [Wen Huat](https://www.linkedin.com/in/chua-wen-huat-757583154/) and Bing Wei for IE4717 Final Assignment in Nanyang Technological University (NTU)
+This project was created by ![Wen Huat](https://www.linkedin.com/in/chua-wen-huat-757583154/) and Bing Wei for IE4717 Final Assignment in Nanyang Technological University (NTU)
