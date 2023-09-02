@@ -12,7 +12,7 @@
 
         $sql = "INSERT INTO `users` (`firstname`,`lastname`,`email`, `password`) VALUES ('$firstname', '$lastname', '$email', '$password')";
 
-        $query = mysqli_query($conn, $sql);
+        $query = mysqli_query($conn, $sql); /// First name , Last name , email , password cannot be null in the database
         if($query)
         {
             echo "Data inserted successfully";
@@ -22,7 +22,6 @@
             echo "Data insertion failed";
         }
         
-
     }
 
 
