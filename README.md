@@ -3,11 +3,9 @@
 IE4717 Web Application
 This project aims to create a food delivery system for different types of cuisine
 
-
 ![LOGO](https://github.com/Huaty/MajulahMunchies/blob/main/asset/Logo.png)
 
-
-# Project Requirments 
+# Project Requirements 
 Project MUST contain at least 
 
 * One (1) home page and four(4) but no more than ten(10) additional content pages. Every page must contain appropriate text and images to convey the desired messages to the target audience.
