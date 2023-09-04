@@ -1,4 +1,4 @@
-CREATE MajulahMunchies;
+CREATE DATABASE MajulahMunchies;
 
 USE MajulahMunchies;
 
