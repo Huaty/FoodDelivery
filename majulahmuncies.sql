@@ -1,4 +1,4 @@
-
+CREATE MajulahMunchies;
 
 USE MajulahMunchies;
 
