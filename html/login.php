@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <nav>
-    <div class="logo" >
-      <h4>Logo</h4>
-  </nav>
+  <?php
+
+  session_start();
+  echo $_SESSION['username'];
+
+  ?>
+  
   <body>
-    <a href="signup.html">Sign Up</a>
+    <form method="POST "></form>
   </body>
 </html>
