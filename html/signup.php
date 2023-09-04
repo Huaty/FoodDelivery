@@ -8,18 +8,28 @@
 
   <?php
   
-  include("db_connection.php");
+  include("../asset/db_connection.php");
+  $conn = Opencon();
+  session_start();
 
+  $_SESSION['username'] = "test1";
 
   ?>
   <body>
-    <form method="POST" action="signup.php">
+    <!-- NAV Component -->
+    <header class= "header">
+      
+    </header>
+    <div>
+      <a href = "login.php">Login</a>
+    </div>
+    <!-- <form method="POST" action="signup.php">
       <input type="text" name="firstname" placeholder="First Name" /><br />
       <input type="text" name="lastname" placeholder=" Last Name" /><br />
       <input type="text" name="email" placeholder="Email" /><br />
       <input type="password" name="password" placeholder="Password" /><br />
       <input type="text" name="homeaddress" placeholder="Home Address " /><br />
       <input type="Submit" value="Submit" /><br />
-    </form>
+    </form> -->
   </body>
 </html>

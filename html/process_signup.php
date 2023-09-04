@@ -2,7 +2,7 @@
 
     if($_SERVER["REQUEST_METHOD"] === "POST" ){
 
-        include ('db_connection.php');
+        include ('../asset/db_connection.php');
         $conn = Opencon();
 
         $firstname = $_POST["firstname"];
