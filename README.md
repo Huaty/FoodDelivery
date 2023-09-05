@@ -3,7 +3,7 @@
 IE4717 Web Application
 This project aims to create a food delivery system for different types of cuisine
 
-![LOGO](https://github.com/Huaty/MajulahMunchies/blob/main/asset/Logo.png)
+![LOGO](https://github.com/Huaty/MajulahMunchies/blob/main/asset/image/Logo.png)
 
 # Project Requirements 
 Project MUST contain at least 
