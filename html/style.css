@@ -1,0 +1,147 @@
+head {
+  display: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: auto;
+  min-width: 1920px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: red;
+}
+
+.nav-container {
+  display: flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  flex-direction: column;
+
+  /* flex-direction: column; */
+}
+
+.nav-flex-grow {
+  flex-grow: 1;
+  margin: auto;
+}
+
+header {
+  display: flex;
+}
+.nav-container .logo-placement {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.logo {
+  justify-content: center;
+}
+.nav-content {
+  text-align: right;
+  font-size: 30px;
+  padding-top: 10px;
+  margin-right: 150px;
+  margin-left: 150px;
+}
+
+.main-container {
+  margin-top: 50px;
+  width: 100%;
+  height: 1015px;
+}
+.main-container .top {
+  width: 100%;
+  height: 500px;
+}
+.main-container .top .left-content {
+  align-items: center;
+  display: flex;
+  width: 60%;
+  float: left;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.main-container .top .left-content #header {
+  width: 100%;
+  padding: 100px;
+  margin-top: 100px;
+  align-items: flex-start;
+}
+
+.main-container .top .left-content #header #red-heading {
+  color: red;
+}
+.main-container .top .left-content #body {
+  width: 100%;
+  padding-left: 100px;
+}
+.main-container .top .right-content {
+  width: 40%;
+  float: right;
+}
+
+.main-container .top .right-content .img {
+  width: 100%;
+  height: 500px;
+}
+
+.main-container .bottom{
+  width:100%;
+}
+
+footer .top{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left : 30px;
+  
+}
+
+footer .smallLogo{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+footer .contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+footer .statement{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+footer .top .smallLogo #img{
+  width: 70px;
+  align-items: center;
+  
+  
+
+}
+
+footer .top .smallLogo #word{
+  font-family:'Just Another Hand', cursive;
+}
+
+footer .bottom{
+  display:flex;
+  justify-content: center;
+}
