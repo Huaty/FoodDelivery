@@ -17,7 +17,7 @@
     <div class="wrapper-login">
       <form method="GET" action="" class="login-input">
         <label for="email">Email</label>
-        <input type="email" name="username" id="email" class="email" />
+        <input type="email" name="email" id="email" class="email" />
         <label for="password">Password</label>
         <input type="password" name="password" id="password" class="password" />
         <input type="submit" value="login" class="login" />

@@ -212,3 +212,49 @@ footer .bottom {
   font-family: "Just Another Hand", cursive;
 
 }
+
+ /* End of login.php */ 
+/* Start of Signup.php */
+
+
+
+.main-container-login-register .wrapper-signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border: 1px solid black;
+  box-shadow : 20px 10px 10px #888888;
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+
+.main-container-login-register .wrapper-signup .signup-input{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom:20px;
+
+}
+
+.main-container-login-register .wrapper-signup .signup-input input{
+  margin-bottom:20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.main-container-login-register .wrapper-signup .smallLogo{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.main-container-login-register .wrapper-signup .smallLogo #word{
+
+  font-family: "Just Another Hand", cursive;
+
+}
