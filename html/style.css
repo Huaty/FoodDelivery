@@ -51,11 +51,10 @@ header {
   justify-content: center;
 }
 .nav-content {
-  text-align: right;
   font-size: 30px;
   padding-top: 10px;
-  margin-right: 150px;
-  margin-left: 150px;
+  padding-left : 100px;
+  padding-right: 100px ;
 }
 
 .nav-container ul{
@@ -76,7 +75,7 @@ header {
 .main-container .top .left-content {
   align-items: center;
   display: flex;
-  width: 60%;
+  width: 45%;
   float: left;
   flex-direction: column;
   align-items: flex-start;
@@ -97,7 +96,7 @@ header {
   padding-left: 100px;
 }
 .main-container .top .right-content {
-  width: 40%;
+  width: 55%;
   float: right;
 }
 
