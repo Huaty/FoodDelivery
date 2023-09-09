@@ -4,10 +4,12 @@ head {
 * {
   margin: 0;
   padding: 0;
+  box-sizing:border-box;
 }
 body {
   margin: auto;
-  min-width: 1920px;
+
+  min-width:800px;
 }
 
 a {
@@ -54,6 +56,12 @@ header {
   padding-top: 10px;
   margin-right: 150px;
   margin-left: 150px;
+}
+
+.nav-container ul{
+  list-style-type: none;
+  display:flex;
+  flex-direction: row;
 }
 
 .main-container {

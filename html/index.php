@@ -22,12 +22,12 @@
       </div>
       <!-- End Logo -->
       <!-- Navigation Bar -->
-      <div class="nav-flex-right nav-flex-grow">
-        <span class="nav-content"><a href="index.php"> Home</a></span>
-        <span class="nav-content">Menu</span>
-        <span class="nav-content"><a href="about.php">About Us</a></span>
-        <span class="nav-content"><a href="logins.php">Log In </a></span>
-      </div>
+      <ul class="nav-flex-right nav-flex-grow">
+        <li class="nav-content"><a href="index.php"> Home</a></li>
+        <li class="nav-content">Menu</li>
+        <li class="nav-content"><a href="about.php">About Us</a></li>
+        <li class="nav-content"><a href="login.php">Log In </a></li>
+    </div>
     </div>
   </header>
   <!-- End Navigation Bar -->
