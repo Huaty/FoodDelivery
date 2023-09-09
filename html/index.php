@@ -25,8 +25,8 @@
       <ul class="nav-flex-right nav-flex-grow">
         <li class="nav-content"><a href="index.php"> Home</a></li>
         <li class="nav-content">Menu</li>
-        <li class="nav-content"><a href="about.php">About Us</a></li>
-        <li class="nav-content"><a href="login.php">Log In </a></li>
+        <li class="nav-content about-us"><a href="about.php">About Us</a></li>
+        <li class="nav-content login"><a href="login.php">Log In </a></li>
     </div>
     </div>
   </header>
