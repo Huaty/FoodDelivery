@@ -1,39 +1,30 @@
 <?php
 
-    if($_SERVER["REQUEST_METHOD"] === "POST" ){
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-        include ('../asset/db_connection.php');
-        $conn = Opencon();
+    include('../asset/db_connection.php');
+    $conn = Opencon();
 
-        $firstname = $_POST["firstname"];
-        $lastname = $_POST["lastname"];
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-        $homeaddress = $_POST["homeaddress"];
+    $firstname = $_POST["name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $homeaddress = $_POST["address"];
 
-        if(isset($_POST["firstname"]) && isset($_POST["lastname"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["homeaddress"])
-        && !empty($_POST["firstname"]) && !empty($_POST["lastname"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["homeaddress"]))
-        {
-            $sql = "INSERT INTO `users` (`firstname`,`lastname`,`email`, `pwd`,`homeaddress`) VALUES ('$firstname', '$lastname', '$email', '$password','$homeaddress')";
+    if (
+        isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["address"])
+        && !empty($_POST["name"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["address"])
+    ) {
+        $sql = "INSERT INTO `users` (`firstname`,`email`, `pwd`,`homeaddress`) VALUES ('$firstname', '$email', '$password','$homeaddress')";
 
-            $query = mysqli_query($conn, $sql); /// First name , Last name , email , password cannot be null in the database
-            if($query)
-            {
-                echo "Data inserted successfully";
-            }
-            else
-            {
-                echo "Data insertion failed";
-            }
-        }
-        else
-        {
-            echo '<p style="color: red;">All fields are required.</p>';
-            header("Location: ../static/signup.html"); // Redirect browser to signup page using PHP.
+        $query = mysqli_query($conn, $sql); /// First name , Last name , email , password cannot be null in the database
+        if ($query) {
+            header("Location: ../html/login.php"); // Redirect browser to signup page using PHP.
             exit();
+        } else {
+            echo "Data insertion failed";
         }
-  
+    } else {
+        header("Location: ../html/signup.php"); // Redirect browser to signup page using PHP.
+        exit();
     }
-
-
-?>
+}
