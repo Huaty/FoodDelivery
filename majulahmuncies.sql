@@ -5,7 +5,6 @@ USE MajulahMunchies;
 CREATE TABLE users(
     user_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
     firstname VARCHAR(255) NOT NULL,
-    lastname VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     pwd VARCHAR(255) NOT NULL,
     homeaddress VARCHAR(255) NOT NULL
