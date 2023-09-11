@@ -31,7 +31,6 @@
         <li class="nav-content about-us"><a href="about.php"><span>About us</span></a></li>
         <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
     </div>
-    </div>
   </header>
   <!-- End Navigation Bar -->
   <!-- End Header -->
