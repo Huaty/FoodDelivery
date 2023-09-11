@@ -1,28 +1,22 @@
 head {
   display: none;
 }
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  margin: auto;
 
-  min-width: 1157px;
-}
 
 header {
   display: flex;
   min-width: 1157px;
+  margin-top:20px;
+  margin-bottom:10px;
 }
 
 
-.main-container {
-  margin-top: 50px;
-  width: 100%;
-  height: 1015px;
-}
+
 /* Start index.php */
 a {
   text-decoration: none;
@@ -61,29 +55,62 @@ a:hover {
   justify-content: center;
 }
 .nav-content {
-  font-size: 30px;
-  padding-top: 10px;
-  padding-left: 100px;
-  padding-right: 100px;
+  display:flex;
+  flex-direction:row;
+  font-size: 40px;
+  justify-content: space-evenly;
+  padding:10px;
+  padding-left:100px;
+  padding-right:100px;
+}
+
+.nav-content span{
+  margin: 25px;
+}
+
+.nav-content .current-page{
+
+  border-bottom: 7px solid red;
+  font-weight:bold;
+  border-radius: 5px;
 }
 
 .nav-container ul {
+  margin-top:20px;
   list-style-type: none;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+
+
+.nav-container ul li :hover{
+  background-color: red;
+  color:white;
+  border-radius:20px;
+}
+
+.main-container{
+  display:flex;
+  flex-direction: column;
+  padding-top:50px;
 }
 
 .main-container .top {
   width: 100%;
-  height: 500px;
+  height:800px;
+  display:flex;
+  flex-direction:row;
 }
 .main-container .top .left-content {
-  align-items: center;
   display: flex;
-  width: 55%;
-  float: left;
   flex-direction: column;
-  align-items: flex-start;
+  margin-right:auto;
+  justify-content: center;
+  font-family: 'Lalezar', cursive;
+  font-size: 40px;
+
 }
 
 .main-container .top .left-content #header {
@@ -101,24 +128,60 @@ a:hover {
   padding-left: 100px;
 }
 .main-container .top .right-content {
-  width: 45%;
-  float: right;
+  width:auto;
+  height:auto;
 }
 
 .main-container .top .right-content .img {
   width: 100%;
-  height: 500px;
+  height: 100%;
 }
 
 .main-container .bottom {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom:20px;
+  
 }
 
+.main-container .bottom #top{
+  color:white;
+  background-color: #8B0000;
+  font-size: 30px;
+  display:flex;
+  flex-direction:row;
+  padding-left:100px;
+  padding-top:20px;
+  padding-bottom:20px;
+  width:100%;
+}
+
+.main-container .bottom #body{
+  color:white;
+  background-color: red;
+  font-size: 30px;
+  display:flex;
+  flex-direction:row;
+  padding-left:100px;
+  padding-top:20px;
+  padding-bottom:20px;
+  width:100%;
+}
+
+footer{
+  display:flex;
+  flex-direction:column;
+}
 footer .top {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 30px;
+  padding-left:20px;
+
 }
 
 footer .smallLogo {
@@ -171,7 +234,7 @@ footer .bottom {
   padding-right:400px;
   display: flex;
   flex-direction: row;
-  justify-content: center;  
+  justify-content: center; 
 }
 
 .main-container-login-register .wrapper-login {

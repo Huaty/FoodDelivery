@@ -8,7 +8,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://fonts.google.com/specimen/Just+Another+Hand">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Lalezar&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Majulah Munchies</title>
 </head>
 
@@ -23,10 +26,10 @@
       <!-- End Logo -->
       <!-- Navigation Bar -->
       <ul class="nav-flex-right nav-flex-grow">
-        <li class="nav-content"><a href="index.php"> Home</a></li>
-        <li class="nav-content">Menu</li>
-        <li class="nav-content about-us"><a href="about.php">About Us</a></li>
-        <li class="nav-content login"><a href="login.php">Log In </a></li>
+        <li class="nav-content "><a href="index.php"><span class="current-page">Home</span></a></li>
+        <li class="nav-content"><a href="signup.php"><span>Menu</span></li>
+        <li class="nav-content about-us"><a href="about.php"><span>About us</span></a></li>
+        <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
     </div>
     </div>
   </header>
@@ -43,7 +46,7 @@
           <h1 id="header">From Chef's Pan to your Plate, <br><span id="red-heading">Swift</span> and <span id="red-heading">Great!</span></h1>
         </div>
         <div>
-          <p id="body">Food Assures Fresh</p>
+          <p id="body">Deliciousness delivered, one bite at a time.</p>
         </div>
       </div>
       <!--- End Top Left Content -->
@@ -56,7 +59,14 @@
     <!-- End Top Content -->
     <!-- Bottom Content -->
     <div class="bottom">
-      <p>Hello</p>
+      <div id="top">About us
+      </div>
+      <div id="body">
+        Join Us Today!
+      </div>
+      <div id="bottom">
+
+      </div>
     </div>
     <!-- End Bottom Content -->
   </div>

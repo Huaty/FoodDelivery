@@ -1,3 +1,9 @@
+<?php
+include('../asset/db_connection.php');
+$conn = Opencon();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
