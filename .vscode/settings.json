@@ -13,6 +13,21 @@
       "database": "MajulahMunchies",
       "username": "root",
       "password": ""
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "test",
+      "group": "test",
+      "database": "test",
+      "username": "root",
+      "password": ""
     }
   ],
   "java.compile.nullAnalysis.mode": "disabled"
