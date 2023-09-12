@@ -32,6 +32,7 @@
         <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
     </div>
   </header>
+
   <!-- End Navigation Bar -->
   <!-- End Header -->
 
@@ -64,6 +65,7 @@
         Join Us Today!
       </div>
       <div id="bottom">
+
 
       </div>
     </div>

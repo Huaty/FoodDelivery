@@ -5,12 +5,13 @@ head {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-width: 1700px;
 }
 
 
 header {
   display: flex;
-  min-width: 1157px;
+
   margin-top:20px;
   margin-bottom:10px;
 }
@@ -151,25 +152,27 @@ a:hover {
 .main-container .bottom #top{
   color:white;
   background-color: #8B0000;
-  font-size: 30px;
+  font-size: 35px;
   display:flex;
   flex-direction:row;
   padding-left:100px;
   padding-top:20px;
   padding-bottom:20px;
   width:100%;
+  font-family: 'Koulen', cursive;
 }
 
 .main-container .bottom #body{
   color:white;
   background-color: red;
-  font-size: 30px;
+  font-size: 35px;
   display:flex;
   flex-direction:row;
   padding-left:100px;
   padding-top:20px;
   padding-bottom:20px;
   width:100%;
+  font-family: 'Koulen', cursive;
 }
 
 footer{
