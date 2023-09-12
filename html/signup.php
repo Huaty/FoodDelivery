@@ -39,6 +39,7 @@ $_SESSION['username'] = "test1";
         <input type="submit" value="submit" class="login" />
       </form>
       <div id="error-message"></div>
+      <div id="password-short"></div>
       <div class="link-signup">
         <p>If you don't have an account, <a href="signup.php">Sign up</a> here!</p>
       </div>

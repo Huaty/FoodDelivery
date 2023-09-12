@@ -1,6 +1,6 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" || isset($_POST["submit"])) {
 
     include('../asset/db_connection.php');
     $conn = Opencon();
@@ -24,7 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo "Data insertion failed";
         }
     } else {
-        header("Location: ../html/signup.php"); // Redirect browser to signup page using PHP.
+        header("Location: ../html/signup.php"); // Redirect browser to signup page using PHP. If they leave blank
         exit();
     }
+} else {
+    header("Location: ../html/signup.php");
+    exit();
 }

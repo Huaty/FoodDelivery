@@ -1,6 +1,17 @@
 <?php
 include('../asset/db_connection.php');
 $conn = Opencon();
+
+if (isset($_POST['email']) && isset($_POST['password']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  $query = "SELECT * FROM user WHERE email =  '$email' AND password = '$password'";
+  $result = mysqli_query($conn, $query);
+}
+
+
+
 ?>
 
 
@@ -27,7 +38,7 @@ $conn = Opencon();
   </header>
   <div class="main-container-login-register">
     <div class="wrapper-login">
-      <form method="GET" action="" class="login-input">
+      <form method="POST" action="" class="login-input">
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" class="email" />
         <label for="password">Password:</label>
