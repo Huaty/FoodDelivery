@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Lalezar&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Koulen&family=Lalezar&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Majulah Munchies</title>
 </head>
@@ -59,14 +59,37 @@
     <!-- End Top Content -->
     <!-- Bottom Content -->
     <div class="bottom">
+
       <div id="top">About us
       </div>
       <div id="body">
         Join Us Today!
       </div>
       <div id="bottom">
+        <div id="left">
+          <span id="red-heading">Majulah</span> Munchies
+        </div>
+        <div id="right">
+          <span class="top">
+            <span id="img">
+              <img src="../asset/image/responsible.png" alt="Operational" class="img">
+            </span>
+            <span id="word">
+              Operational Excellence <br> We believe that excellence in delivery is the cornerstone of operational sucess.
+            </span>
+          </span>
+          <span class="body">
+            <span>
 
+            </span>
+          </span>
+          <span class="bottom">
+            <span>
 
+            </span>
+          </span>
+
+        </div>
       </div>
     </div>
     <!-- End Bottom Content -->
