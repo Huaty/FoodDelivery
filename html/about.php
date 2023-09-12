@@ -32,7 +32,7 @@
                 About Us
             </h1>
                 <p>
-                Bringing the World's Flavors to Your Doorstep
+                Our Journey in Bringing the World's Flavors Right to Your Doorstep
                 </p>
                 <div class = "aboutus-container">
                     <section class ="about">
@@ -41,10 +41,10 @@
                         </div>
                         <div class = "about-content">
                             <h2>   
-                                Food Delivery
+                                MajulahMunchies
                             </h2>
                             <p>
-                            Welcome to MajulahMunchies,<br> your passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service; we're your partners in savoring the finest flavors from around the globe.<br>
+                            Welcome to MajulahMunchies,<br> your passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service;<br> we're your partners in savoring the finest flavors from around the globe.<br>
                             </p>
                             <a href ="" class ="read-more"> Read More </a>
                         </div>
