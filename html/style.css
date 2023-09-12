@@ -321,20 +321,23 @@ footer .bottom {
 
 /* Start of login.php */
 
-.back{
-  margin-left: 50px;
-  margin-top:20px
+#back-arrow-img{
+  width:200px;
 }
+#back-button{
+  margin-top:50px;
+  margin-left:50px;
+  background-color: white;
+  border: 0px;
+}
+
 .main-container-login-register{
 
-  margin-top: 150px;
-  margin-bottom:150px;
-  width: 100%;
-  padding-left:400px;
-  padding-right:400px;
+  height: 75vh;
   display: flex;
-  flex-direction: row;
-  justify-content: center; 
+  justify-content: center;
+  align-items: center;
+
 }
 
 .main-container-login-register .wrapper-login {
@@ -342,41 +345,95 @@ footer .bottom {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  border: 1px solid black;
-  box-shadow : 20px 10px 10px #888888;
-  padding-top: 50px;
-  padding-bottom: 60px;
+  border: 7px inset black;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  height:50vh;
+  width:50vh;
 }
 
-.main-container-login-register .wrapper-login .login-input{
+.wrapper-login .login-input{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom:20px;
+
 
 }
+ .wrapper-login .login-input label{
+  font-family: 'Koulen', cursive;
+  font-size:30px;
+}
 
-.main-container-login-register .wrapper-login .login-input input{
+
+.wrapper-login .login-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size:20px;
+}
+
+
+.wrapper-login .login-button {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: red;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: 'Koulen', cursive;
+}
+
+
+
+.wrapper-login .login-input input#email,
+.wrapper-login .login-input input#password{
+  width:30vh;
+  height:40px;
   margin-bottom:20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border:3px solid black;
+  border-radius: 7px;
+  font-size:30px
+
+
 }
-.main-container-login-register .wrapper-login .smallLogo{
-  
+
+.wrapper-login .link-signup{
+  font-family: 'Mitr', sans-serif;
+  font-size:20px;
+}
+.wrapper-login .link-signup a{
+  color:red;
+}
+
+
+ .wrapper-login .smallLogo{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
-.main-container-login-register .wrapper-login .smallLogo #word{
+.wrapper-login .smallLogo #img{
+  width: 8vh;
+  align-items: center;
+}
 
+ .wrapper-login .smallLogo #word{
+  font-size:35px;
   font-family: "Just Another Hand", cursive;
 
 }
+
 
  /* End of login.php */ 
 /* Start of Signup.php */
@@ -540,11 +597,82 @@ margin-bottom: 35px;
 @media screen and (max-width: 1920px) 
 
 
-/* Index Page Bottom Content */
 {
+
+
+  .nav-content span{
+    margin: 25px;
+    font-family: 'Lalezar', cursive;
+    font-size: 30px;
+  }
+  /* Index Page Bottom Content */
   .main-container .bottom #bottom #right{
     display:flex;
     flex-direction:column;
     margin-right:20px;
   }
+
+
+  /* Login Page Start  */
+
+
+  #back-button{
+    margin-top:50px;
+    margin-left:50px;
+    background-color: white;
+    border: 0px;
+  }
+  .main-container-login-register{
+  
+    margin-top: 150px;
+    margin-bottom:150px;
+    width: 100%;
+    padding-left:400px;
+    padding-right:400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+  }
+  
+  .main-container-login-register .wrapper-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border: 1px solid black;
+    box-shadow : 20px 10px 10px #888888;
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+  
+  .main-container-login-register .wrapper-login .login-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:20px;
+  
+  }
+  
+  .main-container-login-register .wrapper-login .login-input input{
+    margin-bottom:20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .main-container-login-register .wrapper-login .smallLogo{
+    
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 10px;
+  }
+  
+  .main-container-login-register .wrapper-login .smallLogo #word{
+  
+    font-family: "Just Another Hand", cursive;
+  
+  }
+  
 }
