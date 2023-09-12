@@ -186,7 +186,6 @@ a:hover {
   display:flex;
   flex-direction:row;
   padding-top: 20px;
-  border:
 }
 
 .main-container .bottom #bottom #left{
@@ -376,7 +375,7 @@ footer .bottom {
 }
 
 .Aboutus-heading h1 {
-  font-size: 50px;
+  font-size: 60px;
   color: #000;
   margin-bottom: 25px;
   position: relative;
@@ -393,7 +392,7 @@ background-color:red ;
 }
 
 .Aboutus-heading p {
-font-size:18px;
+font-size:30px;
 color: #666;
 margin-bottom: 35px;
 }
@@ -419,8 +418,8 @@ margin-bottom: 35px;
 }
 
 .about-image img {
-  max-width: 95%;
-  max-height: 95%;
+  max-width: 80%;
+  max-height: 80 %;
   display:block;
   transition: 0.5s ease;
 }
@@ -436,7 +435,7 @@ margin-bottom: 35px;
 }
 
 .about-content p{
-  font-size: 25px;
+  font-size: 30px;
   line-height: 1.5;
   color:#666;
 }
