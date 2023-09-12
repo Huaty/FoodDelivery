@@ -1,3 +1,4 @@
+
 head {
   display: none;
 }
@@ -10,7 +11,6 @@ head {
 
 header {
   display: flex;
-
   margin-top:20px;
   margin-bottom:10px;
 }
@@ -33,8 +33,6 @@ header {
   margin-right: auto;
   align-items: center;
   flex-direction: column;
-
-  /* flex-direction: column; */
 }
 
 .nav-flex-grow {
@@ -66,7 +64,7 @@ header {
 .nav-content span{
   margin: 25px;
   font-family: 'Lalezar', cursive;
-  font-size: 40px;
+  font-size:2.5rem;
 }
 
 .nav-content .current-page{
@@ -117,9 +115,8 @@ header {
 
 .main-container .top .left-content #header {
   width: 100%;
-  padding: 100px;
-  margin-top: 100px;
   align-items: flex-start;
+  padding-left:100px;
 }
 
 #red-heading {
@@ -198,7 +195,7 @@ header {
   flex-direction: row;
   margin-right:30%;
   padding-left: 100px;
-  font-size: 80px;
+  font-size: 5rem;
   font-family: 'Koulen', cursive;
 
 }
@@ -207,7 +204,7 @@ header {
 .main-container .bottom #bottom #right{
   display:flex;
   flex-direction:column;
-  margin-right:auto;
+  margin-right:2.5%;
 }
 
 
@@ -224,12 +221,12 @@ header {
 .main-container .bottom #bottom #right .wrapper #word
 {
   font-family: 'Mitr', sans-serif;
-  font-size: 20px;
+  font-size: 1rem;
 }
 
 .main-container .bottom #bottom #right .wrapper #heading
 { 
-  font-size: 40px;
+  font-size: 1.5rem;
   font-family: 'Koulen', cursive;
 
 }
@@ -270,38 +267,44 @@ footer .statement {
   justify-content: center;
   
 }
-footer .top .smallLogo #img,
-footer .top .smallLogo #word {
-  width: 100%;
+footer .top .smallLogo #img {
+  width: 80%;
   align-items: center;
-
 }
 
 footer .top .smallLogo #word {
-  font-family: "Just Another Hand",cursive;
-  font-size: 30px;
-
+  font-size: 1.85rem;
+  font-family: 'Just Another Hand', cursive;
 }
+
+
+
+
 footer .top .contact p,
 footer .top .statement p{
   font-family: 'Mitr', sans-serif;
-  font-size: 30px;
+  font-size: 1.5rem;
 
+}
+
+footer .top .contact p{
+  display:flex;
+  justify-content: center;
 }
 
 
 footer .top .contact img{
+
   margin:5px;
-  height:40px;
-  width:40px;
+  width:10%;
 }
 
 
 
 footer .top .contact .small-icon{
   display:flex;
-  margin:auto;
   flex-direction:row;
+  justify-content: center;
 
 }
 
@@ -322,7 +325,7 @@ footer .bottom {
 /* Start of login.php */
 
 #back-arrow-img{
-  width:200px;
+  width:150%;
 }
 #back-button{
   margin-top:50px;
@@ -332,12 +335,9 @@ footer .bottom {
 }
 
 .main-container-login-register{
-
-  height: 75vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .main-container-login-register .wrapper-login {
@@ -347,15 +347,16 @@ footer .bottom {
   align-items: center;
   border: 7px inset black;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  height:50vh;
-  width:50vh;
+  padding:30px;
 }
+
 
 .wrapper-login .login-input{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 
 
 }
@@ -394,13 +395,11 @@ footer .bottom {
 
 .wrapper-login .login-input input#email,
 .wrapper-login .login-input input#password{
-  width:30vh;
-  height:40px;
   margin-bottom:20px;
   margin-left: 20px;
   margin-right: 20px;
   border:3px solid black;
-  border-radius: 7px;
+  border-radius: 10px;
   font-size:30px
 
 
@@ -409,6 +408,7 @@ footer .bottom {
 .wrapper-login .link-signup{
   font-family: 'Mitr', sans-serif;
   font-size:20px;
+  padding-top:15px;
 }
 .wrapper-login .link-signup a{
   color:red;
@@ -424,7 +424,7 @@ footer .bottom {
 }
 
 .wrapper-login .smallLogo #img{
-  width: 8vh;
+  width:60%;
   align-items: center;
 }
 
@@ -482,7 +482,8 @@ footer .bottom {
 
 }
 
-.main-container-login-register .wrapper-signup #error-message{
+.wrapper-signup #error-message,
+.wrapper-signup #password-short{
   color:red;
 }
 /* <====== About us PHP =========> */
@@ -589,90 +590,3 @@ margin-bottom: 35px;
 
 /* <====== End of About us PHP =========> */
 
-
-
-
-
-/* Screen Size for 1920px */
-@media screen and (max-width: 1920px) 
-
-
-{
-
-
-  .nav-content span{
-    margin: 25px;
-    font-family: 'Lalezar', cursive;
-    font-size: 30px;
-  }
-  /* Index Page Bottom Content */
-  .main-container .bottom #bottom #right{
-    display:flex;
-    flex-direction:column;
-    margin-right:20px;
-  }
-
-
-  /* Login Page Start  */
-
-
-  #back-button{
-    margin-top:50px;
-    margin-left:50px;
-    background-color: white;
-    border: 0px;
-  }
-  .main-container-login-register{
-  
-    margin-top: 150px;
-    margin-bottom:150px;
-    width: 100%;
-    padding-left:400px;
-    padding-right:400px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center; 
-  }
-  
-  .main-container-login-register .wrapper-login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    border: 1px solid black;
-    box-shadow : 20px 10px 10px #888888;
-    padding-top: 50px;
-    padding-bottom: 60px;
-  }
-  
-  .main-container-login-register .wrapper-login .login-input{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom:20px;
-  
-  }
-  
-  .main-container-login-register .wrapper-login .login-input input{
-    margin-bottom:20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  .main-container-login-register .wrapper-login .smallLogo{
-    
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-top: 10px;
-  }
-  
-  .main-container-login-register .wrapper-login .smallLogo #word{
-  
-    font-family: "Just Another Hand", cursive;
-  
-  }
-  
-}
