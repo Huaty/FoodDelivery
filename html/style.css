@@ -329,13 +329,6 @@ footer .bottom {
 }
 /* <====== About us PHP =========> */
 .Aboutus-heading {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-family: 'Lalezar', cursive;
-}
-
-.Aboutus-heading {
   width:90%;
   display:flex;
   justify-content: center;
@@ -343,12 +336,13 @@ footer .bottom {
   flex-direction: column;
   text-align: center;
   margin:20px auto;
+  font-family: 'Lalezar', cursive;
 }
 
 .Aboutus-heading h1 {
-  font-size: 50px;
+  font-size: 60px;
   color: #000;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -363,9 +357,9 @@ background-color:red ;
 }
 
 .Aboutus-heading p {
-font-size:18px;
+font-size:30px;
 color: #666;
-margin-bottom: 35px;
+margin-bottom: 20px;
 }
 
 .aboutus-container {
@@ -384,13 +378,14 @@ margin-bottom: 35px;
 
 .about-image{
   flex: 1;
-  margin-right: 5px;
+  margin-right: auto;
+  margin-left: auto;
   overflow: hidden;
 }
 
 .about-image img {
-  max-width: 95%;
-  max-height: 95%;
+  max-width: 75%;
+  max-height: 75%;
   display:block;
   transition: 0.5s ease;
 }
@@ -400,13 +395,13 @@ margin-bottom: 35px;
 }
 .about-content h2 {
   flex:1; 
-  font-size: 50px;
+  font-size: 60px;
   margin-bottom: 15px;
   color:#333;
 }
 
 .about-content p{
-  font-size: 25px;
+  font-size: 30px;
   line-height: 1.5;
   color:#666;
 }
