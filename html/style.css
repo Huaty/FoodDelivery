@@ -18,11 +18,11 @@ header {
 
 
 /* Start index.php */
-a {
+.nav-container a {
   text-decoration: none;
   color: black;
 }
-a:hover {
+.nav-container a:hover {
   color: red;
 }
 
@@ -151,7 +151,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   padding-bottom:20px;
-  
+
 }
 
 .main-container .bottom #top{
@@ -188,29 +188,60 @@ a:hover {
   padding-top: 20px;
 }
 
+
 .main-container .bottom #bottom #left{
+  display:flex;
+  flex-direction: row;
   margin-right:30%;
   padding-left: 100px;
-  font-size: 60px;
+  font-size: 80px;
   font-family: 'Koulen', cursive;
 
-
 }
+
 
 .main-container .bottom #bottom #right{
+  display:flex;
+  flex-direction:column;
+}
+.main-container .bottom #bottom #right .wrapper
+{
+  display:flex;
+  display:row;
+  margin-bottom:100px;
+  padding-bottom:50px;
+  border-bottom: 3px solid #ff7066;
+}
+
+.main-container .bottom #bottom #right .wrapper #word
+{
+  font-family: 'Mitr', sans-serif;
+  font-size: 20px;
+}
+
+.main-container .bottom #bottom #right .wrapper #heading
+{ 
+  font-size: 40px;
+  font-family: 'Koulen', cursive;
 
 }
+
+
+.main-container .bottom #bottom #right .img{
+  margin-right:70px;
+}
+
+
 
 footer{
   display:flex;
   flex-direction:column;
+  padding-bottom:50px;
 }
 footer .top {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding-left:20px;
-
+  justify-content: space-evenly;
 }
 
 footer .smallLogo {
@@ -229,22 +260,54 @@ footer .statement {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
-footer .top .smallLogo #img {
-  width: 70px;
+footer .top .smallLogo #img,
+footer .top .smallLogo #word {
+  width: 100%;
   align-items: center;
+
 }
 
 footer .top .smallLogo #word {
   font-family: "Just Another Hand",cursive;
-  font-size: 15px;
+  font-size: 30px;
 
 }
+footer .top .contact p,
+footer .top .statement p{
+  font-family: 'Mitr', sans-serif;
+  font-size: 30px;
+
+}
+
+
+footer .top .contact img{
+  margin:5px;
+  height:40px;
+  width:40px;
+}
+
+
+
+footer .top .contact .small-icon{
+  display:flex;
+  margin:auto;
+  flex-direction:row;
+
+}
+
+
 
 footer .bottom {
   display: flex;
   justify-content: center;
+  margin-top:90px;
+  font-size:30px;
+
 }
+
+
 
 /* End of index.php */
 
@@ -349,6 +412,7 @@ footer .bottom {
 
 .main-container-login-register .wrapper-signup .smallLogo #word{
 
+
   font-family: "Just Another Hand", cursive;
 
 }
@@ -419,7 +483,7 @@ margin-bottom: 35px;
 
 .about-image img {
   max-width: 80%;
-  max-height: 80 %;
+  max-height: 80%;
   display:block;
   transition: 0.5s ease;
 }
