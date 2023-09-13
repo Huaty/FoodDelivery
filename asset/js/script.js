@@ -15,6 +15,8 @@ function validateForm(){
         document.getElementById("password-short").innerHTML = "Password must be at least 6 characters";
         return false;
     }
+
+    
     return true;
 }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,8 +11,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Majulah Munchies</title>
 </head>
+
 <body>
-<header>
+  <header>
     <!-- Header -->
     <div class="nav-container">
       <!-- Logo -->
@@ -21,37 +23,37 @@
       <!-- End Logo -->
       <!-- Navigation Bar -->
       <ul class="nav-flex-right nav-flex-grow">
-        <li class="nav-content "><a href="index.php"><span >Home</span></a></li>
+        <li class="nav-content "><a href="index.php"><span>Home</span></a></li>
         <li class="nav-content"><a href="signup.php"><span>Menu</span></li>
         <li class="nav-content about-us"><a href="about.php"><span class="current-page">About us</span></a></li>
         <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
     </div>
   </header>
-    <div class = "Aboutus-heading">
-            <h1>
-                About Us
-            </h1>
-                <p>
-                Our Journey in Bringing the World's Flavors Right to Your Doorstep
-                </p>
-                <div class = "aboutus-container">
-                    <section class ="about">
-                        <div class = "about-image">
-                        <img src="../asset/image/FoodDelivery.jpg" alt="FoodDelivery" class="img">
-                        </div>
-                        <div class = "about-content">
-                            <h2>   
-                                MajulahMunchies
-                            </h2>
-                            <p>
-                            Welcome to MajulahMunchies,<br> your passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service;<br> we're your partners in savoring the finest flavors from around the globe.<br>
-                            </p>
-                            <a href ="" class ="read-more"> Read More </a>
-                        </div>
-                    </section> 
-                </div>
+  <div class="Aboutus-heading">
+    <h1>
+      About Us
+    </h1>
+    <p>
+      Our Journey in Bringing the World's Flavors Right to Your Doorstep
+    </p>
+    <div class="aboutus-container">
+      <section class="about">
+        <div class="about-image">
+          <img src="../asset/image/FoodDelivery.jpg" alt="FoodDelivery" class="img">
+        </div>
+        <div class="about-content">
+          <h2>
+            MajulahMunchies
+          </h2>
+          <p>
+            Welcome to MajulahMunchies,<br> your passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service;<br> we're your partners in savoring the finest flavors from around the globe.<br>
+          </p>
+          <a href="" class="read-more"> Read More </a>
+        </div>
+      </section>
     </div>
-    <footer>
+  </div>
+  <footer>
     <!-- Footer Top -->
     <div class="top">
       <div class="smallLogo">
@@ -59,7 +61,11 @@
         <p id="word">Munchies Together</p>
       </div>
       <div class="contact">
-        <p>Call us</p>
+        <p>Contact Us </p>
+        <div class="small-icon">
+          <img src="../asset/image/instagram.png" alt="instagram" class="img">
+          <img src="../asset/image/twitter.png" alt="twitter" class="img">
+        </div>
       </div>
       <div class="statement">
         <p>Privacy Policy</p>
@@ -73,5 +79,6 @@
 
     </div>
   </footer>
-    </body>
-    </html>
+</body>
+
+</html>
