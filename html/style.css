@@ -16,7 +16,6 @@ header {
 }
 
 
-
 /* Start index.php */
 .nav-container a {
   text-decoration: none;
@@ -445,42 +444,99 @@ footer .bottom {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  border: 1px solid black;
-  box-shadow : 20px 10px 10px #888888;
-  padding-top: 50px;
-  padding-bottom: 60px;
+  border: 7px inset black;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  padding:30px;
 }
 
-.main-container-login-register .wrapper-signup .signup-input{
+
+.wrapper-signup .signup-input{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom:20px;
+
+
 
 }
+ .wrapper-signup .signup-input label{
+  font-family: 'Koulen', cursive;
+  font-size:30px;
+}
 
-.main-container-login-register .wrapper-signup .signup-input input{
+
+.wrapper-signup .signup-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size:20px;
+}
+
+
+.wrapper-signup .signup-button {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: red;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: 'Koulen', cursive;
+}
+
+
+
+.wrapper-signup .signup-input input#email,
+.wrapper-signup .signup-input input#password,
+.wrapper-signup .signup-input input#name,
+.wrapper-signup .signup-input input#address{
   margin-bottom:20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border:3px solid black;
+  border-radius: 10px;
+  font-size:30px
+
+
 }
-.main-container-login-register .wrapper-signup .smallLogo{
-  
+
+.wrapper-signup .link-login{
+  font-family: 'Mitr', sans-serif;
+  font-size:20px;
+  padding-top:15px;
+}
+
+
+.wrapper-signup .link-login a{
+  color:red;
+}
+
+
+ .wrapper-signup .smallLogo{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
-.main-container-login-register .wrapper-signup .smallLogo #word{
+.wrapper-signup .smallLogo #img{
+  width:60%;
+  align-items: center;
+}
 
-
+ .wrapper-signup .smallLogo #word{
+  font-size:35px;
   font-family: "Just Another Hand", cursive;
 
 }
+
 
 .wrapper-signup #error-message,
 .wrapper-signup #password-short{
