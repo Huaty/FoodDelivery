@@ -6,8 +6,6 @@ session_start();
 
 $_SESSION['username'] = "test1";
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
