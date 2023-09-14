@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
         <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
     </div>
   </header>
-    <div class = "Aboutus-heading">
+    <div class = "aboutus-heading">
             <h1>
                 About Us
             </h1>
@@ -44,7 +44,7 @@
                                 MajulahMunchies
                             </h2>
                             <p>
-                            Welcome to MajulahMunchies,<br> your passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service;<br> we're your partners in savoring the finest flavors from around the globe.<br>
+                            Welcome to MajulahMunchies,<br>passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service;<br> we're your partners in savoring the finest flavors from around the globe.<br>
                             </p>
                             <a href ="" class ="read-more"> Read More </a>
                         </div>
