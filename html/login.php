@@ -1,17 +1,5 @@
 <?php
-include('../asset/db_connection.php');
-$conn = Opencon();
-
-if (isset($_POST['email']) && isset($_POST['password']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
-  $email = $_POST['email'];
-  $password = $_POST['password'];
-
-  $query = "SELECT * FROM user WHERE email =  '$email' AND password = '$password'";
-  $result = mysqli_query($conn, $query);
-}
-
-
-
+session_start();
 ?>
 
 
