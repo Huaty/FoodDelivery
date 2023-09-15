@@ -31,7 +31,7 @@ $_SESSION['username'] = "test1";
 
   <div class="main-container-login-register">
     <div class="wrapper-signup">
-      <form method="POST" action="process_signup.php" class="signup-input" onsubmit="return validateForm()">
+      <form method="POST" action="process_signup.inc.php" class="signup-input" onsubmit="return validateForm()">
         <label for="name">name</label>
         <input type="text" name="name" id="name" class="name" required />
         <label for="email">Email</label>
