@@ -8,7 +8,7 @@ head {
   box-sizing: border-box;
 }
 
-@media only screen and (min-width: 1900px){
+@media only screen and (min-width: 1900px){ 
 
 header {
   display: flex;
@@ -94,7 +94,6 @@ header {
   display:flex;
   flex-direction: column;
   padding-top:50px;
-
 }
 
 .main-container .top {
@@ -110,7 +109,6 @@ header {
   justify-content: center;
   font-family: 'Lalezar', cursive;
   font-size: 30px;
-
 }
 
 .main-container .top .left-content #header {
@@ -129,8 +127,6 @@ header {
 
 .main-container .top .right-content{
   width:50%;
-
-
 }
 
 .main-container .top .right-content .img {
@@ -148,7 +144,6 @@ header {
   justify-content: center;
   align-items: center;
   padding-bottom:20px;
-
 }
 
 .main-container .bottom #top{
@@ -277,9 +272,6 @@ footer .top .smallLogo #word {
   font-family: 'Just Another Hand', cursive;
 }
 
-
-
-
 footer .top .contact p,
 footer .top .statement p{
   font-family: 'Mitr', sans-serif;
@@ -292,14 +284,11 @@ footer .top .contact p{
   justify-content: center;
 }
 
-
 footer .top .contact img{
 
   margin:5px;
   width:10%;
 }
-
-
 
 footer .top .contact .small-icon{
   display:flex;
@@ -308,8 +297,6 @@ footer .top .contact .small-icon{
 
 }
 
-
-
 footer .bottom {
   display: flex;
   justify-content: center;
@@ -317,8 +304,6 @@ footer .bottom {
   font-size:30px;
 
 }
-
-
 
 /* End of index.php */
 
@@ -533,7 +518,7 @@ footer .bottom {
   align-items: center;
 }
 
- .wrapper-signup .smallLogo #word{
+ .wrapper-signup .smallLogo #word {
   font-size:35px;
   font-family: "Just Another Hand", cursive;
 
@@ -599,11 +584,9 @@ margin-bottom: 35px;
 }
 
 .about-image img {
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 75%;
-  display:block; 
+  max-width: 80%;
+  max-height: 80%;
+  display:block;
   transition: 0.5s ease;
 }
 
@@ -618,73 +601,287 @@ margin-bottom: 35px;
   align-items: center;
 }
 .about-content h2 {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 75%;
-  font-size: 40px;
+  flex:1; 
+  font-size: 50px;
   margin-bottom: 15px;
   color:#333;
 }
 
 .about-content p{
-
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 75%;
-  font-size: 23px;
+  font-size: 30px;
   line-height: 1.5;
   color:#666;
 }
+
+.about-content .read-more {
+  display: inline-block;
+  padding:10px 20px;
+  background-color: red;
+  color: #fff;
+  font-size:19px; 
+  text-decoration: none ;
+  border-radius: 25px;
+  margin-top: 15px;
+  transition: 0.3s ease;
 }
 
-  /* background-color: red; */
+.about-content .read-more:hover {
+  background-color: red;
+}
+}
 
-
-@media only screen and (min-width: 740px){
-
-  header{
-    display:flex;
+@media only screen and (max-width:767px) {
+  header {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  } 
+  .nav-container {
+    text-decoration: none;
+    color: black;
+  }
+  .nav-container a:hover {
+    color: red;
+  }
+  .nav-flex-grow {
+    flex-grow: 1;
+    margin: 1px;
+  }
+   .nav-container .logo-placement {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: auto;
+    justify-content: center;
   }
-
-  .aboutus-heading {
-    padding: 0px 20px;
+  .logo {
+    justify-content: center;
   }
-  .aboutus-heading h1{
-    font-size :36px; 
+  .nav-container ul {
+    margin-top: 20px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
-  .aboutus-heading p {
-    font-size: 17px;
-    margin-bottom: 0px;
+  .nav-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
-  .aboutus-container {
-    padding:0px;
-  }  
-  .about {
-    padding:20px;
+  .nav-content span{
+    margin: 5px;
+    font-family: 'Lalezar', cursive;
+    font-size:2.5rem;
+  }
+  .nav-content .current-page{
+    border-bottom: 7px solid red;
+    font-weight:bold;
+    border-radius: 5px;
+  }
+  .nav-container ul li :hover{
+    background-color: red;
+    color:white;
+    border-radius:20px;
+  }
+  .main-container{
+    display:flex;
     flex-direction: column;
+    padding-top:35px;
   }
-  .about-image{
-    margin-right : 0px;
-    margin-bottom: 20px;
+  .main-container .top .left-content {
+    display: flex;
+    flex-direction: column;
+    margin-right:auto;
+    margin-left: auto;
+    justify-content: center;
+    font-family: 'Lalezar', cursive;
+    font-size: 25px;
   }
-  about-content p{
-    padding: 0px;
-    font-size: 16px;
+  .main-container .top .left-content #header {
+    width: 100%;
+    align-items: flex-start;
+    padding-left:40px;
   }
-  .about-content .read-more {
-    font-size:16px;
+  .main-container .top .left-content #body {
+    width: 100%;
+    padding-left: 40px;
   }
+  #red-heading {
+    color: red;
+  }
+  .main-container .bottom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:20px;
+  }
+  .main-container .top .right-content{
+    width:100%;
+    margin:0px;
+    padding-top: 20px;
+  }
+  .main-container .top .right-content .img {
+    width: 90%;
+    height: 90%;
+    padding-left: 60px;
+  }
+
+  .main-container .bottom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom:30px;
+  }
+  .main-container .bottom #top a,
+.main-container .bottom #body a {
+  text-decoration: none;
+  color: white;
 }
-@media screen and (max-width: 1080px){
-  .about-image img {
-    max-width: 100%;
+.main-container .bottom #top{
+  color:white;
+  background-color: #8B0000;
+  font-size: 35px;
+  display:flex;
+  flex-direction:row;
+  padding-left:100px;
+  padding-top:20px;
+  padding-bottom:20px;
+  width:100%;
+  font-family: 'Koulen', cursive;
+}
+  .main-container .bottom #body{
+    color:white;
+    background-color: red;
+    font-size: 35px;
+    display:flex;
+    flex-direction:row;
+    padding-left:100px;
+    padding-top:20px;
+    padding-bottom:20px;
+    width:100%;
+    font-family: 'Koulen', cursive;
   }
-  /* .about-image {
-    margin: none;
-    padding-left :20px;
-  } */
+  .main-container .bottom #bottom
+{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  padding-top: 50px;
+}
+.main-container .bottom #bottom #left{
+  display:flex;
+  flex-direction: row;
+  margin-right:30%;
+  padding-left: 100px;
+  padding-bottom: 50px;
+  font-size: 5rem;
+  font-family: 'Koulen', cursive;
+}
+.main-container .bottom #bottom #right{
+  display:flex;
+  flex-direction:column;
+  margin-right:2.5%;
+  margin-left:2.5%;
+}
+.main-container .bottom #bottom #right .wrapper
+{
+  display:flex;
+  display:row;
+  margin-bottom:35px;
+  padding-bottom:25px;
+  border-bottom: 2.5px solid #ff7066;
+}
+.main-container .bottom #bottom #right .wrapper #word
+{
+  font-family: 'Mitr', sans-serif;
+  font-size: 1rem;
+}
+.main-container .bottom #bottom #right .wrapper #heading
+{ 
+  font-size: 1.5rem;
+  font-family: 'Koulen', cursive;
+}
+.main-container .bottom #bottom #right .img{
+  margin-right:35px;
+}
+footer{
+  display:flex;
+  flex-direction:column;
+  padding-bottom:50px;
+}
+footer .top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+footer .smallLogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer .contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+footer .statement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+footer .top .smallLogo #img {
+  width: 80%;
+  align-items: center;
+}
+footer .top .smallLogo #word {
+  font-size: 1.85rem;
+  font-family: 'Just Another Hand', cursive;
+}
+footer .top .contact p,
+footer .top .statement p{
+  font-family: 'Mitr', sans-serif;
+  font-size: 1.5rem;
+
 }
 
+footer .top .contact p{
+  display:flex;
+  justify-content: center;
+}
+
+
+footer .top .contact img{
+
+  margin:5px;
+  width:10%;
+}
+
+footer .top .contact .small-icon{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+
+}
+
+footer .bottom {
+  display: flex;
+  justify-content: center;
+  margin-top:90px;
+  font-size:30px;
+
+}
+
+  
+}

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,29 +29,31 @@
         <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
     </div>
   </header>
-  <div class="aboutus-heading">
-    <h1>
-      About Us
-    </h1>
-    <p>
-      Our Journey in Bringing the World's Flavors Right to Your Doorstep
-    </p>
-    <div class="aboutus-container">
-      <div class="about-image">
-        <img src="../asset/image/FoodDelivery.jpg" alt="FoodDelivery" class="img">
-      </div>
-      <div class="about-content">
-        <h2>
-          MajulahMunchies
-        </h2>
-        <p>
-          Welcome to MajulahMunchies,<br> passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service;<br> we're your partners in savoring the finest flavors from around the globe.<br>
-        </p>
-        <a href="" class="read-more"> Read More </a>
-      </div>
+    <div class = "Aboutus-heading">
+            <h1>
+                About Us
+            </h1>
+                <p>
+                Our Journey in Bringing the World's Flavors Right to Your Doorstep
+                </p>
+                <div class = "aboutus-container">
+                    <section class ="about">
+                        <div class = "about-image">
+                        <img src="../asset/image/FoodDelivery.jpg" alt="FoodDelivery" class="img">
+                        </div>
+                        <div class = "about-content">
+                            <h2>   
+                                MajulahMunchies
+                            </h2>
+                            <p>
+                            Welcome to MajulahMunchies,<br> your passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service;<br> we're your partners in savoring the finest flavors from around the globe.<br>
+                            </p>
+                            <a href ="" class ="read-more"> Read More </a>
+                        </div>
+                    </section> 
+                </div>
     </div>
-  </div>
-  <footer>
+    <footer>
     <!-- Footer Top -->
     <div class="top">
       <div class="smallLogo">
