@@ -29,7 +29,7 @@
         <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
     </div>
   </header>
-  <div class="Aboutus-heading">
+  <div class="aboutus-heading">
     <h1>
       About Us
     </h1>
@@ -37,20 +37,18 @@
       Our Journey in Bringing the World's Flavors Right to Your Doorstep
     </p>
     <div class="aboutus-container">
-      <section class="about">
-        <div class="about-image">
-          <img src="../asset/image/FoodDelivery.jpg" alt="FoodDelivery" class="img">
-        </div>
-        <div class="about-content">
-          <h2>
-            MajulahMunchies
-          </h2>
-          <p>
-            Welcome to MajulahMunchies,<br> your passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service;<br> we're your partners in savoring the finest flavors from around the globe.<br>
-          </p>
-          <a href="" class="read-more"> Read More </a>
-        </div>
-      </section>
+      <div class="about-image">
+        <img src="../asset/image/FoodDelivery.jpg" alt="FoodDelivery" class="img">
+      </div>
+      <div class="about-content">
+        <h2>
+          MajulahMunchies
+        </h2>
+        <p>
+          Welcome to MajulahMunchies,<br> passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service;<br> we're your partners in savoring the finest flavors from around the globe.<br>
+        </p>
+        <a href="" class="read-more"> Read More </a>
+      </div>
     </div>
   </div>
   <footer>
