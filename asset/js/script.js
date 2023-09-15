@@ -10,5 +10,14 @@ function validateForm(){
         document.getElementById("error-message").innerHTML = "Please fill all the fields";
         return false;
     }
+
+    if(password.length < 6){
+        document.getElementById("password-short").innerHTML = "Password must be at least 6 characters";
+        return false;
+    }
+
+    
     return true;
 }
+
+

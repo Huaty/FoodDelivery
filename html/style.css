@@ -1,3 +1,4 @@
+
 head {
   display: none;
 }
@@ -7,22 +8,21 @@ head {
   box-sizing: border-box;
 }
 
+@media only screen and (min-width: 1900px){
 
 header {
   display: flex;
-
   margin-top:20px;
   margin-bottom:10px;
 }
 
 
-
 /* Start index.php */
-a {
+.nav-container a {
   text-decoration: none;
   color: black;
 }
-a:hover {
+.nav-container a:hover {
   color: red;
 }
 
@@ -33,8 +33,6 @@ a:hover {
   margin-right: auto;
   align-items: center;
   flex-direction: column;
-
-  /* flex-direction: column; */
 }
 
 .nav-flex-grow {
@@ -66,7 +64,7 @@ a:hover {
 .nav-content span{
   margin: 25px;
   font-family: 'Lalezar', cursive;
-  font-size: 40px;
+  font-size:2.5rem;
 }
 
 .nav-content .current-page{
@@ -117,9 +115,8 @@ a:hover {
 
 .main-container .top .left-content #header {
   width: 100%;
-  padding: 100px;
-  margin-top: 100px;
   align-items: flex-start;
+  padding-left:100px;
 }
 
 #red-heading {
@@ -151,7 +148,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   padding-bottom:20px;
-  
+
 }
 
 .main-container .bottom #top{
@@ -179,38 +176,77 @@ a:hover {
   width:100%;
   font-family: 'Koulen', cursive;
 }
-
+.main-container .bottom #top a,
+.main-container .bottom #body a {
+  text-decoration: none;
+  color: white;
+}
 .main-container .bottom #bottom
 {
   width:100%;
   display:flex;
   flex-direction:row;
-  padding-top: 20px;
+  padding-top: 50px;
 }
+
 
 .main-container .bottom #bottom #left{
+  display:flex;
+  flex-direction: row;
   margin-right:30%;
   padding-left: 100px;
-  font-size: 60px;
+  font-size: 5rem;
   font-family: 'Koulen', cursive;
 
-
 }
+
 
 .main-container .bottom #bottom #right{
+  display:flex;
+  flex-direction:column;
+  margin-right:2.5%;
+}
+
+
+
+.main-container .bottom #bottom #right .wrapper
+{
+  display:flex;
+  display:row;
+  margin-bottom:100px;
+  padding-bottom:50px;
+  border-bottom: 2.5px solid #ff7066;
+}
+
+.main-container .bottom #bottom #right .wrapper #word
+{
+  font-family: 'Mitr', sans-serif;
+  font-size: 1rem;
+}
+
+.main-container .bottom #bottom #right .wrapper #heading
+{ 
+  font-size: 1.5rem;
+  font-family: 'Koulen', cursive;
 
 }
+
+
+.main-container .bottom #bottom #right .img{
+  margin-right:70px;
+}
+
+
 
 footer{
   display:flex;
   flex-direction:column;
+  padding-bottom:50px;
 }
 footer .top {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding-left:20px;
-
+  justify-content: space-evenly;
 }
 
 footer .smallLogo {
@@ -229,41 +265,79 @@ footer .statement {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
 footer .top .smallLogo #img {
-  width: 70px;
+  width: 80%;
   align-items: center;
 }
 
 footer .top .smallLogo #word {
-  font-family: "Just Another Hand",cursive;
-  font-size: 15px;
+  font-size: 1.85rem;
+  font-family: 'Just Another Hand', cursive;
+}
+
+
+
+
+footer .top .contact p,
+footer .top .statement p{
+  font-family: 'Mitr', sans-serif;
+  font-size: 1.5rem;
 
 }
+
+footer .top .contact p{
+  display:flex;
+  justify-content: center;
+}
+
+
+footer .top .contact img{
+
+  margin:5px;
+  width:10%;
+}
+
+
+
+footer .top .contact .small-icon{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+
+}
+
+
 
 footer .bottom {
   display: flex;
   justify-content: center;
+  margin-top:90px;
+  font-size:30px;
+
 }
+
+
 
 /* End of index.php */
 
 /* Start of login.php */
 
-.back{
-  margin-left: 50px;
-  margin-top:20px
+#back-arrow-img{
+  width:150%;
 }
-.main-container-login-register{
+#back-button{
+  margin-top:50px;
+  margin-left:50px;
+  background-color: white;
+  border: 0px;
+}
 
-  margin-top: 150px;
-  margin-bottom:150px;
-  width: 100%;
-  padding-left:400px;
-  padding-right:400px;
+.main-container-login-register{
   display: flex;
-  flex-direction: row;
-  justify-content: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 .main-container-login-register .wrapper-login {
@@ -271,45 +345,99 @@ footer .bottom {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  border: 1px solid black;
-  box-shadow : 20px 10px 10px #888888;
-  padding-top: 50px;
-  padding-bottom: 60px;
+  border: 7px inset black;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  padding:30px;
 }
 
-.main-container-login-register .wrapper-login .login-input{
+
+.wrapper-login .login-input{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom:20px;
+
+
 
 }
+ .wrapper-login .login-input label{
+  font-family: 'Koulen', cursive;
+  font-size:30px;
+}
 
-.main-container-login-register .wrapper-login .login-input input{
+
+.wrapper-login .login-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size:20px;
+}
+
+
+.wrapper-login .login-button {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: red;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: 'Koulen', cursive;
+}
+
+
+
+.wrapper-login .login-input input#email,
+.wrapper-login .login-input input#password{
   margin-bottom:20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border:3px solid black;
+  border-radius: 10px;
+  font-size:30px;
+  padding:5px;
+
+
 }
-.main-container-login-register .wrapper-login .smallLogo{
-  
+
+.wrapper-login .link-signup{
+  font-family: 'Mitr', sans-serif;
+  font-size:20px;
+  padding-top:15px;
+}
+.wrapper-login .link-signup a{
+  color:red;
+}
+
+
+ .wrapper-login .smallLogo{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
-.main-container-login-register .wrapper-login .smallLogo #word{
+.wrapper-login .smallLogo #img{
+  width:60%;
+  align-items: center;
+}
 
+ .wrapper-login .smallLogo #word{
+  font-size:35px;
   font-family: "Just Another Hand", cursive;
 
 }
 
+
  /* End of login.php */ 
 /* Start of Signup.php */
-
 
 
 .main-container-login-register .wrapper-signup {
@@ -317,46 +445,111 @@ footer .bottom {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  border: 1px solid black;
-  box-shadow : 20px 10px 10px #888888;
-  padding-top: 50px;
-  padding-bottom: 60px;
+  border: 7px inset black;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  padding:50px;
 }
 
-.main-container-login-register .wrapper-signup .signup-input{
+
+.wrapper-signup .signup-input{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom:20px;
+
+
 
 }
+ .wrapper-signup .signup-input label{
+  font-family: 'Koulen', cursive;
+  font-size:30px;
+}
 
-.main-container-login-register .wrapper-signup .signup-input input{
+
+.wrapper-signup .signup-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size:20px;
+}
+
+
+.wrapper-signup .signup-button {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: red;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: 'Koulen', cursive;
+}
+
+
+
+.wrapper-signup .signup-input input#email,
+.wrapper-signup .signup-input input#password,
+.wrapper-signup .signup-input input#name,
+.wrapper-signup .signup-input input#address{
   margin-bottom:20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border:3px solid black;
+  border-radius: 10px;
+  font-size:30px;
+  padding:5px;
+
+
 }
-.main-container-login-register .wrapper-signup .smallLogo{
-  
+
+.wrapper-signup .link-login{
+  font-family: 'Mitr', sans-serif;
+  font-size:20px;
+  padding-top:15px;
+}
+
+
+.wrapper-signup .link-login a{
+  color:red;
+}
+
+
+ .wrapper-signup .smallLogo{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 30px;
 }
 
-.main-container-login-register .wrapper-signup .smallLogo #word{
+.wrapper-signup .smallLogo #img{
+  width:60%;
+  align-items: center;
+}
 
+ .wrapper-signup .smallLogo #word {
+  font-size:35px;
   font-family: "Just Another Hand", cursive;
 
 }
 
-.main-container-login-register .wrapper-signup #error-message{
+
+.wrapper-signup #error-message,
+.wrapper-signup #password-short{
   color:red;
 }
 /* <====== About us PHP =========> */
+.aboutus-container{
+  display:flex;
+  flex-direction: row;
+  margin-top:20px;
+}
 .aboutus-heading {
   margin: 0px;
   padding: 0px;
@@ -398,55 +591,39 @@ color: #666;
 margin-bottom: 35px;
 }
 
-.aboutus-container {
-  width: 90%;
-  margin: 0 auto;
-  padding: 10px 20px;
-}
-
-.about {
-  display:flex;
-  justify-content:space-between ;
-  align-items: center;
-  flex-wrap:wrap;
-  flex-direction: row;
-}
-
 .about-image{
   flex: 1;
-  margin: 100px;
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
 }
 
 .about-image img {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 75%;
-  max-height: auto;
-  display:block; 
+  max-width: 80%;
+  max-height: 80%;
+  display:block;
   transition: 0.5s ease;
 }
 
 .about-image:hover img {
   transform: scale(1.2);
 }
+
+.about-content{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .about-content h2 {
-  margin-left: auto;
-  margin-right: auto;
   flex:1; 
-  max-width: 75%;
-  font-size: 40px;
+  font-size: 50px;
   margin-bottom: 15px;
   color:#333;
 }
 
 .about-content p{
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 75%;
-  font-size: 23px;
+  font-size: 30px;
   line-height: 1.5;
   color:#666;
 }
@@ -467,46 +644,3 @@ margin-bottom: 35px;
   background-color: red;
 
 }
-@media screen and (max-width: 740px){
-
-  .aboutus-heading {
-    padding: 0px 20px;
-  }
-  .aboutus-heading h1{
-    font-size :36px; 
-  }
-  .aboutus-heading p {
-    font-size: 17px;
-    margin-bottom: 0px;
-  }
-  .aboutus-container {
-    padding:0px;
-  }  
-  .about {
-    padding:20px;
-    flex-direction: column;
-  }
-  .about-image{
-    margin-right : 0px;
-    margin-bottom: 20px;
-  }
-  about-content p{
-    padding: 0px;
-    font-size: 16px;
-  }
-  .about-content .read-more {
-    font-size:16px;
-  }
-}
-@media screen and (max-width: 1080px){
-  .about-image img {
-    max-width: 100%;
-  }
-  /* .about-image {
-    margin: none;
-    padding-left :20px;
-  } */
-}
-
-
-

@@ -1,6 +1,17 @@
 <?php
 include('../asset/db_connection.php');
 $conn = Opencon();
+
+if (isset($_POST['email']) && isset($_POST['password']) || $_SERVER['REQUEST_METHOD'] === 'POST') {
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  $query = "SELECT * FROM user WHERE email =  '$email' AND password = '$password'";
+  $result = mysqli_query($conn, $query);
+}
+
+
+
 ?>
 
 
@@ -11,22 +22,28 @@ $conn = Opencon();
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://fonts.google.com/specimen/Just+Another+Hand">
+  <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Koulen&family=Lalezar&family=Mitr:wght@200&display=swap" rel="stylesheet">
+
   <title>Majulah Munchies</title>
 </head>
 
 <body>
   <header>
-    <object data="../asset/image/Backarrow.svg" Alt="Back" class="back"></object>
+    <button id="back-button">
+      <a href="index.php">
+        <img src="../asset/image/Backarrow.svg" alt="back-arrow" id="back-arrow-img">
+      </a>
+    </button>
+
   </header>
   <div class="main-container-login-register">
     <div class="wrapper-login">
-      <form method="GET" action="" class="login-input">
-        <label for="email">Email</label>
+      <form method="POST" action="" class="login-input">
+        <label for="email">Email:</label>
         <input type="email" name="email" id="email" class="email" />
-        <label for="password">Password</label>
+        <label for="password">Password:</label>
         <input type="password" name="password" id="password" class="password" />
-        <input type="submit" value="login" class="login" />
+        <input type="submit" value="login" class="login-button" />
       </form>
       <div class="link-signup">
         <p>If you don't have an account, <a href="signup.php">Sign up</a> here!</p>
