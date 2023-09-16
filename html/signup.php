@@ -1,12 +1,10 @@
 <?php
 
-include("../asset/db_connection.php");
-$conn = Opencon();
-session_start();
-
-$_SESSION['username'] = "test1";
+require_once "../asset/includePHP/config_session.inc.php";
+require_once "signup_view.inc.php";
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,15 +31,19 @@ $_SESSION['username'] = "test1";
     <div class="wrapper-signup">
       <form method="POST" action="process_signup.inc.php" class="signup-input" onsubmit="return validateForm()">
         <label for="name">name</label>
-        <input type="text" name="name" id="name" class="name" required />
+        <input type="text" name="name" id="name" class="name" />
         <label for="email">Email</label>
         <input type="email" name="email" id="email" class="email" />
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" class="password" required />
+        <input type="password" name="password" id="password" class="password" />
         <label for="address">Address</label>
-        <input type="text" name="address" id="address" class="address" required />
+        <input type="text" name="address" id="address" class="address" />
         <input type="submit" value="submit" class="signup-button" />
+
       </form>
+      <?php
+      check_signup_errors();
+      ?>
       <div id="error-message"></div>
       <div id="password-short"></div>
       <div class="link-login">
@@ -54,6 +56,6 @@ $_SESSION['username'] = "test1";
     </div>
   </div>
 </body>
-<script src="../asset/js/script.js"></script>
+
 
 </html>
