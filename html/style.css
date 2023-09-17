@@ -635,6 +635,11 @@ margin-bottom: 35px;
     margin-top: 30px;
     margin-bottom: 10px;
   } 
+
+  .nav-container a {
+    text-decoration: none;
+    color: black;
+  }
   .nav-container {
     text-decoration: none;
     color: black;
@@ -723,13 +728,13 @@ margin-bottom: 35px;
     padding-bottom:20px;
   }
   .main-container .top .right-content{
-    width:100%;
-    margin:0px;
+    display:flex;
+
     padding-top: 20px;
   }
   .main-container .top .right-content .img {
     width: 90%;
-    height: 90%;
+    height: 100%;
     padding-left: 60px;
   }
 
