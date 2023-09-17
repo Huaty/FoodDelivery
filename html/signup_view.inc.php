@@ -10,7 +10,7 @@ function check_signup_errors()
 
         echo "<br>";
         foreach ($errors as $error) {
-            echo "<p id ='error-message'>.$error.</p>";
+            echo "<p id ='error-message'>$error.</p>";
         }
         unset($_SESSION['errors_signup']);
     } else if (isset($_GET['signup']) && $_GET['signup'] === 'success') {
