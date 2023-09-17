@@ -16,18 +16,39 @@ session_set_cookie_params([
 session_start();
 //// the main reason for this snippet is to regenerate the session ID every 30 minutes. To prevent session fixation attacks.
 
-if (!isset($_SESSION['last_regeneration'])) { //// this if statement to check whether the session have ID
-    regenerate_session_id();
+if (isset($_SESSION["user_id"])) {
+    if (!isset($_SESSION['last_regeneration'])) { //// this if statement to check whether the session have ID
+        regenerate_session_id_loggedin();
+    } else {
+        $interval = 60 * 30;  // Set an interval of 30 minutes (in seconds)
+        if (time() - $_SESSION['last_regeneration'] >= $interval) { /// this if current time stamp - last_regeneration time stamp is more than 30 minutes, then regenerate the session ID again
+            regenerate_session_id_loggedin();
+        }
+    }
 } else {
-    $interval = 60 * 30;  // Set an interval of 30 minutes (in seconds)
-    if (time() - $_SESSION['last_regeneration'] >= $interval) { /// this if current time stamp - last_regeneration time stamp is more than 30 minutes, then regenerate the session ID again
+    if (!isset($_SESSION['last_regeneration'])) { //// this if statement to check whether the session have ID
         regenerate_session_id();
+    } else {
+        $interval = 60 * 30;  // Set an interval of 30 minutes (in seconds)
+        if (time() - $_SESSION['last_regeneration'] >= $interval) { /// this if current time stamp - last_regeneration time stamp is more than 30 minutes, then regenerate the session ID again
+            regenerate_session_id();
+        }
     }
 }
 
 
 function regenerate_session_id()
 {
-    session_regenerate_id();
+    session_regenerate_id(true);
     $_SESSION["last_regeneration"] = time();
+}
+
+function regenerate_session_id_loggedin()
+{
+    // Creating Session with user id
+    $id = $_SESSION["user_id"];
+    $newSessionId = session_create_id(); /// create new session id
+    $sessionId = $newSessionId . "_" . $id;
+    session_id($sessionId); /// set new session id
+
 }
