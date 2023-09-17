@@ -15,9 +15,9 @@ function pwdSignup($pwdSignup)
 
 function pwdLogin($pwdLogin, $hashedPwd)
 {
-    $pwdLogin = "password";
+
     if (password_verify($pwdLogin, $hashedPwd)) {
-        echo "Password is correct";
+        return true;
     } else {
     }
 }

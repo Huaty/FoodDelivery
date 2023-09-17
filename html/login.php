@@ -1,5 +1,7 @@
 <?php
-session_start();
+require_once "../asset/includePHP/config_session.inc.php";
+require_once "login_view.inc.php";
+
 ?>
 
 
@@ -26,13 +28,16 @@ session_start();
   </header>
   <div class="main-container-login-register">
     <div class="wrapper-login">
-      <form method="POST" action="" class="login-input">
+      <form method="POST" action="login.inc.php" class="login-input">
         <label for="email">Email:</label>
         <input type="email" name="email" id="email" class="email" />
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" class="password" />
-        <input type="submit" value="login" class="login-button" />
+        <input type="submit" value="submit" class="login-button" />
       </form>
+      <?php
+      check_login_errors();
+      ?>
       <div class="link-signup">
         <p>If you don't have an account, <a href="signup.php">Sign up</a> here!</p>
       </div>
