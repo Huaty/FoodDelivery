@@ -29,7 +29,7 @@
         <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
     </div>
   </header>
-    <div class = "Aboutus-heading">
+    <div class = "aboutus-heading">
             <h1>
                 About Us
             </h1>
