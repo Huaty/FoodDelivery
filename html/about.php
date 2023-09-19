@@ -24,12 +24,12 @@
       <!-- Navigation Bar -->
       <ul class="nav-flex-right nav-flex-grow">
         <li class="nav-content "><a href="index.php"><span>Home</span></a></li>
-        <li class="nav-content"><a href="previewmenu.php"><span>Menu</span></li>
+        <li class="nav-content"><a href="signup.php"><span>Menu</span></li>
         <li class="nav-content about-us"><a href="about.php"><span class="current-page">About us</span></a></li>
         <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
     </div>
   </header>
-  <div class="Aboutus-heading">
+  <div class="aboutus-heading">
     <h1>
       About Us
     </h1>
