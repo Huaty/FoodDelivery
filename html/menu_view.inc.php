@@ -25,6 +25,10 @@ function menu_display()
             echo "<p>{$menuItem['food_description']}</p>";
             echo "<p>Price: {$menuItem['price']}</p>";
             echo "<img src='data:image/jpeg;base64," . base64_encode($menuItem['image_data']) . "' alt='{$menuItem['foodname']}' />";
+            echo "<button class='decrease-qty'>-</button>";
+            echo "<span class='current-qty'>1</span>";
+            echo "<button class='increase-qty'>+</button>";
+            echo "<button class='add-to-cart'>Add to Cart</button>";
             echo "</div>";
         }
     } catch (PDOException $e) {
