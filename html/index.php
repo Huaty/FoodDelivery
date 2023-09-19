@@ -1,4 +1,26 @@
 <?php
+
+
+// if (!isset($_SESSION["user_id"])) {
+//   // Redirect the user to the login page or display an error message.
+//   header("Location: menu.php");
+//   exit();
+// } else {
+//   unset($_SESSION["user_id"]);
+// }
+
+// // unset cookies
+if (isset($_SERVER['HTTP_COOKIE'])) {
+  $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+  foreach ($cookies as $cookie) {
+    $parts = explode('=', $cookie);
+    $name = trim($parts[0]);
+    setcookie($name, '', time() - 1000);
+    setcookie($name, '', time() - 1000, '/');
+  }
+}
+
+
 ?>
 
 <!DOCTYPE html>

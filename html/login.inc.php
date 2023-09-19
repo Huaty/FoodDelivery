@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["user_id"] = $result["id"];
         $_SESSION["user_firstname"] = htmlspecialchars($result["firstname"]);
         $_SESSION["last_regeneration"] = time(); /// reset the time every 30 mins to regenerate the session ID
-        header("Location: ../html/login.php?login=success");
+        header("Location: ../html/menu.php");
         $pdo = null;
         $stmt = null;
         die();
