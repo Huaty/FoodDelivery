@@ -9,8 +9,8 @@
       "server": "localhost",
       "port": 3306,
       "driver": "MySQL",
-      "name": "MajulahMunchies",
-      "database": "MajulahMunchies",
+      "name": "test",
+      "database": "test",
       "username": "root",
       "password": ""
     }
