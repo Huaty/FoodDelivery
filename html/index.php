@@ -27,7 +27,7 @@
       <!-- Navigation Bar -->
       <ul class="nav-flex-right nav-flex-grow">
         <li class="nav-content "><a href="index.php"><span class="current-page">Home</span></a></li>
-        <li class="nav-content"><a href="signup.php"><span>Menu</span></li>
+        <li class="nav-content"><a href="previewmenu.php"><span>Menu</span></li>
         <li class="nav-content"><a href="about.php"><span>About us</span></a></li>
         <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
     </div>
