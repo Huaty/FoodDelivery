@@ -7,7 +7,7 @@ declare(strict_types=1);
 function get_user(object $pdo, string $email)
 {
 
-    $query = "SELECT email,pwd FROM users WHERE email=:email";
+    $query = "SELECT email,pwd,id,firstname FROM users WHERE email=:email";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":email", $email);
     $stmt->execute();

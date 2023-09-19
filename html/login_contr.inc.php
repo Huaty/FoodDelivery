@@ -28,11 +28,10 @@ function is_email_wrong(bool|array $result) //// if $result return as empty whic
 
 function is_pwd_wrong(string $pwd, string $hashedpwd)
 {
-
+    require_once "../asset/includePHP/hashpwd.inc.php";
     if (password_verify($pwd, $hashedpwd)) {
-        return true;
-    } else {
-
         return false;
+    } else {
+        return true;
     }
 }

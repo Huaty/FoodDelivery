@@ -1,6 +1,4 @@
 <?php
-require_once "../asset/includePHP/config_session.inc.php";
-require_once "login_view.inc.php";
 
 ?>
 
@@ -36,6 +34,8 @@ require_once "login_view.inc.php";
         <input type="submit" value="submit" class="login-button" />
       </form>
       <?php
+      require_once "login_view.inc.php";
+      require_once "../asset/includePHP/config_session.inc.php";
       check_login_errors();
       ?>
       <div class="link-signup">

@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+// if (!isset($_SESSION["user_id"])) {
+//     // Redirect the user to the login page or display an error message.
+//     header("Location: login.php");
+//     exit();
+// }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +25,8 @@
 </body>
 
 <?php
-require "menu_view.inc.php";
-menu_display();
+var_dump($_SESSION);
+
 ?>
 
 
