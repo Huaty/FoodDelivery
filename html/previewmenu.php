@@ -50,7 +50,20 @@
 
     <!-- Main Body -->
     <div class="main-container"></div>
-
+    <section class="slider-container">
+        <div class = "slider-wrapper" >
+            <div class ="slider">
+                <img id = "slide-1" src="https://unsplash.com/photos/ZuIDLSz3XLg" alt="Food">
+                <img id = "slide-2" src="https://unsplash.com/photos/eeqbbemH9-c" alt="Food2">
+                <img id = "slide-3" src="https://unsplash.com/photos/fdlZBWIP0aM" alt="Food3">
+            </div>
+            <div class ="slider-nav">
+                <a href = "#slide-1"></a>
+                <a href = "#slide-2"></a>
+                <a href = "#slide-3"></a>
+            </div>
+        </div>
+    </section>
 
     <!--Footer -->
     <footer>
@@ -81,6 +94,7 @@
     </footer>
 </body>
 <script src="../asset/js/script.js"></script>
+
 
 </html>
 
