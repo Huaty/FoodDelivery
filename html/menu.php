@@ -1,6 +1,7 @@
 <?php
+require_once "menu_view.inc.php";
+require_once "../asset/includePHP/config_session.inc.php";
 
-session_start();
 
 // if (!isset($_SESSION["user_id"])) {
 //     // Redirect the user to the login page or display an error message.
@@ -20,14 +21,28 @@ session_start();
     <title>Menu</title>
 </head>
 
+
 <body>
-    
+    <?php
+
+    $menuItems = menu_display();
+    // $js_array = array(); ////JSON FORMAT
+    // foreach ($menuItems as $menuItem) {
+    //     $id_price = array(
+    //         'id' => $menuItem['item_id'],
+    //         'price' => $menuItem['price']
+    //     );
+    //     $js_array[] = $id_price;
+    // }
+    // $json = json_encode($js_array);
+    // echo "<script>var data=$json;</script>";
+
+    ?>
+
 </body>
 
-<?php
-var_dump($_SESSION);
 
-?>
+<script src="../asset/js/script.js"></script>
 
 
 </html>
