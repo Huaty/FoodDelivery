@@ -1,37 +1,25 @@
 <?php
 
+
+
 declare(strict_types=1);
 function menu_display()
 {
+    require_once "menu_model.inc.php";
+    $menuItems = get_menu();
 
-    try {
-        require_once "../asset/includePHP/dbh.inc.php";
-
-
-        // Query to retrieve menu items
-        $query = "SELECT foodname,food_description,price,image_data FROM menus";
-        $stmt = $pdo->prepare($query);
-        $stmt->execute();
-
-        // Fetch menu items as an associative array
-
-        $menuItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-        // Render the menu items on the HTML page
-        foreach ($menuItems as $menuItem) {
-            echo "<div class='menu-item'>";
-            echo "<h3>{$menuItem['foodname']}</h3>";
-            echo "<p>{$menuItem['food_description']}</p>";
-            echo "<p>Price: {$menuItem['price']}</p>";
-            echo "<img src='data:image/jpeg;base64," . base64_encode($menuItem['image_data']) . "' alt='{$menuItem['foodname']}' />";
-            echo "<button class='decrease-qty'>-</button>";
-            echo "<span class='current-qty'>1</span>";
-            echo "<button class='increase-qty'>+</button>";
-            echo "<button class='add-to-cart'>Add to Cart</button>";
-            echo "</div>";
-        }
-    } catch (PDOException $e) {
-        die("Query Failed: " . $e->getMessage());
+    // Render the menu items on the HTML page
+    foreach ($menuItems  as $menuItem) {
+        echo "<div class='menu-item'>";
+        echo "<h3>{$menuItem['foodname']}</h3>";
+        echo "<p>{$menuItem['food_description']}</p>";
+        echo "<p>Price: {$menuItem['price']}</p>";
+        echo "<img src='data:image/jpeg;base64," . base64_encode($menuItem['image_data']) . "' alt='{$menuItem['foodname']}' />";
+        echo "<button class='decrease-qty'>-</button>";
+        echo "<span class='current-qty'>0</span>";
+        echo "<button class='increase-qty'>+</button>";
+        echo "<button class='add-to-cart'>Add to Cart</button>";
+        echo "</div>";
     }
+    return $menuItems;
 }
