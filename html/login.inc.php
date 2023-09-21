@@ -40,11 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Creating Session with user id
         $newSessionId = session_create_id(); /// create new session id
-        $sessionId = $newSessionId . "_" . $result["id"];
         session_id($sessionId); /// set new session id
+        require_once "../asset/includePHP/config_session.inc.php";
         $_SESSION["user_id"] = $result["id"];
         $_SESSION["user_firstname"] = htmlspecialchars($result["firstname"]);
-        $_SESSION["last_regeneration"] = time(); /// reset the time every 30 mins to regenerate the session ID
+        $_SESSION["last_regeneration"] = time();
+
         header("Location: ../html/menu.php");
         $pdo = null;
         $stmt = null;
