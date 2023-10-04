@@ -10,6 +10,7 @@ head {
 @media only screen and (min-width: 1024px){ 
 body {
   min-width : 695px; 
+  
 }
 
 header {
@@ -1449,18 +1450,53 @@ footer .bottom {
 } */
 
 @media only screen and (min-width: 1024px){
-
-#Menubody {
+  .slider-main-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 50vh;
   background: #f1f4fd;
 }
 .slider-container{
   max-width: 1200px;
   width: 95%;
 }
+.slider-wrapper {
+  position:relative;
+  display:flex;
+  flex-direction: row;
+}
+.slider-wrapper .slide-button {
+  position: absolute;
+  top: 50%;
+  outline: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  z-index: 5;
+  color: #fff;
+  display: flex;
+  cursor: pointer;
+  font-size: 2.2rem;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.slider-wrapper .slide-button:hover {
+  background:#444;
+}
+
+.slider-wrapper .slide-button#prev-slide {
+  left:- 20px;
+} 
+.slider-wrapper .slide-button#next-slide {
+  left:- 20px;
+}
+
 
 .slider-wrapper .image-list {
   display:grid;
@@ -1469,11 +1505,12 @@ footer .bottom {
   margin-bottom :30px;
   gap :18px; 
   overflow-x: auto;
+  white-space: nowrap;
   scrollbar-width: none;
 }
-.slider-wrapper .image-list::-webkit-scrollbar {
-  /* display:none; */
-}
+/* .slider-wrapper .image-list::-webkit-scrollbar {
+  display: none;
+} */
 
 .slider-wrapper .image-list .image-item{
   width :325px;
@@ -1485,18 +1522,23 @@ footer .bottom {
   height:24px;
   width:100%;
   display: flex;
+
   align-items: center;
+  background:red
 }
 
-.slider-scrollbar .scrollbar-track{
+.slider-scrollbar .scrollbar-track {
+  background: #ccc;
+  width: 100%;
   height: 2px;
-  width:100%;
-  background:#ccc;
-  position: relative;
+  display: flex;
+  align-items: center;
   border-radius: 4px;
+  position: relative;
 }
-.slider-scrollbar .scrollbar-track{
-  height:4px;
+
+.slider-scrollbar:hover .scrollbar-track {
+  height: 4px;
 }
 
 .slider-scrollbar .scrollbar-thumb{
@@ -1508,8 +1550,8 @@ footer .bottom {
   cursor: grab;
 }
 
-.slider-scrollbar .scrollbar-track:active{
-  cursor: grab;
+.slider-scrollbar .scrollbar-thumb:active{
+  cursor: grabbing;
   height: 8px;
   top: -2px;
 }

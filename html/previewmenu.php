@@ -24,6 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Koulen&family=Lalezar&family=Mitr:wght@200&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "scriptforscroll.js" defer></script>
     <title>Majulah Munchies</title>
 </head>
 
@@ -44,13 +45,14 @@
                 <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
         </div>
     </header>
-
     <!-- End Navigation Bar -->
     <!-- End Header -->
 
     <!-- Main Body -->
+    <div class = "slider-main-container">
         <section class="slider-container">
             <div class = "slider-wrapper" >
+            <button id= "prev-slide" class = "slide-button material-symbols-rounded"><</button>
                 <div class ="image-list">
                     <img src= "../asset/image/food1.jpg" alt="img-1" class = "image-item">
                     <img src= "../asset/image/food2.jpg" alt="img-2" class = "image-item">
@@ -59,15 +61,15 @@
                     <img src= "../asset/image/food5.jpg" alt="img-3" class = "image-item">
                     <img src= "../asset/image/food6.jpg" alt="img-3" class = "image-item">
                 </div>
-                <div class ="slider-scrollbar">
-                    <div class = "scroll-track">
-                        <div class = "scrollbar-thumb"></div>
-                    <a href = "#slide-1"></a>
-                    <a href = "#slide-2"></a>
-                    <a href = "#slide-3"></a>
-                </div>
+                <button id= "next-slide" class = "slide-button material-symbols-rounded">></button>
+            </div>
+            <div class ="slider-scrollbar">
+                <div class = "scroll-track">
+                    <div class = "scrollbar-thumb"></div>
+            </div>
             </div>
         </section>
+    </div> 
     
     <!--Footer -->
     <footer>
