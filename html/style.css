@@ -1385,7 +1385,7 @@ footer .bottom {
 }
 
 /* Slider bar */
-.slider-container {
+/* .slider-container {
   padding: 2rem;
 }
 
@@ -1399,6 +1399,7 @@ footer .bottom {
   display:flex;
   aspect-ratio: 16/9;
   overflow-x: auto;
+  scroll-margin :0;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
@@ -1406,7 +1407,7 @@ footer .bottom {
 }
 
 .slider img {
-  flex: 1 0 100%;
+  flex: 1 0 50%;
   scroll-snap-align: start;
   object-fit:cover ;
 }
@@ -1432,4 +1433,95 @@ footer .bottom {
 
 .slider-nav a:hover {
   opacity: 1;
+} */
+
+/* {
+  margin:0;
+  padding;0;
+  box-sizing: border-box;
+} */
+/* body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height:  100vh;
+  background: #F1F4FD;
+} */
+
+@media only screen and (min-width: 1024px){
+
+#Menubody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f1f4fd;
 }
+.slider-container{
+  max-width: 1200px;
+  width: 95%;
+}
+
+.slider-wrapper .image-list {
+  display:grid;
+  grid-template-columns: repeat(10,1fr);
+  font-size: 0;
+  margin-bottom :30px;
+  gap :18px; 
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.slider-wrapper .image-list::-webkit-scrollbar {
+  /* display:none; */
+}
+
+.slider-wrapper .image-list .image-item{
+  width :325px;
+  height: 400px;
+  object-fit:  cover;
+
+}
+.slider-container .slider-scrollbar {
+  height:24px;
+  width:100%;
+  display: flex;
+  align-items: center;
+}
+
+.slider-scrollbar .scrollbar-track{
+  height: 2px;
+  width:100%;
+  background:#ccc;
+  position: relative;
+  border-radius: 4px;
+}
+.slider-scrollbar .scrollbar-track{
+  height:4px;
+}
+
+.slider-scrollbar .scrollbar-thumb{
+  position:absolute;
+  height: 100%;
+  width: 50%;
+  background:#0000;
+  border-radius: inherit;
+  cursor: grab;
+}
+
+.slider-scrollbar .scrollbar-track:active{
+  cursor: grab;
+  height: 8px;
+  top: -2px;
+}
+
+}
+.slider-scrollbar .scrollbar-thumb::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right:0;
+  top: -10px;
+  bottom: -10px;
+}
+
+
