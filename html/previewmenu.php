@@ -49,22 +49,26 @@
     <!-- End Header -->
 
     <!-- Main Body -->
-    <div class="main-container"></div>
-    <section class="slider-container">
-        <div class = "slider-wrapper" >
-            <div class ="slider">
-                <img id = "slide-1" src="https://unsplash.com/photos/ZuIDLSz3XLg" alt="Food">
-                <img id = "slide-2" src="https://unsplash.com/photos/eeqbbemH9-c" alt="Food2">
-                <img id = "slide-3" src="https://unsplash.com/photos/fdlZBWIP0aM" alt="Food3">
+        <section class="slider-container">
+            <div class = "slider-wrapper" >
+                <div class ="image-list">
+                    <img src= "../asset/image/food1.jpg" alt="img-1" class = "image-item">
+                    <img src= "../asset/image/food2.jpg" alt="img-2" class = "image-item">
+                    <img src= "../asset/image/food3.jpg" alt="img-3" class = "image-item">
+                    <img src= "../asset/image/food4.jpg" alt="img-3" class = "image-item">
+                    <img src= "../asset/image/food5.jpg" alt="img-3" class = "image-item">
+                    <img src= "../asset/image/food6.jpg" alt="img-3" class = "image-item">
+                </div>
+                <div class ="slider-scrollbar">
+                    <div class = "scroll-track">
+                        <div class = "scrollbar-thumb"></div>
+                    <a href = "#slide-1"></a>
+                    <a href = "#slide-2"></a>
+                    <a href = "#slide-3"></a>
+                </div>
             </div>
-            <div class ="slider-nav">
-                <a href = "#slide-1"></a>
-                <a href = "#slide-2"></a>
-                <a href = "#slide-3"></a>
-            </div>
-        </div>
-    </section>
-
+        </section>
+    
     <!--Footer -->
     <footer>
         <!-- Footer Top -->
@@ -89,8 +93,6 @@
         <!-- End Footer Top -->
         <div class="bottom">
             <p>&copy 2023 Majulah Munchies. All rights reserved.</p>
-
-        </div>
     </footer>
 </body>
 <script src="../asset/js/script.js"></script>
