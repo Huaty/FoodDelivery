@@ -36,12 +36,9 @@ function create_menu(object $pdo) ///// set config file to max_allowed_packet = 
     }
 }
 
-function get_menu()
+function get_menu(object $pdo)
 {
     try {
-        require_once "../asset/includePHP/dbh.inc.php";
-
-
         // Query to retrieve menu items
         $query = "SELECT item_id,foodname,food_description,price,image_data FROM menus";
         $stmt = $pdo->prepare($query);
