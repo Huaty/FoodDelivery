@@ -2,12 +2,28 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr); /* Adjust the number depending on how many columns you want */
     gap: 10px; /* Adjust the gap between grid items */
+    min-height: 400px; 
+    width: 80%;
+}
+
+#checkout-seats {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #000; /* Add a border */
+ /* Add some padding */
+    margin-bottom: 20px; /* Add some margin to separate it from other elements */
+    min-height: 100px; /* Specify a minimum height */
+    width: 100%; /* Specify a width */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    overflow: auto; /* Add scroll if content overflows */
 }
 
 #main-content{
     display:flex;
     flex-direction: row;
     justify-content: center;
+    min-height: 500px;
 
 }
 
@@ -19,53 +35,49 @@
 }
 .seat {
     display: none;  /* Hide the checkbox */
+
+
 }
 
-.seat + label {
+.seat-label{
     display: inline-block;
-    padding: 10px;
-    background-color: #eee;
-    border: 1px solid #ccc;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #fff;
+    background: linear-gradient(to bottom, #f5793d, #e2461c);
+    border: none;
     border-radius: 5px;
+    position: relative;
     cursor: pointer;
+    box-shadow: 0 5px #ba3c14;
+    transition: all 0.3s ease;
 }
 
-.seat:checked + label {
-    background-color: green;
-    color: white;
-}
-/* .seat {
-
-    width: 30px;
-    height: 30px;
-    margin: 5px;
-    background-color: #ccc;
-    border: 1px solid #888;
-    position: relative; 
-
+.seat-label:hover {
+    background: linear-gradient(to bottom, #e2461c, #f5793d);
 }
 
-.seat:hover {
-    background-color: lightgreen;
-}
-.seat:hover::after {
-    content: attr(id); 
-    position: absolute;
-    top: -30px; 
-    left: 50%;
-    transform: translateX(-50%); 
-    background-color: #333;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    white-space: nowrap; 
+.seat:checked + .seat-label {
+    top: 5px;
+    box-shadow: none;
 }
 
-/* Seat change colour when selected */
-/* .seat.selected{
-    background-color: green;
-    color: white;
-} */
+#print-seats
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:10%;
+}
+
+#checkout{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:10%;
+}
 
 
 #screen{
@@ -84,7 +96,6 @@
 #checkout-container{
     display:flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin:10%;
+    margin-top: 5%;
+    padding-left: 10%;
 }
