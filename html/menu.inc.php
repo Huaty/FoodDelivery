@@ -12,10 +12,6 @@ try {
     }
 
 
-
-
-
-
     die();
 } catch (PDOEXCEPTION $e) {
     die("Query Failed: " . $e->getMessage());

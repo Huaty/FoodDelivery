@@ -1449,6 +1449,32 @@ footer .bottom {
   background: #F1F4FD;
 } */
 
+
+/* USER LOGIN MENU CSS */
+#menu-wrapper
+{
+  display:flex;
+  flex-direction:row;
+}
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; /* Adjust as needed */
+}
+
+
+#menuGridclass {
+  width: 40%;
+  height: auto;
+  border-radius: 5px; /* Optional, for rounded corners */
+}
+
+
+
+
+
+
+/* For phone or i dont know what  */
 @media only screen and (min-width: 1024px){
   .slider-main-container {
   display: flex;

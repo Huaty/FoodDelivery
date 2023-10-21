@@ -1,12 +1,11 @@
 <?php
 
 
-
-declare(strict_types=1);
 function menu_display()
 {
     require_once "menu_model.inc.php";
-    $menuItems = get_menu();
+    require  "../asset/includePHP/dbh.inc.php";
+    $menuItems = get_menu($pdo);
 
     // Render the menu items on the HTML page
     foreach ($menuItems  as $menuItem) {
