@@ -1,0 +1,90 @@
+#movieseats {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* Adjust the number depending on how many columns you want */
+    gap: 10px; /* Adjust the gap between grid items */
+}
+
+#main-content{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+#nav-bar{
+    display:flex;
+    justify-content: center;
+    padding:100px;
+    background-color: gray;
+}
+.seat {
+    display: none;  /* Hide the checkbox */
+}
+
+.seat + label {
+    display: inline-block;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.seat:checked + label {
+    background-color: green;
+    color: white;
+}
+/* .seat {
+
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background-color: #ccc;
+    border: 1px solid #888;
+    position: relative; 
+
+}
+
+.seat:hover {
+    background-color: lightgreen;
+}
+.seat:hover::after {
+    content: attr(id); 
+    position: absolute;
+    top: -30px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap; 
+}
+
+/* Seat change colour when selected */
+/* .seat.selected{
+    background-color: green;
+    color: white;
+} */
+
+
+#screen{
+    display:flex;
+    justify-content: center;
+    margin:50px;
+}   
+#movie-screen{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+
+#checkout-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:10%;
+}
