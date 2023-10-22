@@ -29,15 +29,19 @@ require_once "signup_view.inc.php";
 
   <div class="main-container-login-register">
     <div class="wrapper-signup">
-      <form method="POST" action="process_signup.inc.php" class="signup-input" onsubmit="return validateForm()">
+      <form method="POST" action="process_signup.inc.php" id="myForm" class="signup-input" onsubmit="return validateForm()">
         <label for="name">name</label>
-        <input type="text" name="name" id="name" class="name" />
+        <input type="text" name="name" id="name" class="name" required />
+        <p class = "error" id= "nameError"></p>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" class="email" />
+        <input type="email" name="email" id="email" class="email" required />
+        <p class="error" id="emailError"></p>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" class="password" />
+        <input type="password" name="password" id="password" class="password" required />
+        <p class="error" id="passwordError"></p>
         <label for="address">Address</label>
-        <input type="text" name="address" id="address" class="address" />
+        <p class="error" id="addressError"></p>
+        <input type="text" name="address" id="address" class="address" required />
         <input type="submit" value="submit" class="signup-button" />
 
       </form>
@@ -56,6 +60,6 @@ require_once "signup_view.inc.php";
     </div>
   </div>
 </body>
-
+<script src="/MajulahMunchies/asset/js/SignUpScript.js"></script>
 
 </html>
