@@ -1417,6 +1417,7 @@ head {
 }
 
 .image-grid img {
+  width: 250px;
   width: 80%;
 }
 
