@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   signUpvalidation(); /// create validation for sign up form
-  slidingBar(); ///previewmenu slider
-  menuQtyBtn(); ///menu quanity button
+  slidingBar(); ///Previewmenu slider
+  menuFunction(); ///Entire User Menu Page Function
 });
 
-function menuQtyBtn() {
+/////User Menu Page Function
+
+function menuFunction() {
   gridContainer = document.querySelector(".image-grid");
   if (gridContainer) {
     var foodDetails = new Map();
@@ -50,6 +52,9 @@ function menuQtyBtn() {
       current = foodDetails.get(i);
       let foodChoosen = document.getElementById(`food-choosen-${i}`);
       updateOrderContent = document.getElementById("update-order");
+      let quantityInput = document.getElementById(`input-quantity-${i}`);
+      let priceInput = document.getElementById(`input-price-${i}`);
+      let totalPriceInput = document.getElementById(`input-totalPrice-${i}`);
 
       if (!foodChoosen) {
         foodChoosen = document.createElement("div");
@@ -61,11 +66,10 @@ function menuQtyBtn() {
       foodChoosen.innerText = `${foodTitle} x${current.quantity}      $${totalPrice}`;
       if (current.quantity == 0) {
         foodChoosen.innerText = "";
+        updateOrderContent.removeChild(foodChoosen);
       }
-      let quantityInput = document.getElementById(`input-quantity-${i}`);
-      let priceInput = document.getElementById(`input-price-${i}`);
-      let totalPriceInput = document.getElementById(`input-totalPrice-${i}`);
 
+      ////Create input for form to POST
       if (!quantityInput) {
         quantityInput = document.createElement("input");
         quantityInput.type = "hidden";
@@ -86,7 +90,7 @@ function menuQtyBtn() {
         totalPriceInput = document.createElement("input");
         totalPriceInput.type = "hidden";
         totalPriceInput.id = `input-totalPrice-${i}`;
-        totalPriceInput.name = `totalPrice_${i}a`;
+        totalPriceInput.name = `totalPrice_${i}`;
         foodChoosen.appendChild(totalPriceInput);
       }
       quantityInput.value = current.quantity;
@@ -100,7 +104,7 @@ function menuQtyBtn() {
     var totalAmount = 0;
     totalAmountPlaceHolder = document.getElementById("total-amount");
     foodDetails.forEach((value, key) => {
-      console.log(`Total Price:${value.totalPrice} Index${key}`);
+      console.log(`Key: ${key} Value: ${value.quantity}`);
       totalAmount += parseFloat(value.totalPrice);
     });
 
@@ -108,14 +112,28 @@ function menuQtyBtn() {
     submitButton(totalAmount);
   }
   function submitButton(totalAmount) {
-    console.log(totalAmount);
+    payNowBtn = document.getElementById("pay-button");
+    form = document.getElementById("form-menu");
+    var validState = false;
     if (totalAmount == 0) {
       document.getElementById("pay-button").disabled = true;
+      validState = false;
     } else {
       document.getElementById("pay-button").disabled = false;
+      validState = true;
     }
+    payNowBtn.addEventListener("click", function (event) {
+      if (validState === true) {
+        form.submit();
+        event.preventDefault();
+      } else {
+        event.preventDefault();
+      }
+    });
   }
 }
+
+/////Preview Menu Slider
 
 function slidingBar() {
   let index = 0;
@@ -145,6 +163,7 @@ function slidingBar() {
     }
   }
 }
+//// Sign Up Form Validation
 
 function signUpvalidation() {
   const form = document.getElementById("myForm");
