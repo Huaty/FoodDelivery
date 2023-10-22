@@ -60,6 +60,6 @@ require_once "signup_view.inc.php";
     </div>
   </div>
 </body>
-<script src="/MajulahMunchies/asset/js/SignUpScript.js"></script>
+<script src="../asset/js/script.js"></script>
 
 </html>
