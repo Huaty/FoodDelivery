@@ -1,8 +1,151 @@
 document.addEventListener("DOMContentLoaded", function () {
-  signUpvalidation();
+  signUpvalidation(); /// create validation for sign up form
   slidingBar(); ///previewmenu slider
   menuQtyBtn(); ///menu quanity button
 });
+
+function menuQtyBtn() {
+  gridContainer = document.querySelector(".image-grid");
+  if (gridContainer) {
+    var foodDetails = new Map();
+    food = gridContainer.querySelectorAll("#menuGridclass");
+    for (let i = 1; i <= food.length; i++) {
+      priceText = document.getElementById(`price-${i}`).innerText;
+      priceText = priceText.replace("$", ""); // Remove the $ sign. Result: "10.50"
+      let price = parseFloat(priceText);
+      //// i=1 because ID start from 1
+      foodDetails.set(i, { quantity: 0, price: price, totalPrice: 0 });
+
+      leftArrow = document.getElementById(`decrement-index-${i}`);
+      rightArrow = document.getElementById(`increment-index-${i}`);
+
+      if (leftArrow) {
+        leftArrow.addEventListener("click", () => {
+          console.log(`Left Arrow Clicked ${i}`);
+          current = foodDetails.get(i);
+          if (current.quantity > 0) {
+            qtyPlaceHolder = document.getElementById(`quantity-menu-${i}`);
+            current.quantity -= 1;
+            qtyPlaceHolder.innerText = current.quantity;
+            totalPrice = current.quantity * price;
+            current.totalPrice = totalPrice;
+            updateOrder(i, foodDetails, totalPrice);
+          }
+        });
+      }
+      if (rightArrow) {
+        rightArrow.addEventListener("click", () => {
+          current = foodDetails.get(i);
+          console.log(`Right Arrow Clicked ${i}`);
+          qtyPlaceHolder = document.getElementById(`quantity-menu-${i}`);
+          current.quantity += 1;
+          qtyPlaceHolder.innerText = current.quantity;
+          totalPrice = current.quantity * price;
+          current.totalPrice = totalPrice;
+          updateOrder(i, foodDetails, totalPrice);
+        });
+      }
+    }
+    function updateOrder(i, foodDetails, totalPrice) {
+      current = foodDetails.get(i);
+      let foodChoosen = document.getElementById(`food-choosen-${i}`);
+      updateOrderContent = document.getElementById("update-order");
+
+      if (!foodChoosen) {
+        foodChoosen = document.createElement("div");
+        foodChoosen.id = `food-choosen-${i}`;
+        updateOrderContent.appendChild(foodChoosen);
+      }
+
+      const foodTitle = document.getElementById(`food-title-${i}`).innerText;
+      foodChoosen.innerText = `${foodTitle} x${current.quantity}      $${totalPrice}`;
+      if (current.quantity == 0) {
+        foodChoosen.innerText = "";
+      }
+      let quantityInput = document.getElementById(`input-quantity-${i}`);
+      let priceInput = document.getElementById(`input-price-${i}`);
+      let totalPriceInput = document.getElementById(`input-totalPrice-${i}`);
+
+      if (!quantityInput) {
+        quantityInput = document.createElement("input");
+        quantityInput.type = "hidden";
+        quantityInput.id = `input-quantity-${i}`;
+        quantityInput.name = `quantity_${i}`;
+        foodChoosen.appendChild(quantityInput);
+      }
+
+      if (!priceInput) {
+        priceInput = document.createElement("input");
+        priceInput.type = "hidden";
+        priceInput.id = `input-price-${i}`;
+        priceInput.name = `price_${i}`;
+        foodChoosen.appendChild(priceInput);
+      }
+
+      if (!totalPriceInput) {
+        totalPriceInput = document.createElement("input");
+        totalPriceInput.type = "hidden";
+        totalPriceInput.id = `input-totalPrice-${i}`;
+        totalPriceInput.name = `totalPrice_${i}a`;
+        foodChoosen.appendChild(totalPriceInput);
+      }
+      quantityInput.value = current.quantity;
+      priceInput.value = current.price;
+      totalPriceInput.value = totalPrice;
+      updateTotalAmount(i, foodDetails);
+    }
+  }
+
+  function updateTotalAmount(i, foodDetails) {
+    var totalAmount = 0;
+    totalAmountPlaceHolder = document.getElementById("total-amount");
+    foodDetails.forEach((value, key) => {
+      console.log(`Total Price:${value.totalPrice} Index${key}`);
+      totalAmount += parseFloat(value.totalPrice);
+    });
+
+    totalAmountPlaceHolder.innerText = totalAmount;
+    submitButton(totalAmount);
+  }
+  function submitButton(totalAmount) {
+    console.log(totalAmount);
+    if (totalAmount == 0) {
+      document.getElementById("pay-button").disabled = true;
+    } else {
+      document.getElementById("pay-button").disabled = false;
+    }
+  }
+}
+
+function slidingBar() {
+  let index = 0;
+  const slider = document.querySelector(".slider");
+  const btnLeft = document.querySelector(".slider-btn-left");
+  const btnRight = document.querySelector(".slider-btn-right");
+  if (slider) {
+    const images = slider.querySelectorAll(".image-item");
+
+    console.log(`Image Length Preview Menu: ${images.length}`);
+
+    btnLeft.addEventListener("click", () => {
+      index--;
+      if (index < 0) index = images.length - 1;
+      updateSlider();
+    });
+
+    btnRight.addEventListener("click", () => {
+      index++;
+      if (index >= images.length) index = 0;
+      updateSlider();
+    });
+
+    function updateSlider() {
+      const offset = -index * 10;
+      slider.style.transform = `translateX(${offset}%)`;
+    }
+  }
+}
+
 function signUpvalidation() {
   const form = document.getElementById("myForm");
   const nameInput = document.getElementById("name");
@@ -59,70 +202,5 @@ function signUpvalidation() {
         e.preventDefault(); // Prevent form submission if there are errors
       }
     });
-  }
-}
-
-function menuQtyBtn() {
-  gridContainer = document.querySelector(".image-grid");
-  if (gridContainer) {
-    food = gridContainer.querySelectorAll("#menuGridclass");
-    for (let i = 1; i <= food.length; i++) {
-      //// i=1 because ID start from 1
-      var qty = 0;
-
-      leftArrow = document.getElementById(`decrement-index-${i}`);
-      rightArrow = document.getElementById(`increment-index-${i}`);
-
-      if (leftArrow) {
-        leftArrow.addEventListener("click", () => {
-          console.log(`Left Arrow Clicked ${i}`);
-
-          if (qty > 0) {
-            qtyPlaceHolder = document.getElementById(`quantity-menu-${i}`);
-            qty -= 1;
-            qtyPlaceHolder.innerText = qty;
-          }
-        });
-      }
-      if (rightArrow) {
-        rightArrow.addEventListener("click", () => {
-          console.log(`Right Arrow Clicked ${i}`);
-          qtyPlaceHolder = document.getElementById(`quantity-menu-${i}`);
-          qty += 1;
-          qtyPlaceHolder.innerText = qty;
-        });
-      }
-    }
-  }
-
-  // console.log(food.length);
-}
-
-function slidingBar() {
-  let index = 0;
-  const slider = document.querySelector(".slider");
-  const btnLeft = document.querySelector(".slider-btn-left");
-  const btnRight = document.querySelector(".slider-btn-right");
-  if (slider) {
-    const images = slider.querySelectorAll(".image-item");
-
-    console.log(`Image Length Preview Menu: ${images.length}`);
-
-    btnLeft.addEventListener("click", () => {
-      index--;
-      if (index < 0) index = images.length - 1;
-      updateSlider();
-    });
-
-    btnRight.addEventListener("click", () => {
-      index++;
-      if (index >= images.length) index = 0;
-      updateSlider();
-    });
-
-    function updateSlider() {
-      const offset = -index * 10;
-      slider.style.transform = `translateX(${offset}%)`;
-    }
   }
 }
