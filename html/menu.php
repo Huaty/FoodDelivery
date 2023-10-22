@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+// session_start();
 
 // You can uncomment the session checking part once everything else is working
 // if (!isset($_SESSION["user_id"])) {
@@ -20,6 +21,21 @@ try {
 
 require_once "menu_view.inc.php";
 require_once "../asset/includePHP/config_session.inc.php";
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $rowCount = count($result);
+    for($i = 1 ; $i < $rowCount ; $i++){
+        $item = [
+            'item_id' => $i,
+            'item_name' => $result[$i]['foodname'],
+            'quantity' => $_POST['quantity_'.$i],
+            'price' => $_POST['price_'.$i],
+
+        ];
+    }
+    $_SESSION['cart'][] = $item;
+
+}
 
 
 ?>
