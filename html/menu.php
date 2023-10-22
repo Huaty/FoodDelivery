@@ -58,28 +58,31 @@ require_once "../asset/includePHP/config_session.inc.php";
         foreach ($result as $row) {
             echo '<div id= "menuGridclass">';
             echo '<img  src="data:image/jpeg;base64,' . base64_encode($row['image_data']) . '"/>';
-            echo '<div id="food-title-'.$row["item_id"].'"> ' . $row["foodname"] . '</div>';
-            echo '<div id="food-description-'.$row["item_id"].'"> ' . $row["food_description"] . ' </div>';
+            echo '<div id="food-title-' . $row["item_id"] . '"> ' . $row["foodname"] . '</div>';
+            echo '<div id="food-description-' . $row["item_id"] . '"> ' . $row["food_description"] . ' </div>';
+            echo '<div id="price-' . $row["item_id"] . '"> $' . $row["price"] . ' </div>';
             echo '<div class="quantity-control">
-            <button id="decrement-index-'.$row["item_id"].'">-</button>
-            <span id="quantity-menu-'.$row["item_id"].'">0</span>
-            <button id="increment-index-'.$row["item_id"].'">+</button>
+            <button id="decrement-index-' . $row["item_id"] . '">-</button>
+            <span id="quantity-menu-' . $row["item_id"] . '">0</span>
+            <button id="increment-index-' . $row["item_id"] . '">+</button>
         </div>';
             echo '</div>';
         }
         echo '</div>';
         ?>
-        <div class="order-card">
-            <h2>Order Details</h2>
-            <div class="order-content">
-                <p>Add some items to get started !</p>
-                <div class="total">
-                    <span>Total:</span>
-                    <span>$100.00</span>
+        <form action="" method="post" id="form-menu">
+            <div class="order-card">
+                <h2>Order Details</h2>
+                <div class="order-content">
+                    <div id="update-order">Add some items to get started !</div>
+                    <div class="total">
+                        <span>Total:</span>
+                        <span>$<span id="total-amount">0</span></span>
+                    </div>
+                    <button type="submit" id="pay-button" disabled>PAY NOW</button>
                 </div>
-                <button class="pay-button">PAY NOW</button>
             </div>
-        </div>
+        </form>
     </div>
     <footer>
         <!-- Footer Top -->

@@ -1439,7 +1439,7 @@ head {
   justify-content: space-between;
 }
 
-.pay-button {
+#pay-button {
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -1449,8 +1449,17 @@ head {
   transition: 0.3s ease;
 }
 
-.pay-button:hover {
+#pay-button:hover {
   background-color: #0056b3;
+}
+#pay-button:disabled {
+  background-color: #cccccc; /* This will make the button grey */
+  color: #888888; /* Darken the text color a bit */
+  cursor: not-allowed; /* This changes the cursor to a 'not allowed' icon */
+}
+
+#pay-button:disabled:hover {
+  background-color: #cccccc; /* Keeps the button grey even on hover */
 }
 
 /* For phone or i dont know what  */
