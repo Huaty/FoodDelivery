@@ -58,12 +58,12 @@ require_once "../asset/includePHP/config_session.inc.php";
         foreach ($result as $row) {
             echo '<div id= "menuGridclass">';
             echo '<img  src="data:image/jpeg;base64,' . base64_encode($row['image_data']) . '"/>';
-            echo '<div> ' . $row["foodname"] . '</div>';
-            echo '<div> ' . $row["food_description"] . ' </div>';
+            echo '<div id="food-title-'.$row["item_id"].'"> ' . $row["foodname"] . '</div>';
+            echo '<div id="food-description-'.$row["item_id"].'"> ' . $row["food_description"] . ' </div>';
             echo '<div class="quantity-control">
-            <button id="decrement">-</button>
-            <span id="quantity">1</span>
-            <button id="increment">+</button>
+            <button id="decrement-index-'.$row["item_id"].'">-</button>
+            <span id="quantity-menu-'.$row["item_id"].'">0</span>
+            <button id="increment-index-'.$row["item_id"].'">+</button>
         </div>';
             echo '</div>';
         }
