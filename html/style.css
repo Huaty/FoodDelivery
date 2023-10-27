@@ -1336,6 +1336,8 @@ head {
 
 
 /* USER LOGIN MENU CSS */
+
+
 .nav-container-menu {
   display: flex;
   justify-content: center;
@@ -1503,6 +1505,17 @@ head {
 
 .payment-methods label {
   margin-right: 10px;
+}
+
+
+/* Admin Page */
+#admin-container{
+  display:flex;
+  flex-direction:column;
+}
+
+#admin-container #wrapper{
+  padding:5%;
 }
 
 /* For phone or i dont know what  */

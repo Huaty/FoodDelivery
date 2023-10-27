@@ -1,12 +1,24 @@
 <?php
+require_once "error.php";
 require_once "menu_view.inc.php";
 require_once "../asset/includePHP/config_session.inc.php";
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 var_dump($_SESSION);
 
 if (($_SESSION["user_firstname"]) !== "admin") {
     header("Location: menu.php");
+}
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once "../asset/includePHP/dbh.inc.php";
+    require_once "menu_model.inc.php";
+    $formType = isset($_POST['form_type']) ? $_POST['form_type'] : null;
+    switch ($formType) {
+        case "create_menu":
+            echo "Menu Table have intialize";
+            create_menu($pdo);
+    }
 }
 ?>
 
@@ -32,14 +44,22 @@ if (($_SESSION["user_firstname"]) !== "admin") {
             <!-- End Logo -->
             <!-- Navigation Bar -->
             <ul class="nav-flex-right nav-flex-grow">
-                <!-- <li class="nav-content "><a href="index.php"><span>Home</span></a></li>
+                <!-- <li class="nav-content "><a href="index.php"><span></span></a></li>
                 <li class="nav-content"><a href="signup.php"><span>Menu</span></li>
                 <li class="nav-content about-us"><a href="about.php"><span class="current-page">About us</span></a></li>
                 <li class="nav-content login"><a href="login.php"><span>Login</span></a></li> -->
         </div>
     </header>
-    <div id="menu-wrapper">
+    <div id="admin-container">
         <h1>Welcome to Admin Page </h1>
+        <form action="adminpage.php" method="post">
+            <div id="wrapper">Update Menu</div>
+            <div id="wrapper">Intialize Menu
+                <input type="hidden" name="form_type" value="create_menu" id="create_menu">
+                <div><button type="submit" id="submit-button-create-menu">Click me</button></div>
+            </div>
+            <div id="wrapper">View Orders</div>
+        </form>
     </div>
     <footer>
         <!-- Footer Top -->
