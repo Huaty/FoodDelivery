@@ -1436,8 +1436,12 @@ head {
 }
 
 .image-grid img {
-  width: 250px;
-  width: 80%;
+  width: 200px;        /* Adjust this value based on your desired size */
+  height: 200px;       /* Ensure the height is the same as the width to get a perfect circle */
+  border-radius: 50%;  /* This makes the image circular */
+  object-fit: cover;   /* This ensures the image scales and crops to fit the dimensions without distortion */
+  display: block;
+  margin: 0 auto;   
 }
 
 .order-card {
