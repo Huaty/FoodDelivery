@@ -1,11 +1,13 @@
 <?php
-
+require_once "error.php";
 require_once "menu_view.inc.php";
 require_once "../asset/includePHP/config_session.inc.php";
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-// var_dump($_SESSION);
 
+if (!isset($_SESSION['user_firstname']) || $_SESSION['user_firstname'] === null) {
+    header("Location: ../html/login.php");
+    exit();
+}
+var_dump($_SESSION);
 try {
     require_once "../asset/includePHP/dbh.inc.php";
     $sql = "SELECT * FROM menus";
@@ -16,11 +18,17 @@ try {
     die("ERROR: Could not execute $sql. " . $e->getMessage());
 }
 //// Session_start(); is in config_session.inc.php
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // if (isset($_POST["searchBar"])) {
+    //     $searchCusines = $_POST["searchBar"];
+    //     echo $searchCusines;
+    // }
+
 
     $orders = [];
     $items = [];
+    $index = 0;
+
 
     var_dump($_POST);
     foreach ($_POST as $key => $value) {
@@ -50,9 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //     echo "Item ID" . $order['item_id'] . "<br>";
     //     echo "Item Name" . $order['item_name'] . "<br>";
     // }
-    $_SESSION['orders'] = $orders;
+    if (isset($orders)) {
 
-    header("Location:payment.php");
+        $_SESSION['orders'] = $orders;
+
+        header("Location:payment.php");
+    }
 }
 
 
@@ -70,22 +81,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <body>
-    <header>
-        <!-- Header -->
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="logo-placement">
-                <a href="index.php"><object data="../asset/image/Logo.svg" Alt="Logo" class="logo"></object></a>
-            </div>
-            <!-- End Logo -->
-            <!-- Navigation Bar -->
-            <ul class="nav-flex-right nav-flex-grow">
-                <!-- <li class="nav-content "><a href="index.php"><span>Home</span></a></li>
-                <li class="nav-content"><a href="signup.php"><span>Menu</span></li>
-                <li class="nav-content about-us"><a href="about.php"><span class="current-page">About us</span></a></li>
-                <li class="nav-content login"><a href="login.php"><span>Login</span></a></li> -->
+
+    <!-- Header -->
+    <div class="nav-container-menu">
+        <!-- Logo -->
+        <div class="logo-placement">
+            <a href="index.php"><object data="../asset/image/Logo.svg" Alt="Logo" class="logo"></object></a>
         </div>
-    </header>
+        <div class="profile-dropdown">
+            <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
+                <img src="bingwei.jpeg" alt="Profile Picture" class="profile-pic">
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Profile</a>
+                <a href="logout.php">Log out</a>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+    <form id="searchForm" action="" method="post">
+        <div id="searchBar-container">Search Bar :<input type='text' name='searchBar' id="searchBar"></input></div>
+    </form>
     <div id="menu-wrapper">
         <?php
         echo '<div class="image-grid">';

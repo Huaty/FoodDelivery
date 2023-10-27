@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,15 +17,17 @@
     <header>
         <!-- Header -->
         <div class="nav-container">
-            <!-- Logo -->
-            <div class="logo-placement">
-                <a href="index.php"><object data="../asset/image/Logo.svg" Alt="Logo" class="logo"></object></a>
-            </div>
-            <!-- End Logo -->
+            <a href="index.php" class="button-style">
+
+                <div class="logo-placement">
+                    <img src="../asset/image/Logo.png" class="logo">
+                </div>
+
+            </a>
             <!-- Navigation Bar -->
             <ul class="nav-flex-right nav-flex-grow">
-                <li class="nav-content "><a href="index.php"><span class="current-page">Home</span></a></li>
-                <li class="nav-content"><a href="previewmenu.php"><span>Menu</span></li>
+                <li class="nav-content "><a href="index.php"><span>Home</span></a></li>
+                <li class="nav-content"><a href="previewmenu.php"><span class="current-page">Menu</span></li>
                 <li class="nav-content"><a href="about.php"><span>About us</span></a></li>
                 <li class="nav-content login"><a href="login.php"><span>Login</span></a></li>
         </div>
@@ -37,8 +38,8 @@
     <!-- Main Body -->
     <div class="slider-main-container">
         <section class="slider-container">
-        <button class="slider-btn slider-btn-left">&lt;</button>
-            <div class="slider-wrapper"> 
+            <button class="slider-btn slider-btn-left">&lt;</button>
+            <div class="slider-wrapper">
                 <div class="slider">
                     <img src="../asset/image/food1.jpg" alt="img-1" class="image-item">
                     <img src="../asset/image/food2.jpg" alt="img-2" class="image-item">

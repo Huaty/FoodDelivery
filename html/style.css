@@ -47,11 +47,16 @@ head {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+ 
   }
 
-  .logo {
+  .logo { 
+    width:40%;
+    display:flex;
     justify-content: center;
   }
+
   .nav-content {
     display: flex;
     flex-direction: row;
@@ -1331,6 +1336,80 @@ head {
 
 
 /* USER LOGIN MENU CSS */
+.nav-container-menu {
+  display: flex;
+  justify-content: center;
+  padding: 10px 30px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: white;
+}
+
+.nav-container-menu .logo-placement{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.logo img {
+  height: 40px;
+}
+
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #f9f9f9;
+  color: black;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 30px;
+  margin-left: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.profile-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+#searchBar-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding:5%;
+}
 #menu-wrapper {
   display: flex;
   flex-direction: row;

@@ -17,9 +17,13 @@
     <!-- Header -->
     <div class="nav-container">
       <!-- Logo -->
-      <div class="logo-placement">
-        <a href="index.php"><object data="../asset/image/Logo.svg" Alt="Logo" class="logo"></object></a>
-      </div>
+
+      <a href="index.php" class="button-style">
+        <div class="logo-placement">
+          <img src="../asset/image/Logo.png" class="logo">
+        </div>
+      </a>
+
       <!-- End Logo -->
       <!-- Navigation Bar -->
       <ul class="nav-flex-right nav-flex-grow">

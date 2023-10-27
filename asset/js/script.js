@@ -7,6 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
 /////User Menu Page Function
 
 function menuFunction() {
+  searchBar = document.getElementById("searchBar");
+  if(searchBar){
+    searchForm  =  document.getElementById("searchForm");
+
+    searchBar.addEventListener("change",function(event){
+      console.log(event.target.value)
+      searchForm.submit(); 
+    }
+    )
+  }
   gridContainer = document.querySelector(".image-grid");
   if (gridContainer) {
     var foodDetails = new Map();
