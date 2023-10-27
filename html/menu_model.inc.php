@@ -4,25 +4,48 @@ declare(strict_types=1);
 
 function create_menu(object $pdo) ///// set config file to max_allowed_packet = 64M
 {
+    // $food_data = [foodname,cuisine,food_description,price,image_data]
     $food_data = [
-        ['Pizza', 'Italian', 12.99, file_get_contents("../asset/menu_image/chickensalad.jpg")]
+        [
+            'foodname' => 'Healthy Salad Bowl',
+            'cuisine' => 'Mediterranean',
+            'food_description' => 'A refreshing mix of lettuce, boiled eggs, edamame beans, cherry tomatoes, grilled tofu, corn, cucumber, and purple cabbage, drizzled with a light vinaigrette.',
+            'price' => '12.99',
+            'image_data' => file_get_contents("../asset/menu_image/food1.jpg")
+        ],
+        [
+            'foodname' => 'French Toast Delight',
+            'cuisine' => 'French',
+            'food_description' => 'Golden brown slices of bread soaked in a rich custard mix, topped with fresh bananas, blueberries and a drizzle of maple syrup. Served with a dusting of powdered sugar.',
+            'price' => '9.99',
+            'image_data' => file_get_contents("../asset/menu_image/food5.jpg")
+        ],
+        [
+            'foodname' => 'Ultimate Breakfast Burger',
+            'cuisine' => 'American',
+            'food_description' => 'A juicy beef patty topped with melted cheese, crispy bacon, and a perfectly fried egg. Nestled between a soft bun and served with a side of fresh greens.',
+            'price' => '14.99',
+            'image_data' => file_get_contents("../asset/menu_image/food7.jpg")
+        ]
     ];
 
     try {
         foreach ($food_data as $food_item) {
-            $foodname = $food_item[0];
-            $food_description = $food_item[1];
-            $price = $food_item[2];
-            $image_data = $food_item[3];
+            $foodname = $food_item['foodname'];
+            $food_description = $food_item['food_description'];
+            $cuisine = $food_item['cuisine'];
+            $price = $food_item['price'];
+            $image_data = $food_item['image_data'];
 
             // Instead of $_FILES, you should use $image_data directly
-            $query = "INSERT INTO menus (foodname, food_description, price, image_data) VALUES (:foodname, :food_description, :price, :image_data)";
+            $query = "INSERT INTO menus (foodname, cuisine, food_description, price, image_data) VALUES (:foodname, :cuisine, :food_description, :price, :image_data)";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(":foodname", $foodname, PDO::PARAM_STR);
+            $stmt->bindParam(":cuisine", $cuisine, PDO::PARAM_STR); // Adding the cuisine binding
             $stmt->bindParam(":food_description", $food_description, PDO::PARAM_STR);
             $stmt->bindParam(":price", $price, PDO::PARAM_STR);
-            // You can bind the image data as a parameter using PDO::PARAM_LOB
             $stmt->bindParam(":image_data", $image_data, PDO::PARAM_LOB);
+
 
             if ($stmt->execute()) {
                 echo "Success";

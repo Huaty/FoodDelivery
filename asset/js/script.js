@@ -2,7 +2,21 @@ document.addEventListener("DOMContentLoaded", function () {
   signUpvalidation(); /// create validation for sign up form
   slidingBar(); ///Previewmenu slider
   menuFunction(); ///Entire User Menu Page Function
+  adminPage()
 });
+
+
+//// Admin Page 
+function adminPage(){
+  createMenuButton = document.getElementById("submit-button-create-menu")
+  if(createMenuButton){
+    createMenuButton.addEventListener("click",function(event){
+      console.log("click")
+    })
+  }
+  
+
+}
 
 /////User Menu Page Function
 

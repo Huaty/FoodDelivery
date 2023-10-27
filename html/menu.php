@@ -3,11 +3,12 @@ require_once "error.php";
 require_once "menu_view.inc.php";
 require_once "../asset/includePHP/config_session.inc.php";
 
+
 if (!isset($_SESSION['user_firstname']) || $_SESSION['user_firstname'] === null) {
     header("Location: ../html/login.php");
     exit();
 }
-var_dump($_SESSION);
+
 try {
     require_once "../asset/includePHP/dbh.inc.php";
     $sql = "SELECT * FROM menus";
@@ -17,53 +18,54 @@ try {
 } catch (PDOException $e) {
     die("ERROR: Could not execute $sql. " . $e->getMessage());
 }
+
+$orders = [];
+$items = [];
+$index = 0;
+
 //// Session_start(); is in config_session.inc.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // if (isset($_POST["searchBar"])) {
-    //     $searchCusines = $_POST["searchBar"];
-    //     echo $searchCusines;
-    // }
+    $formType = isset($_POST['form_type']) ? $_POST['form_type'] : null;
 
 
-    $orders = [];
-    $items = [];
-    $index = 0;
+    switch ($formType) {
+        case 'searchForm':
+            if (isset($_POST["searchBar"])) {
+                $searchCusines = $_POST["searchBar"];
+                echo $searchCusines;
+            }
+            break;
 
+        case 'form-menu':
+            foreach ($_POST as $key => $value) {
+                if (strpos($key, "quantity_") === 0) {
+                    $index = str_replace("quantity_", "", $key);
+                    $quantity = isset($_POST['quantity_' . $index]) ? $_POST['quantity_' . $index] : null;
+                    $price = isset($_POST['price_' . $index]) ? $_POST['price_' . $index] : null;
+                    $item_name = isset($result[$index - 1]) ? $result[$index - 1]['foodname'] : null;
 
-    var_dump($_POST);
-    foreach ($_POST as $key => $value) {
+                    $orders[$index] = [
+                        'item_id' => $index,
+                        'item_name' => $item_name,
+                        'quantity' => $quantity,
+                        'price' => $price
+                    ];
+                }
+            }
+            $_SESSION['orders'] = $orders;
+            header("Location:payment.php");
+            break;
 
-        if (strpos($key, "quantity_") === 0) {
-            $index = str_replace("quantity_", "", $key);
-            // echo ''. $key . ': ' . $value .' ' ;
-            // echo '<br>';
-            // echo $index;
-
-            $items = [
-                'item_id' => $index,
-                'item_name' => $result[$index - 1]['foodname'],
-                'quantity' => $_POST['quantity_' . $index],
-                'price' => $_POST['price_' . $index],
-            ];
-        }
-        $orders[$index] = $items;
+        default:
+            // Unknown form or no identifier found. Handle accordingly.
+            break;
     }
     // echo '<br>';
     // echo "Item Id " . (($items['item_id'])) . "";
     // echo '<br>';
     // echo "Item Name " . (($items['item_name'])) . "";
     // echo "<br>";
-    // print_r($orders);
-    // foreach ($orders as $order) {
-    //     echo "Item ID" . $order['item_id'] . "<br>";
-    //     echo "Item Name" . $order['item_name'] . "<br>";
-    // }
-    if (isset($orders)) {
 
-        $_SESSION['orders'] = $orders;
-
-        header("Location:payment.php");
-    }
 }
 
 
@@ -85,9 +87,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Header -->
     <div class="nav-container-menu">
         <!-- Logo -->
-        <div class="logo-placement">
-            <a href="index.php"><object data="../asset/image/Logo.svg" Alt="Logo" class="logo"></object></a>
-        </div>
+        <a href="index.php" class="button-style">
+            <div class="logo-placement">
+                <img src="../asset/image/Logo.png" class="logo">
+            </div>
+        </a>
         <div class="profile-dropdown">
             <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
                 <img src="bingwei.jpeg" alt="Profile Picture" class="profile-pic">
@@ -103,8 +107,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <form id="searchForm" action="" method="post">
-        <div id="searchBar-container">Search Bar :<input type='text' name='searchBar' id="searchBar"></input></div>
+        <input type="hidden" name="form_type" value="searchForm">
+        <div id="searchBar-container">Search Bar :<input type='text' name='searchBar' id="searchBar"></div>
     </form>
+
     <div id="menu-wrapper">
         <?php
         echo '<div class="image-grid">';
@@ -127,6 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="order-card">
                 <h2>Order Details</h2>
                 <div class="order-content">
+                    <input type="hidden" name="form_type" value="form-menu">
                     <div id="update-order">Add some items to get started !</div>
                     <div class="total">
                         <span>Total:</span>
