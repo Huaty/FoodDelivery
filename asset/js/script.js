@@ -27,6 +27,7 @@ function menuFunction() {
           current = foodDetails.get(i);
           if (current.quantity > 0) {
             qtyPlaceHolder = document.getElementById(`quantity-menu-${i}`);
+            console.log(`This is index is ${i}`)
             current.quantity -= 1;
             qtyPlaceHolder.innerText = current.quantity;
             totalPrice = current.quantity * price;
@@ -39,6 +40,7 @@ function menuFunction() {
         rightArrow.addEventListener("click", () => {
           current = foodDetails.get(i);
           console.log(`Right Arrow Clicked ${i}`);
+          console.log(`This is index is ${i}`)
           qtyPlaceHolder = document.getElementById(`quantity-menu-${i}`);
           current.quantity += 1;
           qtyPlaceHolder.innerText = current.quantity;
@@ -50,8 +52,11 @@ function menuFunction() {
     }
     function updateOrder(i, foodDetails, totalPrice) {
       current = foodDetails.get(i);
+      console.log(current)
+      console.log(`I is ${i}`)
       let foodChoosen = document.getElementById(`food-choosen-${i}`);
-      updateOrderContent = document.getElementById("update-order");
+      let foodChoosenText = document.getElementById(`food-choosen-text-${i}`);
+      let updateOrderContent = document.getElementById("update-order");
       let quantityInput = document.getElementById(`input-quantity-${i}`);
       let priceInput = document.getElementById(`input-price-${i}`);
       let totalPriceInput = document.getElementById(`input-totalPrice-${i}`);
@@ -60,15 +65,20 @@ function menuFunction() {
         foodChoosen = document.createElement("div");
         foodChoosen.id = `food-choosen-${i}`;
         updateOrderContent.appendChild(foodChoosen);
+        foodChoosenText = document.createElement("div");
+        foodChoosenText.id = `food-choosen-text-${i}`;
+        foodChoosen.appendChild(foodChoosenText);
       }
 
       const foodTitle = document.getElementById(`food-title-${i}`).innerText;
-      foodChoosen.innerText = `${foodTitle} x${current.quantity}      $${totalPrice}`;
-      if (current.quantity == 0) {
-        foodChoosen.innerText = "";
+      foodChoosenText.innerText = `${foodTitle} x${current.quantity}      $${totalPrice}`;
+      if (current.quantity === 0) {
+        foodChoosenText.innerText = "";
+        console.log("remove")
         updateOrderContent.removeChild(foodChoosen);
       }
 
+      console.log(!(quantityInput))
       ////Create input for form to POST
       if (!quantityInput) {
         quantityInput = document.createElement("input");
@@ -76,6 +86,8 @@ function menuFunction() {
         quantityInput.id = `input-quantity-${i}`;
         quantityInput.name = `quantity_${i}`;
         foodChoosen.appendChild(quantityInput);
+        console.log("success")
+
       }
 
       if (!priceInput) {

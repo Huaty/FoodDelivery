@@ -1,13 +1,10 @@
 <?php
+
+require_once "menu_view.inc.php";
+require_once "../asset/includePHP/config_session.inc.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-// session_start();
-
-// You can uncomment the session checking part once everything else is working
-// if (!isset($_SESSION["user_id"])) {
-//     header("Location: login.php");
-//     exit();
-// }
+// var_dump($_SESSION);
 
 try {
     require_once "../asset/includePHP/dbh.inc.php";
@@ -18,23 +15,44 @@ try {
 } catch (PDOException $e) {
     die("ERROR: Could not execute $sql. " . $e->getMessage());
 }
+//// Session_start(); is in config_session.inc.php
 
-require_once "menu_view.inc.php";
-require_once "../asset/includePHP/config_session.inc.php";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $rowCount = count($result);
-    for($i = 1 ; $i < $rowCount ; $i++){
-        $item = [
-            'item_id' => $i,
-            'item_name' => $result[$i]['foodname'],
-            'quantity' => $_POST['quantity_'.$i],
-            'price' => $_POST['price_'.$i],
+    $orders = [];
+    $items = [];
 
-        ];
+    var_dump($_POST);
+    foreach ($_POST as $key => $value) {
+
+        if (strpos($key, "quantity_") === 0) {
+            $index = str_replace("quantity_", "", $key);
+            // echo ''. $key . ': ' . $value .' ' ;
+            // echo '<br>';
+            // echo $index;
+
+            $items = [
+                'item_id' => $index,
+                'item_name' => $result[$index - 1]['foodname'],
+                'quantity' => $_POST['quantity_' . $index],
+                'price' => $_POST['price_' . $index],
+            ];
+        }
+        $orders[$index] = $items;
     }
-    $_SESSION['cart'][] = $item;
+    // echo '<br>';
+    // echo "Item Id " . (($items['item_id'])) . "";
+    // echo '<br>';
+    // echo "Item Name " . (($items['item_name'])) . "";
+    // echo "<br>";
+    // print_r($orders);
+    // foreach ($orders as $order) {
+    //     echo "Item ID" . $order['item_id'] . "<br>";
+    //     echo "Item Name" . $order['item_name'] . "<br>";
+    // }
+    $_SESSION['orders'] = $orders;
 
+    header("Location:payment.php");
 }
 
 
