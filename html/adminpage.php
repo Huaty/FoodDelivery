@@ -51,19 +51,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <header>
         <!-- Header -->
-        <div class="nav-container">
-            <!-- Logo -->
-            <div class="logo-placement">
-                <a href="index.php"><object data="../asset/image/Logo.svg" Alt="Logo" class="logo"></object></a>
-            </div>
-            <!-- End Logo -->
-            <!-- Navigation Bar -->
-            <ul class="nav-flex-right nav-flex-grow">
-                <!-- <li class="nav-content "><a href="index.php"><span></span></a></li>
+        <div class="logo-placement">
+            <img src="../asset/image/Logo.png" class="logo">
+        </div>
+
+        <!-- End Logo -->
+        <!-- Navigation Bar -->
+        <ul class="nav-flex-right nav-flex-grow">
+            <!-- <li class="nav-content "><a href="index.php"><span></span></a></li>
                 <li class="nav-content"><a href="signup.php"><span>Menu</span></li>
                 <li class="nav-content about-us"><a href="about.php"><span class="current-page">About us</span></a></li>
                 <li class="nav-content login"><a href="login.php"><span>Login</span></a></li> -->
-        </div>
+            </div>
     </header>
     <div id="admin-container">
         <h1>Welcome to Admin Page </h1>
