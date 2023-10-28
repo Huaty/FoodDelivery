@@ -18,11 +18,9 @@
         <!-- Header -->
         <div class="nav-container">
             <a href="index.php" class="button-style">
-
                 <div class="logo-placement">
                     <img src="../asset/image/Logo.png" class="logo">
                 </div>
-
             </a>
             <!-- Navigation Bar -->
             <ul class="nav-flex-right nav-flex-grow">
