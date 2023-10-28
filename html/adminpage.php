@@ -2,6 +2,21 @@
 require_once "error.php";
 require_once "menu_view.inc.php";
 require_once "../asset/includePHP/config_session.inc.php";
+require_once "../asset/includePHP/dbh.inc.php";
+
+
+
+try {
+    $sql = "SELECT * FROM menus";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("ERROR: Could not execute $sql. " . $e->getMessage());
+}
+
+
+
 
 var_dump($_SESSION);
 
@@ -58,7 +73,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="hidden" name="form_type" value="create_menu" id="create_menu">
                 <div><button type="submit" id="submit-button-create-menu">Click me</button></div>
             </div>
-            <div id="wrapper">View Orders</div>
+            <div id="wrapper">
+                <h2>View Orders</h2>
+                <div>
+                    <table class="food-admin-table">
+                        <thead>
+                            <tr>
+                                <th>Food Name</th>
+                                <th>Cuisine</th>
+                                <th>Food Description</th>
+                                <th>Price</th>
+                                <th>Age</th>
+                            </tr>
+                            <tr>
+                                <?php
+                                foreach ($result as $row) {
+                                    echo '<tr>';
+                                    echo '<td> ' . $row['foodname'] . '</td> ';
+                                    echo '<td> ' . $row['cuisine'] . '</td> ';
+                                    echo '<td> ' . $row['food_description'] . '</td> ';
+                                    echo '<td> ' . $row['price'] . '</td> ';
+                                    echo '<td> <img  src="data:image/jpeg;base64,' . base64_encode($row['image_data']) . '"/></td>';
+                                    echo '</tr>';
+                                }
+                                ?>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
         </form>
     </div>
     <footer>
