@@ -229,6 +229,11 @@ head {
     flex-direction: row;
     justify-content: space-evenly;
   }
+  a {
+    text-decoration: none;
+    color: #000; /* Set the color you prefer */
+    cursor: pointer;
+    }
 
   footer .smallLogo {
     display: flex;
@@ -269,8 +274,11 @@ head {
   }
 
   footer .top .contact img {
-    margin: 5px;
-    width: 10%;
+    width: 50px; /* Set the width to make it larger */
+    height: auto;
+    margin-right: 10px;
+    margin-left:10px;
+
   }
 
   footer .top .contact .small-icon {
