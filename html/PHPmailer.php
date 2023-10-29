@@ -1,5 +1,7 @@
 <?php
 // Include PHPMailer autoloader
+
+function sendEmail(){
 require 'path/to/PHPMailer/src/PHPMailer.php';
 require 'path/to/PHPMailer/src/SMTP.php';
 require 'path/to/PHPMailer/src/Exception.php';
@@ -64,4 +66,7 @@ if(isset($_POST['send'])) //button press
         echo "Email could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
     
+
+}
+
 ?>
