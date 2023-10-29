@@ -28,8 +28,9 @@ $headers = 'From: your-email@example.com' . "\r\n" .
 $mailSent = mail($to, $subject, $message, $headers);
 
 if ($mailSent) {
+    echo $results;
+    echo "<br>";
     echo "Email sent successfully.";
 } else {
     echo "Email sending failed.";
 }
-?>
