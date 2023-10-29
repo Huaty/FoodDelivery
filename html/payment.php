@@ -99,7 +99,31 @@ $results = $stmt->fetch(PDO::FETCH_ASSOC);
                 <input type="tel">
                 <input type="tel"><br><br>
 
-                <button type="submit">PAY</button>
+                <form method="post" action="">
+
+                <button type="submit" name="submit">PAY</button>
+                </form>
+
+                <?php
+            if (isset($_POST['submit'])) {
+                // Your existing payment processing logic
+
+                // After processing the payment, include the code to send an email
+                require_once 'send_email.php'; // Include the email sending script
+
+                // Check the $mailSent variable to confirm the email status
+                if ($mailSent) {
+                    // Email sent successfully
+                    // You can redirect the user or show a success message here
+                    echo "Payment successful and email sent!";
+                } else {
+                    // Email sending failed
+                    // You can redirect the user or show an error message here
+                    echo "Payment successful but failed to send an email. Please contact support.";
+                }
+            }
+            ?>
+
             </div>
         </div>
 
