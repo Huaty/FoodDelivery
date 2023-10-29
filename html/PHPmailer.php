@@ -9,8 +9,8 @@ require 'path/to/PHPMailer/src/Exception.php';
 // require 'vendor/autoload.php'; // Update this with the path to your autoloader
 
 // Import PHPMailer classes into the global namespace
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
 
 //  // Creating the confirmation message
 //     $confirmationMessage = "Dear $name,
