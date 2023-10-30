@@ -91,11 +91,7 @@ if (isset($_POST['submit'])) {
     <header>
         <!-- Header -->
         <div class="nav-container">
-            <a class="button-style">
-                <div class="logo-placement">
-                    <img src="../asset/image/Logo.png" class="logo">
-                </div>
-            </a>
+
             <!-- End Logo -->
             <!-- Navigation Bar -->
             <ul class="nav-flex-right nav-flex-grow">

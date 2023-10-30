@@ -40,6 +40,3 @@
 --     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
 -- );
 
-
-
-

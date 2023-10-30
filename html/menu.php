@@ -22,6 +22,7 @@ try {
 $orders = [];
 $items = [];
 $index = 0;
+$searchCusines = '';
 
 //// Session_start(); is in config_session.inc.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -116,20 +117,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php
         echo '<div class="image-grid">';
         foreach ($result as $row) {
+            if ($searchCusines && $row['cuisine'] != $searchCusines) {
+                continue;
+            }
             echo '<div id= "menuGridclass">';
             echo '<img  src="data:image/jpeg;base64,' . base64_encode($row['image_data']) . '"/>';
             echo '<div id="food-title-' . $row["item_id"] . '"> ' . $row["foodname"] . '</div>';
             echo '<div id="food-description-' . $row["item_id"] . '"> ' . $row["food_description"] . ' </div>';
             echo '<div id="price-' . $row["item_id"] . '"> $' . $row["price"] . ' </div>';
             echo '<div class="quantity-control">
-            <button id="decrement-index-' . $row["item_id"] . '">-</button>
-            <span id="quantity-menu-' . $row["item_id"] . '">0</span>
-            <button id="increment-index-' . $row["item_id"] . '">+</button>
-        </div>';
+                <button id="decrement-index-' . $row["item_id"] . '">-</button>
+                <span id="quantity-menu-' . $row["item_id"] . '">0</span>
+                <button id="increment-index-' . $row["item_id"] . '">+</button>
+            </div>';
             echo '</div>';
         }
         echo '</div>';
+
         ?>
+
         <form action="" method="post" id="form-menu">
             <div class="order-card">
                 <h2>Order Details</h2>
