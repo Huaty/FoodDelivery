@@ -88,19 +88,26 @@ if (isset($_POST['submit'])) {
 
 
 <body>
-    <header>
-        <!-- Header -->
-        <div class="nav-container">
-
-            <!-- End Logo -->
-            <!-- Navigation Bar -->
-            <ul class="nav-flex-right nav-flex-grow">
-                <!-- <li class="nav-content "><a href="index.php"><span>Home</span></a></li>
-                <li class="nav-content"><a href="signup.php"><span>Menu</span></li>
-                <li class="nav-content about-us"><a href="about.php"><span class="current-page">About us</span></a></li>
-                <li class="nav-content login"><a href="login.php"><span>Login</span></a></li> -->
+    <!-- Header -->
+    <div class="nav-container-menu">
+        <!-- Logo -->
+        <a class="button-style">
+            <div class="logo-placement">
+                <img src="../asset/image/Logo.png" class="logo">
+            </div>
+        </a>
+        <div class="profile-dropdown">
+            <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
+                <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Profile</a>
+                <a href="logout.php">Log out</a>
+                <a href="orderDetails.php">Orders Details</a>
+            </div>
         </div>
-    </header>
+    </div>
+
 
     <div>
         <div class="container-payment">

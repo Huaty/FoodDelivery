@@ -59,23 +59,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <body>
-    <header>
-        <!-- Header -->
+    <!-- Header -->
+    <div class="nav-container-menu">
+        <!-- Logo -->
         <a class="button-style">
             <div class="logo-placement">
                 <img src="../asset/image/Logo.png" class="logo">
             </div>
         </a>
-
-        <!-- End Logo -->
-        <!-- Navigation Bar -->
-        <ul class="nav-flex-right nav-flex-grow">
-            <!-- <li class="nav-content "><a href="index.php"><span></span></a></li>
-                <li class="nav-content"><a href="signup.php"><span>Menu</span></li>
-                <li class="nav-content about-us"><a href="about.php"><span class="current-page">About us</span></a></li>
-                <li class="nav-content login"><a href="login.php"><span>Login</span></a></li> -->
+        <div class="profile-dropdown">
+            <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
+                <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
+            </button>
+            <div class="dropdown-content">
+                <a href="logout.php">Log out</a>
             </div>
-    </header>
+        </div>
+    </div>
+
     <div id="admin-container">
         <h1>Welcome to Admin Page </h1>
         <form action="adminpage.php" method="post">
