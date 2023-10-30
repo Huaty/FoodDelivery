@@ -33,6 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         case "create_menu":
             echo "Menu Table have intialize";
             create_menu($pdo);
+            break;
+        case 'add-food':
+            // if (isset($_FILES["foodImage"])) {
+            //     if ($_FILES["foodImage"]["error"] == 0) {
+            //         $movieImage = file_get_contents($_FILES["foodImage"]["tmp_name"]);
+            //         InsertMovie($myconnect, $_POST["foodName"], $_POST["movieGenre"], $_POST["movieDescription"], $movieImage);
+            //     } else {
+            //         echo "File upload error: " . $_FILES["movieImage"]["error"];
+            //     }
+
     }
 }
 ?>
@@ -84,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <th>Cuisine</th>
                                 <th>Food Description</th>
                                 <th>Price</th>
-                                <th>Age</th>
+                                <th>Image</th>
                             </tr>
                             <tr>
                                 <?php
@@ -104,6 +114,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </form>
+
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type='hidden' value='add-new-food' name='form_type'>
+            <div id="wrapper">Add Food </div>
+            <input type="hidden" name="form_type" value="create_new_movie" id="create_new_movie_hidden">
+            <label for="Foodname">Food name</label>
+            <input type="text" name="foodName" id="foodName">
+
+            <label for="Cuisine">Cuisine</label>
+            <input type="text" name="cuisine" id="cuisine">
+
+            <label for="Food Description">Food Description</label>
+            <input type="text" name="foodDescription" id="foodDescription">
+
+            <label for="Price">Price</label>
+            <input type="number" name="Price" id="Price">
+
+            <label for="foodImage">Food Image</label>
+            <input type="file" name="foodImage" id="foodImage">
+
+            <input type="submit" value="Upload Food" id="submit-button-create-new-food">
+
+    </div>
     </div>
     <footer>
         <!-- Footer Top -->
