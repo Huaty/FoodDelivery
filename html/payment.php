@@ -1,12 +1,17 @@
 <?php
 require_once "../asset/includePHP/config_session.inc.php";
 require_once "../asset/includePHP/dbh.inc.php";
-error_reporting(E_ALL);
+require_once "error.php";
+ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
-var_dump($_SESSION['orders']);
-$orders = $_SESSION['orders'];
+if ($_SESSION['orders'] === null) {
+    header("Location:menu.php");
+}
 
+$orders = $_SESSION['orders'];
 $userName = $_SESSION["user_firstname"];
+$id = $_SESSION["user_id"];
+
 
 $query = "SELECT homeaddress FROM users WHERE firstname=:email";
 $stmt = $pdo->prepare($query);
@@ -14,6 +19,59 @@ $stmt->bindParam(":email", $userName);
 $stmt->execute();
 
 $results = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+if (isset($_POST['submit'])) {
+    require_once "../asset/includePHP/dbh.inc.php";
+    $pdo->beginTransaction();
+    try {
+        $insertOrderQuery = "INSERT INTO orders (UserID, homeaddress, OrderDate) VALUES (:id, :homeaddress, :OrderDate)";
+        $orderStmt = $pdo->prepare($insertOrderQuery);
+        $orderStmt->bindParam(":id", $id);
+        $orderStmt->bindParam(":homeaddress", $results['homeaddress']);
+        $orderDate = date("Y-m-d H:i:s");
+        $orderStmt->bindParam(":OrderDate", $orderDate);
+        $orderStmt->execute();
+
+        $lastOrderId = $pdo->lastInsertId(); //// take OrderID from orders table
+
+        $insertOrderDetailQuery = "INSERT INTO OrderDetails (OrderID, FoodName, Quantity, TotalPrice) VALUES (:OrderID, :FoodName, :Quantity, :TotalPrice)";
+        $orderDetailStmt = $pdo->prepare($insertOrderDetailQuery);
+
+        foreach ($orders as $order) {
+            $totalPrice = $order['price'] * $order['quantity'];
+            $orderDetailStmt->bindParam(":OrderID", $lastOrderId);
+            $orderDetailStmt->bindParam(":FoodName", $order['item_name']);
+            $orderDetailStmt->bindParam(":Quantity", $order['quantity']);
+            $orderDetailStmt->bindParam(":TotalPrice", $totalPrice);
+            $orderDetailStmt->execute();
+        }
+
+        // Commit the transaction
+        $pdo->commit();
+    } catch (Exception $e) {
+        // Rollback the transaction if there's an error
+        $pdo->rollback();
+        throw $e;
+    }
+
+    // Your existing payment processing logic
+
+    // After processing the payment, include the code to send an email
+    // require_once 'send_email.php';  Include the email sending script
+
+    // Check the $mailSent variable to confirm the email status
+    // if ($mailSent) {
+
+    //     echo "Payment successful and email sent!";
+    // } else {
+
+    //     echo "Payment successful but failed to send an email. Please contact support.";
+    // }
+    unset($_SESSION['orders']); // clear the order session
+    header('Location: success.php');
+}
+
 
 
 ?>
@@ -33,10 +91,11 @@ $results = $stmt->fetch(PDO::FETCH_ASSOC);
     <header>
         <!-- Header -->
         <div class="nav-container">
-            <!-- Logo -->
-            <div class="logo-placement">
-                <a href="index.php"><object data="../asset/image/Logo.svg" Alt="Logo" class="logo"></object></a>
-            </div>
+            <a class="button-style">
+                <div class="logo-placement">
+                    <img src="../asset/image/Logo.png" class="logo">
+                </div>
+            </a>
             <!-- End Logo -->
             <!-- Navigation Bar -->
             <ul class="nav-flex-right nav-flex-grow">
@@ -101,28 +160,8 @@ $results = $stmt->fetch(PDO::FETCH_ASSOC);
 
                 <form method="post" action="">
 
-                <button type="submit" name="submit">PAY</button>
+                    <button type="submit" name="submit">PAY</button>
                 </form>
-
-                <?php
-            if (isset($_POST['submit'])) {
-                // Your existing payment processing logic
-
-                // After processing the payment, include the code to send an email
-                require_once 'send_email.php'; // Include the email sending script
-
-                // Check the $mailSent variable to confirm the email status
-                if ($mailSent) {
-                    // Email sent successfully
-                    // You can redirect the user or show a success message here
-                    echo "Payment successful and email sent!";
-                } else {
-                    // Email sending failed
-                    // You can redirect the user or show an error message here
-                    echo "Payment successful but failed to send an email. Please contact support.";
-                }
-            }
-            ?>
 
             </div>
         </div>

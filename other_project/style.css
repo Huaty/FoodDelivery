@@ -1,3 +1,16 @@
+head {
+    display: none;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+html,body{
+    height: 100%;
+}
+
 #movieseats {
     display: grid;
     grid-template-columns: repeat(10, 1fr); /* Adjust the number depending on how many columns you want */
@@ -24,7 +37,6 @@
     flex-direction: row;
     justify-content: center;
     min-height: 500px;
-
 }
 
 #nav-bar{
@@ -36,8 +48,9 @@
 .seat {
     display: none;  /* Hide the checkbox */
 
-
 }
+
+
 
 .seat-label{
     display: inline-block;
@@ -57,10 +70,20 @@
     background: linear-gradient(to bottom, #e2461c, #f5793d);
 }
 
-.seat:checked + .seat-label {
-    top: 5px;
+.seat.booked + .seat-label
+{
+    background-color: #a9a9a9; /* Gray color to indicate unavailability */
+    cursor: not-allowed; 
     box-shadow: none;
+
 }
+.booked-label {
+    color: #a9a9a9; /* Gray color for booked seat labels */
+}
+
+
+
+
 
 #print-seats
 {
@@ -70,6 +93,7 @@
     align-items: center;
     margin:10%;
 }
+
 
 #checkout{
     display:flex;
@@ -98,4 +122,26 @@
     flex-direction: column;
     margin-top: 5%;
     padding-left: 10%;
+
 }
+
+
+.movie-image{
+    display:flex;
+    justify-content: center;
+
+    width:50%;
+    height:50%;
+}
+
+#movie-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#movie-wrapper{
+    display:flex;
+    flex-direction: column;
+}
+
