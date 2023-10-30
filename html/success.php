@@ -1,21 +1,13 @@
 <?php
 require_once "../asset/includePHP/config_session.inc.php";
+require_once "error.php";
 require_once "../asset/includePHP/dbh.inc.php";
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-var_dump($_SESSION['orders']);
-$orders = $_SESSION['orders'];
+$id = $_SESSION["user_id"];
 
-$userName = $_SESSION["user_firstname"];
-
-$query = "SELECT homeaddress FROM users WHERE firstname=:email";
-$stmt = $pdo->prepare($query);
-$stmt->bindParam(":email", $userName);
-$stmt->execute();
-
-$results = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
+$orderQuery = "SELECT * FROM orders WHERE UserID=:id";
+$orderStmt = $pdo->prepare($orderQuery);
+$stmt->bindParam(":id", $id);
+var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -48,59 +40,8 @@ $results = $stmt->fetch(PDO::FETCH_ASSOC);
     </header>
 
     <div>
-        <div class="container-payment">
-            <h2>ORDER DETAILS:</h2>
-            <p>Create on Date at Time</p>
+        <div class="container">
 
-            <table>
-                <tr>
-                    <th>FOOD</th>
-                    <th>QUANTITY</th>
-                    <th>PRICE OF EACH ITEM</th>
-                </tr>
-                <?php
-                $totalAmount = 0;
-                foreach ($orders as $order) {
-                    echo "<tr>";
-                    echo "<td>" . $order['item_name'] . "</td>";
-                    echo "<td>" . $order['quantity'] . "</td>";
-                    echo "<td>" . $order['price'] * $order['quantity'] . "</td>";
-                    echo "</tr>";
-                    $totalAmount += $order['price'] * $order['quantity'];
-                }
-                ?>
-                <tr>
-                    <?php
-                    echo "<td>Total':</td>";
-                    echo "<td></td>";
-                    echo "<td>$totalAmount</td>";
-                    ?>
-                </tr>
-            </table>
-
-            <h2>ADDRESS:</h2>
-            <p><?php
-                foreach ($results as $result) {
-                    echo $result;
-                }
-                ?></p>
-
-            <h2>PAYMENT METHOD:</h2>
-            <div class="payment-methods">
-                <label> CARD</label>
-            </div>
-
-            <div>
-                <label>NAME:</label><br>
-                <input type="text" name="card_name"><br><br>
-
-                <label>CARD DETAILS:</label><br>
-                <input type="tel">
-                <input type="tel">
-                <input type="tel"><br><br>
-
-                <button type="submit">PAY</button>
-            </div>
         </div>
 
     </div>

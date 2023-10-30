@@ -1,8 +1,20 @@
 <?php
+session_start();
+
+require_once "db.inc.php";
+$queryMovie = "select * from movie";
+$stmt = $myconnect->prepare($queryMovie);
+$stmt->execute();
+$resultMovie = $stmt->get_result();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $selectedSeats = array_keys($_POST);  // Get the keys of the $_POST array, which are the names of the checked checkboxes
-    echo "Selected seats: " . implode(", ", $selectedSeats);  // Print the selected seats as a comma-separated string
+
+    $movie_id = $_POST["movie_id"];
+    $_SESSION["movie_id"] = $movie_id;
+    echo $movie_id;
+    header("Location: seats.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -17,27 +29,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div id="nav-bar">
-        Nav
+        <div><a href="admin.php">Admin Page</a></div>
     </div>
+    <div id="movie-container">
+        <?php foreach ($resultMovie as $movie) {
+            echo "<form method='POST' action=''>";
+            echo "<div id='movie-wrapper'>";
+            echo "<input type='hidden' name='movie_id' value='" . $movie['MovieID'] . "'/>";
+            echo "<img class='movie-image' src='data:image/jpeg;base64," . base64_encode($movie['MovieImage']) . "' />";
+            echo "<div> Movie Title" . $movie['MovieName'] . " </div>";
+            echo "<div>Movie Genre " . $movie['MovieGenre'] . " </div>";
+            echo "<div>Description " . $movie['MovieDescription'] . " </div>";
+            echo "<input type='submit' value='Click Me'/>";
+            echo "</div>";
+            echo "</form>";
+        } ?>
 
-    <div id="main-content">
-        <div id="movie-screen">
-            <div id="screen">Screen</div>
-            <div id="movie">
-                <form method="POST" action="" id="selectedCheckBoxForm">
-                    <div id="movieseats"></div>
-                </form>
-            </div>
-        </div>
-        <div id="checkout-container">
-            Checkout
-            <div id="print-seats">
-
-                <div id="checkout-seats"></div>
-            </div>
-            <button type="submit" id="checkout-button">Checkout</button>
-        </div>
-        <!-- <button type="submit" id="checkout-button">Checkout</button> -->
     </div>
 </body>
 <script src="script.js"></script>

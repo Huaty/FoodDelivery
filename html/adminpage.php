@@ -51,9 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <header>
         <!-- Header -->
-        <div class="logo-placement">
-            <img src="../asset/image/Logo.png" class="logo">
-        </div>
+        <a class="button-style">
+            <div class="logo-placement">
+                <img src="../asset/image/Logo.png" class="logo">
+            </div>
+        </a>
 
         <!-- End Logo -->
         <!-- Navigation Bar -->
