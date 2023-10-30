@@ -1371,7 +1371,6 @@ head {
 
 .profile-dropdown {
   align-items: center;
-
   position: relative;
 }
 
@@ -1391,7 +1390,7 @@ head {
 }
 
 .dropdown-content {
-
+  display:none;
   position: absolute;
   top: 35%;    
   right: 0;
@@ -1560,15 +1559,17 @@ tbody tr:hover {
 
  /* Order Details Page  */
 .order-container {
-  width: 300px; /* Adjust as per your design requirements */
+  width: 500px; /* Adjust as per your design requirements */
+  height:50%;
   border: 1px solid #ccc;
   padding: 10px;
   margin: 20px;
 }
 
 .order-details {
-  max-height: 150px; /* Adjust based on how much you want to show before scrolling */
+  max-height: 50%; /* Adjust based on how much you want to show before scrolling */
   overflow-y: auto;  /* Allow vertical scrolling */
+
   border: 1px solid #ddd;
   padding: 10px;
 }
