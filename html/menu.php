@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $quantity = isset($_POST['quantity_' . $index]) ? $_POST['quantity_' . $index] : null;
                     $price = isset($_POST['price_' . $index]) ? $_POST['price_' . $index] : null;
                     $item_name = isset($result[$index - 1]) ? $result[$index - 1]['foodname'] : null;
-
+                    print_r($result[0]['item_id']);
                     $orders[$index] = [
                         'item_id' => $index,
                         'item_name' => $item_name,
