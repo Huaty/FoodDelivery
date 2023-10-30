@@ -19,8 +19,20 @@ try {
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
-foreach ($orderResults as $orderResult) {
-    echo $orderResult['OrderID'];
+
+
+$orderDetailsResults = array();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    try {
+        $orderID = $_POST['orderID'];
+        $orderDetailsQuery = "SELECT * FROM OrderDetails WHERE OrderID= :OrderID";
+        $orderDetailsStmt = $pdo->prepare($orderDetailsQuery);
+        $orderDetailsStmt->bindParam(":OrderID", $orderID);
+        $orderDetailsStmt->execute();
+        $orderDetailsResults = $orderDetailsStmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
 }
 
 ?>
@@ -57,19 +69,42 @@ foreach ($orderResults as $orderResult) {
     </div>
 
     <div class="order-container">
-        <h2>Order Details</h2>
-        <div class="order-details">
-            <?php
-            foreach ($orderResults as $orderResult) {
-                echo "<div> Order ID: " . $orderResult['OrderID'] . "</div>";
-                echo "<div> Order Date: " . $orderResult['OrderDate'] . "</div>";
-            }
+        <div>
+            <h2>Order Details</h2>
+            <div class="order-details">
+                <?php
+                foreach ($orderResults as $orderResult) {
 
-            ?>
+                    echo "<div> Order ID: " . $orderResult['OrderID'] . "</div>";
+                    echo "<div> Order Date: " . $orderResult['OrderDate'] . "</div>";
+                    echo "<form action='orderDetails.php' method='post'>";
+                    // Hidden input to store the order ID
+                    echo "<input type='hidden' name='orderID' value='" . $orderResult['OrderID'] . "'>";
+                    // Submit button
+                    echo "<input type='submit' value='View Order'>";
+                    echo "</form>";
+                }
+
+                ?>
+            </div>
+        </div>
+        <div>
+            <div>
+                <?php
+                if ($orderDetailsResults) {
+                    foreach ($orderDetailsResults as $orderDetailResult) {
+                        echo "<div> Item Name: " . $orderDetailResult['FoodName'] . "</div>";
+                        echo "<div> Quantity: " . $orderDetailResult['Quantity'] . "</div>";
+                        echo "<div> Price: " . $orderDetailResult['TotalPrice'] . "</div>";
+                    }
+                }
+
+                ?>
+            </div>
         </div>
     </div>
 
 </body>
-<script src="script.js"></script>
+<script src="../asset/js/script.js"></script>
 
 </html>
