@@ -107,11 +107,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     </div>
+    <div id="search-container">
+        <form id="searchForm" action="" method="post">
+            <input type="hidden" name="form_type" value="searchForm">
+            <div id="searchBar-container">Search Bar :<input type='text' name='searchBar' id="searchBar"></div>
+        </form>
+        <form id="dropBoxForm" action="" method="post">
+            <input type="hidden" name="form_type" value="dropBoxForm">
+            <div id="dropx-container">
+                <select name="fruits">
+                    <option value="apple">Apple</option>
+                    <option value="banana">Banana</option>
+                    <option value="cherry">Cherry</option>
+                </select>
+            </div>
+        </form>
+    </div>
 
-    <form id="searchForm" action="" method="post">
-        <input type="hidden" name="form_type" value="searchForm">
-        <div id="searchBar-container">Search Bar :<input type='text' name='searchBar' id="searchBar"></div>
-    </form>
 
     <div id="menu-wrapper">
         <?php

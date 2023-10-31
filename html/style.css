@@ -1416,7 +1416,7 @@ head {
   border-radius: 10px;
 }
 
-#searchBar-container{
+#search-container{
   display: flex;
   flex-direction: row;
   justify-content: center;
