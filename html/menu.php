@@ -22,7 +22,8 @@ try {
 $orders = [];
 $items = [];
 $index = 0;
-$searchCusines = '';
+$searchFood = '';
+$selectedCuisine = '';
 
 //// Session_start(); is in config_session.inc.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -32,8 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     switch ($formType) {
         case 'searchForm':
             if (isset($_POST["searchBar"])) {
-                $searchCusines = $_POST["searchBar"];
-                echo $searchCusines;
+                $searchFood = $_POST["searchBar"];
+                $searchFood = strtolower(trim($searchFood));
+            }
+
+            if (isset($_POST["cuisine"])) {
+                $selectedCuisine = isset($_POST['cuisine']) ? $_POST['cuisine'] : '';
+                echo $selectedCuisine;
             }
             break;
 
@@ -110,18 +116,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="search-container">
         <form id="searchForm" action="" method="post">
             <input type="hidden" name="form_type" value="searchForm">
-            <div id="searchBar-container">Search Bar :<input type='text' name='searchBar' id="searchBar"></div>
-        </form>
-        <form id="dropBoxForm" action="" method="post">
-            <input type="hidden" name="form_type" value="dropBoxForm">
-            <div id="dropx-container">
-                <select name="fruits">
-                    <option value="apple">Apple</option>
-                    <option value="banana">Banana</option>
-                    <option value="cherry">Cherry</option>
+            <div id="searchBar-container">Search Bar :<input type='text' name='searchBar' id="searchBar" value=<?php echo isset($_POST['searchBar']) ? $_POST['searchBar'] : ""; ?>></div>
+            <div id="dropDown-container">
+                Cuisine:
+                <select name="cuisine" id="dropBox-menu">
+                    <?php
+                    echo "<option value=''>All</option>";
+                    foreach ($result as $row) {
+                        $selected = ($row['cuisine'] == $selectedCuisine) ? 'selected' : '';
+                        echo "<option value='" . $row['cuisine'] . "' $selected>" . $row['cuisine'] . "</option>";
+                    }
+                    ?>
                 </select>
             </div>
         </form>
+
     </div>
 
 
@@ -129,7 +138,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php
         echo '<div class="image-grid">';
         foreach ($result as $row) {
-            if ($searchCusines && $row['cuisine'] != $searchCusines) {
+            $foodNameProcessed = strtolower($row['foodname']);
+            $cuisineProcessed = strtolower($row['cuisine']);
+            //// If food name does not contain search food, skip this food
+            //// Example $foodNameProcessd = Strawberry 
+            ///// $searchFood = berry
+            ////There strpos will return 5, which is not false, so it will skip this food and go next interation
+            if ($searchFood && strpos($foodNameProcessed, $searchFood) === false) {
+                continue;
+            }
+            if ($selectedCuisine && $cuisineProcessed != $selectedCuisine) {
                 continue;
             }
             echo '<div id= "menuGridclass">';

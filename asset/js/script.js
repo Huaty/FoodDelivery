@@ -22,15 +22,31 @@ function adminPage(){
 
 function menuFunction() {
   searchBar = document.getElementById("searchBar");
-  if(searchBar){
-    searchForm  =  document.getElementById("searchForm");
+  dropBox = document.getElementById("dropBox-menu");
+  searchForm  =  document.getElementById("searchForm");
 
-    searchBar.addEventListener("change",function(event){
-      console.log(event.target.value)
-      searchForm.submit(); 
-    }
-    )
+  
+  if(searchBar){
+    let timeout = null;
+    searchBar.addEventListener("input",function(event){
+      clearTimeout(timeout);
+
+      // Set a new timeout
+      timeout = setTimeout(function() {
+          searchForm.submit();
+      }, 500);  // 500ms delay before submitting
+  });
+
   }
+
+  if(dropBox){
+    dropBox.addEventListener("change",function(event){
+      console.log(event.target.value)
+      searchForm.submit();
+    })
+  }
+
+
   gridContainer = document.querySelector(".image-grid");
   if (gridContainer) {
     var foodDetails = new Map();
