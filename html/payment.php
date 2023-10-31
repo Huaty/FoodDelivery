@@ -101,7 +101,7 @@ if (isset($_POST['submit'])) {
                 <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
             </button>
             <div class="dropdown-content">
-                <a href="#">Profile</a>
+                <a href="profile.php">Profile</a>
                 <a href="logout.php">Log out</a>
                 <a href="orderDetails.php">Orders Details</a>
             </div>

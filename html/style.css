@@ -1574,6 +1574,48 @@ tbody tr:hover {
   padding: 10px;
 }
 
+
+/* Profile Page  */
+.profile-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.profile-pic img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #333;
+}
+
+.profile-links a {
+  display: block;
+  margin: 10px 0;
+  color: #333;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.profile-links a:hover {
+  background-color: #f7f7f7;
+}
+
+.profile-info p {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+
+
 /* For phone or i dont know what  */
 @media only screen and (min-width: 1024px) {
   .slider-main-container {

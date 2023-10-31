@@ -1,6 +1,5 @@
 <?php
 
-$pwdSignup = "password";
 
 function pwdSignup($pwdSignup)
 {
