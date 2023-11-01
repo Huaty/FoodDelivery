@@ -4,10 +4,17 @@ require_once "error.php";
 require_once "../asset/includePHP/dbh.inc.php";
 $id = $_SESSION["user_id"];
 
-$orderQuery = "SELECT * FROM orders WHERE UserID=:id";
-$orderStmt = $pdo->prepare($orderQuery);
-$stmt->bindParam(":id", $id);
-var_dump($_SESSION);
+try {
+    $orderQuery = "SELECT * FROM orders WHERE UserID=:id ORDER BY OrderID DESC LIMIT 1";
+    $orderStmt = $pdo->prepare($orderQuery);
+    $orderStmt->bindParam(":id", $id);
+    $orderStmt->execute();
+    $results = $orderStmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    die("ERROR: Could not execute $orderQuery. " . $e->getMessage());
+}
+
+var_dump($results);
 ?>
 
 <!DOCTYPE html>
@@ -23,24 +30,35 @@ var_dump($_SESSION);
 
 <body>
     <header>
-        <!-- Header -->
-        <div class="nav-container">
+        <div class="nav-container-menu">
             <!-- Logo -->
-            <div class="logo-placement">
-                <a href="index.php"><object data="../asset/image/Logo.svg" Alt="Logo" class="logo"></object></a>
+            <a href="menu.php" class="button-style">
+                <div class="logo-placement">
+                    <img src="../asset/image/Logo.png" class="logo">
+                </div>
+            </a>
+            <div class="profile-dropdown">
+                <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
+                    <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
+                </button>
+                <div class="dropdown-content">
+                    <a href="profile.php">Profile</a>
+                    <a href="logout.php">Log out</a>
+                    <a href="orderDetails.php">Orders Details</a>
+                </div>
             </div>
-            <!-- End Logo -->
-            <!-- Navigation Bar -->
-            <ul class="nav-flex-right nav-flex-grow">
-                <!-- <li class="nav-content "><a href="index.php"><span>Home</span></a></li>
-                <li class="nav-content"><a href="signup.php"><span>Menu</span></li>
-                <li class="nav-content about-us"><a href="about.php"><span class="current-page">About us</span></a></li>
-                <li class="nav-content login"><a href="login.php"><span>Login</span></a></li> -->
         </div>
     </header>
 
     <div>
         <div class="container">
+
+            <h1>Your Order Have been Confirmed!!</h1>
+            <div>
+                <?php
+                echo "<h2> Your Order Number:</h2> <div> " . $results[0]["OrderID"] . " </div>";
+                ?>
+            </div>
 
         </div>
 
