@@ -24,7 +24,7 @@ $items = [];
 $index = 0;
 $searchFood = '';
 $selectedCuisine = '';
-
+$cnt = 0;
 //// Session_start(); is in config_session.inc.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formType = isset($_POST['form_type']) ? $_POST['form_type'] : null;
@@ -44,22 +44,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
 
         case 'form-menu':
+
+            $foodDetails = [];
+            unset($_POST['form_type']);
+            // var_dump($_POST);
+            $organizedData = [
+                'indexfood' => [],
+                'quantity' => [],
+                'price' => [],
+                'totalPrice' => [],
+            ];
+
             foreach ($_POST as $key => $value) {
-                if (strpos($key, "quantity_") === 0) {
-                    $index = str_replace("quantity_", "", $key);
-                    $quantity = isset($_POST['quantity_' . $index]) ? $_POST['quantity_' . $index] : null;
-                    $price = isset($_POST['price_' . $index]) ? $_POST['price_' . $index] : null;
-                    $item_name = isset($result[$index - 1]) ? $result[$index - 1]['foodname'] : null;
-                    print_r($result[0]['item_id']);
-                    $orders[$index] = [
-                        'item_id' => $index,
-                        'item_name' => $item_name,
-                        'quantity' => $quantity,
-                        'price' => $price
-                    ];
-                }
+                $keyParts = explode('_', $key);
+                $type = $keyParts[0];
+                $index = $keyParts[1];
+
+                $organizedData[$type][$index] = $value;
             }
-            $_SESSION['orders'] = $orders;
+
+            $_SESSION['orders'] = $organizedData;
             header("Location:payment.php");
             break;
 
@@ -153,6 +157,7 @@ $stmt = null;
                 continue;
             }
             echo '<div id= "menuGridclass">';
+            echo '<div type="hidden" class = "id-menu" id="' . $row["item_id"] . '"></div>';
             echo '<img  src="data:image/jpeg;base64,' . base64_encode($row['image_data']) . '"/>';
             echo '<div id="food-title-' . $row["item_id"] . '"> ' . $row["foodname"] . '</div>';
             echo '<div id="food-description-' . $row["item_id"] . '"> ' . $row["food_description"] . ' </div>';

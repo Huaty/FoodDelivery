@@ -56,6 +56,8 @@ function menuFunction() {
   searchBar = document.getElementById("searchBar");
   dropBox = document.getElementById("dropBox-menu");
   searchForm  =  document.getElementById("searchForm");
+  gridContainer = document.querySelector(".image-grid");
+
 
   
   if(searchBar){
@@ -79,11 +81,12 @@ function menuFunction() {
   }
 
 
-  gridContainer = document.querySelector(".image-grid");
+
   if (gridContainer) {
     var foodDetails = new Map();
-    food = gridContainer.querySelectorAll("#menuGridclass");
-    for (let i = 1; i <= food.length; i++) {
+    const idMenu = document.querySelectorAll(".id-menu");
+    idMenu.forEach((value,key)=>{
+      var i =value.id;
       priceText = document.getElementById(`price-${i}`).innerText;
       priceText = priceText.replace("$", ""); // Remove the $ sign. Result: "10.50"
       let price = parseFloat(priceText);
@@ -121,7 +124,13 @@ function menuFunction() {
           updateOrder(i, foodDetails, totalPrice);
         });
       }
-    }
+      console.log(value.id)
+
+    })
+    // food = gridContainer.querySelectorAll("#menuGridclass");
+    // for (let i = 1; i <= food.length; i++) {
+     
+    // }
     function updateOrder(i, foodDetails, totalPrice) {
       current = foodDetails.get(i);
       console.log(current)
@@ -129,6 +138,7 @@ function menuFunction() {
       let foodChoosen = document.getElementById(`food-choosen-${i}`);
       let foodChoosenText = document.getElementById(`food-choosen-text-${i}`);
       let updateOrderContent = document.getElementById("update-order");
+      let foodIndexInput = document.getElementById(`index-food-${i}`);
       let quantityInput = document.getElementById(`input-quantity-${i}`);
       let priceInput = document.getElementById(`input-price-${i}`);
       let totalPriceInput = document.getElementById(`input-totalPrice-${i}`);
@@ -150,8 +160,17 @@ function menuFunction() {
         updateOrderContent.removeChild(foodChoosen);
       }
 
-      console.log(!(quantityInput))
+      
       ////Create input for form to POST
+      if (!foodIndexInput) {
+        foodIndexInput= document.createElement("input");
+        foodIndexInput.type = "hidden";
+        foodIndexInput.id = `indexfood_${i}`;
+        foodIndexInput.name = `indexfood${i}`;
+        foodChoosen.appendChild(foodIndexInput);
+        console.log("success")
+
+      }
       if (!quantityInput) {
         quantityInput = document.createElement("input");
         quantityInput.type = "hidden";
@@ -161,6 +180,7 @@ function menuFunction() {
         console.log("success")
 
       }
+
 
       if (!priceInput) {
         priceInput = document.createElement("input");
@@ -180,6 +200,7 @@ function menuFunction() {
       quantityInput.value = current.quantity;
       priceInput.value = current.price;
       totalPriceInput.value = totalPrice;
+      foodIndexInput.value = i;
       updateTotalAmount(i, foodDetails);
     }
   }

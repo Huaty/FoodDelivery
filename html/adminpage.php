@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $insertStmt->bindParam(':image_data', $foodImage, PDO::PARAM_LOB);  // Using LOB for binary data
                         echo "working";
                         $insertStmt->execute();
+                        header("Location: adminpage.php");
                     } catch (PDOException $e) {
                         die("ERROR: Could not execute $insertNewFood. " . $e->getMessage());
                     }
@@ -60,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         case "create_menu":
             echo "Menu Table have intialize";
             create_menu($pdo);
+            header("Location: adminpage.php");
             break;
 
         case "update_food":

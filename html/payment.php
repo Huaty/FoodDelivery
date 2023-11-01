@@ -11,15 +11,13 @@ if ($_SESSION['orders'] === null) {
 $orders = $_SESSION['orders'];
 $userName = $_SESSION["user_firstname"];
 $id = $_SESSION["user_id"];
-
+var_dump($orders);
 
 $query = "SELECT homeaddress FROM users WHERE firstname=:email";
 $stmt = $pdo->prepare($query);
 $stmt->bindParam(":email", $userName);
 $stmt->execute();
-
 $results = $stmt->fetch(PDO::FETCH_ASSOC);
-
 
 if (isset($_POST['submit'])) {
     require_once "../asset/includePHP/dbh.inc.php";
@@ -38,14 +36,34 @@ if (isset($_POST['submit'])) {
         $insertOrderDetailQuery = "INSERT INTO OrderDetails (OrderID, FoodName, Quantity, TotalPrice) VALUES (:OrderID, :FoodName, :Quantity, :TotalPrice)";
         $orderDetailStmt = $pdo->prepare($insertOrderDetailQuery);
 
-        foreach ($orders as $order) {
-            $totalPrice = $order['price'] * $order['quantity'];
+        // foreach ($orders as $order) {
+        //     $totalPrice = $order['price'] * $order['quantity'];
+        //     $orderDetailStmt->bindParam(":OrderID", $lastOrderId);
+        //     $orderDetailStmt->bindParam(":FoodName", $order['item_name']);
+        //     $orderDetailStmt->bindParam(":Quantity", $order['quantity']);
+        //     $orderDetailStmt->bindParam(":TotalPrice", $totalPrice);
+        //     $orderDetailStmt->execute();
+        // }
+
+
+        foreach ($orders['indexfood'] as $index => $foodId) {
+            $query = "SELECT foodname FROM menus WHERE item_id=:foodId";
+            $stmt = $pdo->prepare($query);
+            $stmt->bindParam(":foodId", $foodId);
+            $stmt->execute();
+            $resultFoodName = $stmt->fetch(PDO::FETCH_ASSOC);
+            $itemName = $resultFoodName['foodname']; // Assuming you might want to look up the actual name based on this ID.
+            $quantity = isset($orders['quantity'][$index]) ? intval($orders['quantity'][$index]) : 0;
+            $price = isset($orders['price'][$index]) ? floatval($orders['price'][$index]) : 0;
+            $itemTotal = $price * $quantity;
+
             $orderDetailStmt->bindParam(":OrderID", $lastOrderId);
-            $orderDetailStmt->bindParam(":FoodName", $order['item_name']);
-            $orderDetailStmt->bindParam(":Quantity", $order['quantity']);
-            $orderDetailStmt->bindParam(":TotalPrice", $totalPrice);
+            $orderDetailStmt->bindParam(":FoodName", $itemName);
+            $orderDetailStmt->bindParam(":Quantity", $quantity);
+            $orderDetailStmt->bindParam(":TotalPrice", $itemTotal);
             $orderDetailStmt->execute();
         }
+
 
         // Commit the transaction
         $pdo->commit();
@@ -122,14 +140,32 @@ if (isset($_POST['submit'])) {
                 </tr>
                 <?php
                 $totalAmount = 0;
-                foreach ($orders as $order) {
+
+                foreach ($orders['indexfood'] as $index => $foodId) {
+                    var_dump($index);
+                    echo $foodId;
+                    $query = "SELECT foodname FROM menus WHERE item_id=:foodId";
+                    $stmt = $pdo->prepare($query);
+                    echo $foodId;
+                    $stmt->bindParam(":foodId", $foodId);
+                    $stmt->execute();
+                    $resultFoodName = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $itemName = $resultFoodName['foodname']; // Assuming you might want to look up the actual name based on this ID.
+                    $quantity = isset($orders['quantity'][$index]) ? intval($orders['quantity'][$index]) : 0;
+                    $price = isset($orders['price'][$index]) ? floatval($orders['price'][$index]) : 0;
+                    $itemTotal = $price * $quantity;
+
                     echo "<tr>";
-                    echo "<td>" . $order['item_name'] . "</td>";
-                    echo "<td>" . $order['quantity'] . "</td>";
-                    echo "<td>" . $order['price'] * $order['quantity'] . "</td>";
+                    echo "<td>" . $itemName . "</td>"; // As mentioned before, for safety
+                    echo "<td>" . $quantity . "</td>";
+                    echo "<td>" . number_format($itemTotal, 2) . "</td>";
                     echo "</tr>";
-                    $totalAmount += $order['price'] * $order['quantity'];
+
+                    $totalAmount += $itemTotal;
                 }
+
+                // At the end, you can display the totalAmount if needed.
+                echo "Total Amount: " . number_format($totalAmount, 2);
                 ?>
                 <tr>
                     <?php
@@ -153,14 +189,6 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div>
-                <label>NAME:</label><br>
-                <input type="text" name="card_name"><br><br>
-
-                <label>CARD DETAILS:</label><br>
-                <input type="tel">
-                <input type="tel">
-                <input type="tel"><br><br>
-
                 <form method="post" action="">
 
                     <button type="submit" name="submit">PAY</button>
