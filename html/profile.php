@@ -36,7 +36,7 @@ $stmt = null;
     <!-- Header -->
     <div class="nav-container-menu">
         <!-- Logo -->
-        <a class="button-style">
+        <a href="menu.php" class="button-style">
             <div class="logo-placement">
                 <img src="../asset/image/Logo.png" class="logo">
             </div>

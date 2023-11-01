@@ -14,9 +14,41 @@ function adminPage(){
       console.log("click")
     })
   }
-  
+
+  var adminFoodDetails = new Map();
+
+  const foodAdminNames = document.querySelectorAll(".admin-food-name");
+
+
+ foodAdminNames.forEach((foodAdminName,index)=>{
+  console.log(foodAdminName.innerText);
+
+  adminFoodDetails.set(index+1,{name:foodAdminName.innerText})
+ }) 
+
+
+
+
+ adminFoodDetails.forEach((value,key)=>{
+  console.log(value['name'])
+  var foodAdminNameButton = document.getElementById(`${value['name']}`);
+  var foodAdminForm = document.getElementById(`form-${value['name']}`);
+  console.log(foodAdminNameButton);
+  if(foodAdminNameButton){
+    foodAdminNameButton.addEventListener("click",function(event){
+      event.preventDefault();
+      console.log(event.target.id)
+      foodAdminForm.submit();
+      console.log("click")
+    })
+  }
+
+
+ })
 
 }
+
+
 
 /////User Menu Page Function
 
