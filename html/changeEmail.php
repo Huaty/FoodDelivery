@@ -17,6 +17,7 @@ try {
     $currentEmail = $user['email']; // Retrieve the current email
 } catch (PDOException $e) {
     $catchErrorMessage = "Database Error: " . $e->getMessage();
+    echo $e->getMessage();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
