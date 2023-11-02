@@ -166,7 +166,7 @@ function menuFunction() {
         foodIndexInput= document.createElement("input");
         foodIndexInput.type = "hidden";
         foodIndexInput.id = `indexfood_${i}`;
-        foodIndexInput.name = `indexfood${i}`;
+        foodIndexInput.name = `indexfood_${i}`;
         foodChoosen.appendChild(foodIndexInput);
         console.log("success")
 

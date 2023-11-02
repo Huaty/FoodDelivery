@@ -11,7 +11,7 @@ if ($_SESSION['orders'] === null) {
 $orders = $_SESSION['orders'];
 $userName = $_SESSION["user_firstname"];
 $id = $_SESSION["user_id"];
-var_dump($orders);
+
 
 $query = "SELECT homeaddress FROM users WHERE firstname=:email";
 $stmt = $pdo->prepare($query);
@@ -141,12 +141,12 @@ if (isset($_POST['submit'])) {
                 <?php
                 $totalAmount = 0;
 
+
                 foreach ($orders['indexfood'] as $index => $foodId) {
-                    var_dump($index);
-                    echo $foodId;
+
                     $query = "SELECT foodname FROM menus WHERE item_id=:foodId";
                     $stmt = $pdo->prepare($query);
-                    echo $foodId;
+
                     $stmt->bindParam(":foodId", $foodId);
                     $stmt->execute();
                     $resultFoodName = $stmt->fetch(PDO::FETCH_ASSOC);
