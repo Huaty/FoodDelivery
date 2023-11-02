@@ -131,7 +131,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="admin-container">
         <h1>Welcome to Admin Page </h1>
         <form action="adminpage.php" method="POST">
-            <div id="wrapper">Update Menu</div>
             <div id="wrapper">Intialize Menu
                 <input type="hidden" name="form_type" value="create_menu" id="create_menu">
                 <div><button type="submit" id="submit-button-create-menu">Click me</button></div>
