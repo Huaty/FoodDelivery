@@ -1,3 +1,6 @@
+<?php
+unset($_SESSION['user_firstname']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,26 +63,26 @@
   <footer>
     <!-- Footer Top -->
     <div class="top">
-    <a href="index.php">
-    <div class="smallLogo">
-        <object data="../asset/image/smallLogo.svg" alt="smallLogo" id="img"></object>
-        <p id="word">Munchies Together</p>
-    </div>
-      <div class="contact">
-        <p>Contact Us </p>
-        <div class="small-icon">
-        <a href="https://www.instagram.com/" target="_blank">
-            <img src="../asset/image/instagram.png" alt="instagram" class="img">
-        </a>
-        <a href="https://www.twitter.com/" target="_blank">
-            <img src="../asset/image/twitter.png" alt="Twitter" class="img">
-        </a>
+      <a href="index.php">
+        <div class="smallLogo">
+          <object data="../asset/image/smallLogo.svg" alt="smallLogo" id="img"></object>
+          <p id="word">Munchies Together</p>
         </div>
-      </div>
-      <div class="statement">
-        <p><a href="privacy_policy.html">Privacy Policy</a></p>
-        <p><a href="terms_conditions.html">Terms & Conditions</a></p>
-      </div>
+        <div class="contact">
+          <p>Contact Us </p>
+          <div class="small-icon">
+            <a href="https://www.instagram.com/" target="_blank">
+              <img src="../asset/image/instagram.png" alt="instagram" class="img">
+            </a>
+            <a href="https://www.twitter.com/" target="_blank">
+              <img src="../asset/image/twitter.png" alt="Twitter" class="img">
+            </a>
+          </div>
+        </div>
+        <div class="statement">
+          <p><a href="privacy_policy.html">Privacy Policy</a></p>
+          <p><a href="terms_conditions.html">Terms & Conditions</a></p>
+        </div>
     </div>
 
     </div>

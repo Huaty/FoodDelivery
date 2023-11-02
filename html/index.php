@@ -1,15 +1,7 @@
 <?php
 
+unset($_SESSION['user_firstname']);
 
-// if (!isset($_SESSION["user_id"])) {
-//   // Redirect the user to the login page or display an error message.
-//   header("Location: menu.php");
-//   exit();
-// } else {
-//   unset($_SESSION["user_id"]);
-// }
-
-// // unset cookies
 if (isset($_SERVER['HTTP_COOKIE'])) {
   $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
   foreach ($cookies as $cookie) {
@@ -132,21 +124,21 @@ if (isset($_SERVER['HTTP_COOKIE'])) {
   <footer>
     <!-- Footer Top -->
     <div class="top">
-    <a href="index.php">
-    <div class="smallLogo">
-        <object data="../asset/image/smallLogo.svg" alt="smallLogo" id="img"></object>
-        <p id="word">Munchies Together</p>
-    </div>
-    </a>
+      <a href="index.php">
+        <div class="smallLogo">
+          <object data="../asset/image/smallLogo.svg" alt="smallLogo" id="img"></object>
+          <p id="word">Munchies Together</p>
+        </div>
+      </a>
       <div class="contact">
         <p>Contact Us </p>
         <div class="small-icon">
-        <a href="https://www.instagram.com/" target="_blank">
+          <a href="https://www.instagram.com/" target="_blank">
             <img src="../asset/image/instagram.png" alt="instagram" class="img">
-        </a>
-        <a href="https://www.twitter.com/" target="_blank">
+          </a>
+          <a href="https://www.twitter.com/" target="_blank">
             <img src="../asset/image/twitter.png" alt="Twitter" class="img">
-        </a>
+          </a>
         </div>
       </div>
       <div class="statement">
