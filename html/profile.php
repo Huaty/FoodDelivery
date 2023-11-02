@@ -67,7 +67,7 @@ $stmt = null;
             ?>
         </div>
         <div class="profile-links">
-            <a href="emailChange.php">Change Email</a>
+            <a href="changeEmail.php">Change Email</a>
             <a href="changePassword.php">Change Password</a>
             <a href="changeAddress.php">Change Address</a>
         </div>
