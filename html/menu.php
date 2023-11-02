@@ -106,7 +106,7 @@ $stmt = null;
             </div>
         </a>
         <div class="profile-dropdown">
-            <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
+            <button class="dropbtn">Welcome, <strong><?php echo $_SESSION["user_firstname"] ?></strong>
                 <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
             </button>
             <div class="dropdown-content">
