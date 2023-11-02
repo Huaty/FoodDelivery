@@ -100,14 +100,17 @@ $stmt = null;
     <!-- Header -->
     <div class="nav-container-menu">
         <!-- Logo -->
-        <a href="menu.php" class="button-style">
-            <div class="logo-placement">
-                <img src="../asset/image/Logo.png" class="logo">
-            </div>
-        </a>
+        <div>
+            <a href="menu.php" class="button-style">
+                <div class="logo-placement">
+                    <img src="../asset/image/Logo.png" class="logo">
+                </div>
+            </a>
+        </div>
         <div class="profile-dropdown">
-            <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
-                <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
+            <button class="dropbtn">
+                <div id="welcome">Welcome, <?php echo $_SESSION["user_firstname"] ?></div>
+                <img src="../asset/image/bingwei.jpeg" class="profile-pic">
             </button>
             <div class="dropdown-content">
                 <a href="profile.php">Profile</a>
