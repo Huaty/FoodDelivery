@@ -39,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (isset($_POST["cuisine"])) {
                 $selectedCuisine = isset($_POST['cuisine']) ? $_POST['cuisine'] : '';
-                echo $selectedCuisine;
             }
             break;
 
@@ -148,16 +147,20 @@ $stmt = null;
         foreach ($result as $row) {
             $foodNameProcessed = strtolower($row['foodname']);
             $cuisineProcessed = strtolower($row['cuisine']);
+
+
             //// If food name does not contain search food, skip this food
             //// Example $foodNameProcessd = Strawberry 
             ///// $searchFood = berry
             ////There strpos will return 5, which is not false, so it will skip this food and go next interation
+            if (strtolower($selectedCuisine) && $cuisineProcessed != strtolower($selectedCuisine)) {
+                continue;
+            }
             if ($searchFood && strpos($foodNameProcessed, $searchFood) === false) {
                 continue;
             }
-            if ($selectedCuisine && $cuisineProcessed != $selectedCuisine) {
-                continue;
-            }
+
+
             echo '<div id= "menuGridclass">';
             echo '<div type="hidden" class = "id-menu" id="' . $row["item_id"] . '"></div>';
             echo '<img  src="data:image/jpeg;base64,' . base64_encode($row['image_data']) . '"/>';
