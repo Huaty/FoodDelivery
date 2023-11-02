@@ -325,8 +325,9 @@ function signUpvalidation() {
   const addressError = document.getElementById("addressError");
 
   const nameRegex = /^[A-Za-z]+(?: [A-Za-z]+)*$/; // Contain letters (UPPER and lower) no leading and trailing space
-  const emailRegex = '/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+$/'; //standard email
+  const emailRegex = /^(?:[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)$/;
   const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/; // At least 8 characterslong, at least 1 upper case, 1 number, no special characeters
+  const specificEmails = ['f32ee@localhost', 'f31ee@localhost'];
 
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -345,6 +346,8 @@ function signUpvalidation() {
         emailError.textContent = "Please enter a valid email address";
         emailError.style.color = "red"; // Set the error message color to red
         valid = false;
+      } else if (specificEmails.includes(email)) {
+          return 'Specific email: Valid';
       } else {
         emailError.textContent = "";
       }
