@@ -113,20 +113,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Header -->
     <div class="nav-container-menu">
         <!-- Logo -->
-        <a class="button-style">
-            <div class="logo-placement">
-                <img src="../asset/image/Logo.png" class="logo">
-            </div>
-        </a>
+        <div id="logo">
+            <a href="menu.php" class="button-style">
+                <div class="logo-placement">
+                    <img src="../asset/image/Logo.png" class="logo">
+                </div>
+            </a>
+        </div>
         <div class="profile-dropdown">
-            <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
+            <button class="dropbtn">
+                <div id="welcome">Welcome, <strong><?php echo $_SESSION["user_firstname"] ?></div></strong>
                 <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
             </button>
             <div class="dropdown-content">
+                <a href="profile.php">Profile</a>
                 <a href="logout.php">Log out</a>
+                <a href="orderDetails.php">Orders Details</a>
             </div>
         </div>
     </div>
+
+
+
 
     <div id="admin-container">
         <h1>Welcome to Admin Page </h1>
@@ -148,22 +156,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <th>Cuisine</th>
                             <th>Food Description</th>
                             <th>Price</th>
+                            <th>Category Course</th>
+                            <th>Category Food</th>
                             <th>Image</th>
                         </tr>
 
                         <tr>
                             <?php
+                            $categories_course = [];
+                            $categories_food = [];
+                            foreach ($result as $row) {
+                                $categories_course[] = $row['category_course'];
+                            }
+                            foreach ($result as $row) {
+                                $categories_food[] = $row['category_food'];
+                            }
+                            $categories_course = array_unique($categories_course);
+                            $categories_food = array_unique($categories_food);
 
                             foreach ($result as $row) {
 
                                 echo '<tr class = admin-food-menu>';
-
                                 // Displaying Food Name as simple text
                                 echo '<td class=admin-food-name>' . $row['foodname'] . '</td>';
-
                                 // Displaying Cuisine as simple text
                                 echo '<td>' . $row['cuisine'] . '</td>';
-
                                 // Input field for Food Description
                                 echo "<form method='POST' enctype='multipart/form-data' id='form-" . $row['foodname'] . "'>";
                                 echo "<input type=hidden name=form_type value=update_food id=>";
@@ -175,6 +192,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 // Input field for Price
                                 echo '<td>';
                                 echo "<input type='number' step='0.01' name='price[" . $row['foodname'] . "]' value='" . $row['price'] . "' id='price'>";
+                                echo '</td>';
+
+                                echo '<td>';
+                                echo '<select name="category_course[' . $row['foodname'] . ']" id="category_course">';
+                                foreach ($categories_course  as $category) {
+                                    $selected = ($row['category_course'] == $category) ? "selected" : "";
+                                    echo '<option value="' . $category . '" ' . $selected . '>' . $category . '</option>';
+                                }
+                                echo '</select>';
+                                echo '</td>';
+
+                                echo '<td>';
+                                echo '<select name="category_course[' . $row['foodname'] . ']" id="category_course">';
+                                foreach ($categories_food  as $category) {
+                                    $selected = ($row['category_food'] == $category) ? "selected" : "";
+                                    echo '<option value="' . $category . '" ' . $selected . '>' . $category . '</option>';
+                                }
+                                echo '</select>';
                                 echo '</td>';
 
                                 // Display current Image and provide input for new Image

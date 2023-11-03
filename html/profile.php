@@ -12,7 +12,7 @@ try {
     die("ERROR: Could not execute $sql. " . $e->getMessage());
 }
 
-var_dump($results);
+
 
 
 $pdo = null;
@@ -36,13 +36,16 @@ $stmt = null;
     <!-- Header -->
     <div class="nav-container-menu">
         <!-- Logo -->
-        <a href="menu.php" class="button-style">
-            <div class="logo-placement">
-                <img src="../asset/image/Logo.png" class="logo">
-            </div>
-        </a>
+        <div id="logo">
+            <a href="menu.php" class="button-style">
+                <div class="logo-placement">
+                    <img src="../asset/image/Logo.png" class="logo">
+                </div>
+            </a>
+        </div>
         <div class="profile-dropdown">
-            <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
+            <button class="dropbtn">
+                <div id="welcome">Welcome, <strong><?php echo $_SESSION["user_firstname"] ?></div></strong>
                 <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
             </button>
             <div class="dropdown-content">
@@ -51,6 +54,8 @@ $stmt = null;
                 <a href="orderDetails.php">Orders Details</a>
             </div>
         </div>
+    </div>
+
     </div>
     <div class="profile-container">
 

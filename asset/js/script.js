@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   slidingBar(); ///Previewmenu slider
   menuFunction(); ///Entire User Menu Page Function
   adminPage();
-  ChangeEmail();
+  // ChangeEmail();
 });
 //Change Email
 // function ChangeEmail() {
@@ -97,11 +97,20 @@ function adminPage(){
 
 function menuFunction() {
   searchBar = document.getElementById("searchBar");
-  dropBox = document.getElementById("dropBox-menu");
+  cuisineBtn = document.querySelectorAll(".cuisine-button");
   searchForm  =  document.getElementById("searchForm");
   gridContainer = document.querySelector(".image-grid");
+  searchCuisine = document.getElementById("searchCuisine");
 
+  cuisineBtn.forEach((value,key)=>{
+    if(value){
+      value.addEventListener("click",function(event){
+        console.log(event.target.innerText)
 
+        searchCuisine.submit();
+      })
+    }
+  })
   
   if(searchBar){
     let timeout = null;
@@ -116,12 +125,7 @@ function menuFunction() {
 
   }
 
-  if(dropBox){
-    dropBox.addEventListener("change",function(event){
-      console.log(event.target.value)
-      searchForm.submit();
-    })
-  }
+
 
 
 
