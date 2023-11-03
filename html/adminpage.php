@@ -17,10 +17,10 @@ try {
 
 
 
-
-if (($_SESSION["user_email"]) !== "admin@gmail.com") {
+if (($_SESSION["user_email"]) != "admin@gmail.com") {
     header("Location: menu.php");
 }
+
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION["user_firstname"] = htmlspecialchars($result["firstname"]);
         $_SESSION["last_regeneration"] = time();
 
-        if (htmlspecialchars($result["firstname"]) == "admin") {
+        if (htmlspecialchars($result["email"]) == "admin@gmail.com") {
             header("Location: ../html/adminpage.php");
         } else {
             header("Location: ../html/menu.php");
