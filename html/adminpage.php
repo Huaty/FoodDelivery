@@ -18,7 +18,7 @@ try {
 
 
 
-if (($_SESSION["user_firstname"]) !== "admin") {
+if (($_SESSION["user_email"]) !== "admin@gmail.com") {
     header("Location: menu.php");
 }
 

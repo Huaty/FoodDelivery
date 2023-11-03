@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         session_id($sessionId); /// set new session id
         require_once "../asset/includePHP/config_session.inc.php";
         $_SESSION["user_id"] = $result["id"];
+        $_SESSION["user_email"] = $result["email"];
         $_SESSION["user_firstname"] = htmlspecialchars($result["firstname"]);
         $_SESSION["last_regeneration"] = time();
 
