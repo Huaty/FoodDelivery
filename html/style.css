@@ -1351,7 +1351,17 @@ head {
   padding: 50px 30px;
   border-bottom: 1px solid #e0e0e0;
   background-color: white;
+  justify-content: space-between;  /* This will push the logo and welcome to opposite ends */
+  align-items: center;  /* This will vertically center align them if they have different heights */
 
+
+}
+.nav-container-menu #logo{
+padding-left:13%;
+
+    flex: 1;  /* This will allow the logo to take up as much space as possible pushing the welcome message to the right */
+    display: flex;
+    justify-content: center;  /* Center the logo */
 }
 
 .nav-container-menu .logo-placement{
@@ -1374,20 +1384,20 @@ head {
 }
 
 .dropbtn {
-
+  display:flex;
+  flex-direction:row;
   color: black;
-  background-color:#f9f9f9;
+  background-color: white;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  padding-left:10px;
-  padding-right: 10px;
   width: auto;   
 }
 .profile-dropdown #welcome{
+  height:100%;
   display: flex;
   justify-content: center;
-
+  align-items: center;
 }
 
 
@@ -1401,7 +1411,7 @@ head {
 .dropdown-content {
   display:none;
   position: absolute;
-  top: 75%;    
+  top: 100%;    
   right: 0;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -1515,6 +1525,52 @@ head {
   background-color: #cccccc; /* Keeps the button grey even on hover */
 }
 
+#cuisine-buttons button {
+  border: none;
+  background-color: transparent;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Style for the hovered state of the button */
+#cuisine-buttons button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Style for the selected button */
+#cuisine-buttons button.selected {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+
+#searchBar-container
+{
+  position: relative;
+  width: 80%; /* Adjust width to your preference */
+  margin: 20px auto; /* Centers the search bar */
+
+}
+
+#searchBar{
+  width: 100%;
+  padding: 10px 40px 10px 20px; /* The right padding is to make space for the magnifying glass icon */
+  border: 1px solid #d4d4d4;
+  border-radius: 50px; /* To achieve the rounded edges */
+  font-size: 16px;
+  outline: none; /* Removes default focus outline */
+
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  cursor: pointer; /* Makes the icon appear clickable */
+}
 
 
 /* For User Payment Page */

@@ -36,14 +36,6 @@ if (isset($_POST['submit'])) {
         $insertOrderDetailQuery = "INSERT INTO OrderDetails (OrderID, FoodName, Quantity, TotalPrice) VALUES (:OrderID, :FoodName, :Quantity, :TotalPrice)";
         $orderDetailStmt = $pdo->prepare($insertOrderDetailQuery);
 
-        // foreach ($orders as $order) {
-        //     $totalPrice = $order['price'] * $order['quantity'];
-        //     $orderDetailStmt->bindParam(":OrderID", $lastOrderId);
-        //     $orderDetailStmt->bindParam(":FoodName", $order['item_name']);
-        //     $orderDetailStmt->bindParam(":Quantity", $order['quantity']);
-        //     $orderDetailStmt->bindParam(":TotalPrice", $totalPrice);
-        //     $orderDetailStmt->execute();
-        // }
 
 
         foreach ($orders['indexfood'] as $index => $foodId) {
@@ -109,13 +101,16 @@ if (isset($_POST['submit'])) {
     <!-- Header -->
     <div class="nav-container-menu">
         <!-- Logo -->
-        <a href="menu.php" class="button-style">
-            <div class="logo-placement">
-                <img src="../asset/image/Logo.png" class="logo">
-            </div>
-        </a>
+        <div id="logo">
+            <a href="menu.php" class="button-style">
+                <div class="logo-placement">
+                    <img src="../asset/image/Logo.png" class="logo">
+                </div>
+            </a>
+        </div>
         <div class="profile-dropdown">
-            <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
+            <button class="dropbtn">
+                <div id="welcome">Welcome, <strong><?php echo $_SESSION["user_firstname"] ?></div></strong>
                 <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
             </button>
             <div class="dropdown-content">
@@ -126,6 +121,8 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 
+
+    </div>
 
     <div>
         <div class="container-payment">

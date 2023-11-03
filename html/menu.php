@@ -28,19 +28,25 @@ $cnt = 0;
 //// Session_start(); is in config_session.inc.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formType = isset($_POST['form_type']) ? $_POST['form_type'] : null;
+    echo $formType;
 
 
     switch ($formType) {
+
+        case 'searchCuisine':
+            if (isset($_POST["cuisine"])) {
+
+                $selectedCuisine = isset($_POST['cuisine']) ? $_POST['cuisine'] : '';
+            }
+            break;
+
         case 'searchForm':
             if (isset($_POST["searchBar"])) {
                 $searchFood = $_POST["searchBar"];
                 $searchFood = strtolower(trim($searchFood));
             }
-
-            if (isset($_POST["cuisine"])) {
-                $selectedCuisine = isset($_POST['cuisine']) ? $_POST['cuisine'] : '';
-            }
             break;
+
 
         case 'form-menu':
 
@@ -67,15 +73,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             break;
 
         default:
-            // Unknown form or no identifier found. Handle accordingly.
+
             break;
     }
-    // echo '<br>';
-    // echo "Item Id " . (($items['item_id'])) . "";
-    // echo '<br>';
-    // echo "Item Name " . (($items['item_name'])) . "";
-    // echo "<br>";
-
 }
 $pdo = null;
 $stmt = null;
@@ -99,7 +99,7 @@ $stmt = null;
     <!-- Header -->
     <div class="nav-container-menu">
         <!-- Logo -->
-        <div>
+        <div id="logo">
             <a href="menu.php" class="button-style">
                 <div class="logo-placement">
                     <img src="../asset/image/Logo.png" class="logo">
@@ -107,7 +107,8 @@ $stmt = null;
             </a>
         </div>
         <div class="profile-dropdown">
-            <button class="dropbtn">Welcome, <strong><?php echo $_SESSION["user_firstname"] ?></strong>
+            <button class="dropbtn">
+                <div id="welcome">Welcome, <strong><?php echo $_SESSION["user_firstname"] ?></div></strong>
                 <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
             </button>
             <div class="dropdown-content">
@@ -123,22 +124,39 @@ $stmt = null;
     <div id="search-container">
         <form id="searchForm" action="" method="post">
             <input type="hidden" name="form_type" value="searchForm">
-            <div id="searchBar-container">Search Bar :<input type='text' name='searchBar' id="searchBar" value=<?php echo isset($_POST['searchBar']) ? $_POST['searchBar'] : ""; ?>></div>
-            <div id="dropDown-container">
-                Cuisine:
-                <select name="cuisine" id="dropBox-menu">
-                    <?php
-                    echo "<option value=''>All</option>";
-                    foreach ($result as $row) {
-                        $selected = ($row['cuisine'] == $selectedCuisine) ? 'selected' : '';
-                        echo "<option value='" . $row['cuisine'] . "' $selected>" . $row['cuisine'] . "</option>";
-                    }
-                    ?>
-                </select>
-            </div>
+            <div id="searchBar-container">Search Bar :<input type='text' name='searchBar' id="searchBar" value=<?php echo isset($_POST['searchBar']) ? $_POST['searchBar'] : ""; ?>> <i class="search-icon">🔍</i></div>
+
         </form>
 
     </div>
+    <form id="searchCuisine" action="" method="post">
+        <input type="hidden" name="form_type" value="searchCuisine">
+        <div id="dropDown-container">
+            Cuisine:
+            <div id="cuisine-buttons">
+                <button data-cuisine="all" class="<?php echo ($selectedCuisine == 'all') ? 'selected' : ''; ?>">All</button>
+                <?php
+                // Create an array to store all cuisines
+                $allCuisines = [];
+
+                // Populate the array with cuisines from each row
+                foreach ($result as $row) {
+                    $allCuisines[] = $row['cuisine'];
+                }
+
+                // Remove duplicates from the array
+                $uniqueCuisines = array_unique($allCuisines);
+
+
+                // Loop through each unique cuisine to generate the buttons
+                foreach ($uniqueCuisines as $cuisine) {
+                    $selectedClass = ($cuisine == $selectedCuisine) ? 'selected' : '';
+                    echo "<button type='submit' name ='cuisine' class='cuisine-button' value ='" . $cuisine . "'>" . $cuisine . "</button>";
+                }
+                ?>
+            </div>
+        </div>
+    </form>
 
 
     <div id="menu-wrapper">

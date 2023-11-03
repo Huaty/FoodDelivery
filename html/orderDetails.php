@@ -51,21 +51,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Header -->
     <div class="nav-container-menu">
         <!-- Logo -->
-        <a href="menu.php" class="button-style">
-            <div class="logo-placement">
-                <img src="../asset/image/Logo.png" class="logo">
-            </div>
-        </a>
+        <div id="logo">
+            <a href="menu.php" class="button-style">
+                <div class="logo-placement">
+                    <img src="../asset/image/Logo.png" class="logo">
+                </div>
+            </a>
+        </div>
         <div class="profile-dropdown">
-            <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
+            <button class="dropbtn">
+                <div id="welcome">Welcome, <strong><?php echo $_SESSION["user_firstname"] ?></div></strong>
                 <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
             </button>
             <div class="dropdown-content">
                 <a href="profile.php">Profile</a>
                 <a href="logout.php">Log out</a>
-                <a href="#">Orders Details</a>
+                <a href="orderDetails.php">Orders Details</a>
             </div>
         </div>
+    </div>
+
+
+    </div>
+    <div class="profile-dropdown">
+        <button class="dropbtn">Welcome, <?php echo $_SESSION["user_firstname"] ?>
+            <img src="../asset/image/bingwei.jpeg" alt="Profile Picture" class="profile-pic">
+        </button>
+        <div class="dropdown-content">
+            <a href="profile.php">Profile</a>
+            <a href="logout.php">Log out</a>
+            <a href="#">Orders Details</a>
+        </div>
+    </div>
     </div>
 
     <div class="order-container">
