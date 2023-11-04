@@ -25,20 +25,20 @@ CREATE TABLE menus (
 );
 
 
-CREATE TABLE Orders (
-    OrderID INT AUTO_INCREMENT PRIMARY KEY,
-    UserID INT NOT NULL,
-    HomeAddress VARCHAR(255) NOT NULL ,
-    OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- CREATE TABLE Orders (
+--     OrderID INT AUTO_INCREMENT PRIMARY KEY,
+--     UserID INT NOT NULL,
+--     HomeAddress VARCHAR(255) NOT NULL ,
+--     OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
-);
+-- );
 
-CREATE TABLE OrderDetails (
-    OrderDetail_ID INT AUTO_INCREMENT PRIMARY KEY,
-    OrderID INT,
-    FoodName VARCHAR(255),
-    Quantity INT,
-    TotalPrice DECIMAL(10,2),
-    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
-);
+-- CREATE TABLE OrderDetails (
+--     OrderDetail_ID INT AUTO_INCREMENT PRIMARY KEY,
+--     OrderID INT,
+--     FoodName VARCHAR(255),
+--     Quantity INT,
+--     TotalPrice DECIMAL(10,2),
+--     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+-- );
 
