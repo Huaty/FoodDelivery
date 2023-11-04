@@ -164,12 +164,11 @@ $stmt = null;
             <div id="cuisine">
                 <div class="text">Cuisine</div>
                 <div class="collapsible">
-                    <button class="toggleButton">▼</button>
+                    <button class="toggleButton-cuisine" id="toggleButton">▼</button>
                 </div>
             </div>
 
-
-            <div class="content" style="display:none">
+            <div class="content-cuisine" style="display:none">
                 <form id="searchCuisine" action="" method="post">
                     <input type="hidden" name="form_type" value="searchCuisine">
                     <div id="dropDown-container">
@@ -198,6 +197,15 @@ $stmt = null;
                     </div>
                 </form>
             </div>
+
+
+            <div id="category">
+                <div class="text">Category</div>
+                <div class="collapsible">
+                    <button class="toggleButton-category" id="toggleButton">▼</button>
+                </div>
+            </div>
+
         </div>
 
         <div id="menu-content"> <?php

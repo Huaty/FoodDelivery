@@ -1614,7 +1614,8 @@ head {
   flex-direction: column;
   border: none;
   background-color: transparent;
-  padding: 5px 10px;
+  border-radius: 10px;
+  padding: 15px 10px;
   margin: 0 5px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -1630,6 +1631,24 @@ head {
 #cuisine-buttons button.selected {
   background-color: #e0e0e0;
   font-weight: bold;
+}
+
+.nav-menu #cuisine,
+.nav-menu #category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  flex-direction: row;
+  margin-right: 60px;
+  margin-bottom: 10px;
+}
+
+.nav-menu #cuisine .text,
+.nav-menu #category .text {
+  width: 100%;
+  font-size: 30px;
+  padding-right: 160px;
 }
 
 #searchBar-container {
@@ -1682,21 +1701,7 @@ head {
   flex-direction: column;
 }
 
-.nav-menu #cuisine {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  flex-direction: row;
-  margin-right: 60px;
-  margin-bottom: 10px;
-}
 
-.nav-menu #cuisine .text {
-  width: 100%;
-  font-size: 30px;
-  padding-right: 160px;
-}
 
 #menu-content {
   display: flex;
@@ -1740,7 +1745,7 @@ head {
   vertical-align: middle; /* Align icon with the text */
 }
 
-.toggleButton {
+#toggleButton {
   background-color: white; /* Background color */
   color: red; /* Text color */
   font-size: 30px;
@@ -1751,12 +1756,12 @@ head {
   transition: all 0.3s ease; /* Smooth transition for color changes */
 }
 
-.toggleButton:hover {
+#toggleButton:hover {
   background-color: red; /* Red background on hover */
   color: white; /* White text on hover */
 }
 
-.toggleButton.active {
+#toggleButton.active {
   background-color: red; /* Red background when active */
   color: white; /* White text when active */
 }
@@ -2158,13 +2163,13 @@ tbody tr:hover {
 .paper-container {
   position: relative;
   overflow: hidden;
-  height: 467px;
+  height: 600px;
 }
 
 .paper {
   background: #ffffff;
   width: 95%;
-  height: 447px;
+  height: 600px;
   position: absolute;
   z-index: 2;
   margin: 0 12px;
