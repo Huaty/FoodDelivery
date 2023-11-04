@@ -51,8 +51,8 @@ head {
  
   }
 
-  .logo { 
-    width:40%;
+  .nav-container .logo { 
+    width: 40%;
     display:flex;
     justify-content: center;
   }
@@ -1348,7 +1348,10 @@ head {
 
 .nav-container-menu {
   display: flex;
-  padding: 50px 30px;
+  padding-right:5%;
+  padding-left:5%;
+  padding-top:1%;
+  padding-bottom:1%;
   border-bottom: 1px solid #e0e0e0;
   background-color: white;
   justify-content: space-between;  /* This will push the logo and welcome to opposite ends */
@@ -1357,9 +1360,7 @@ head {
 
 }
 .nav-container-menu #logo{
-padding-left:13%;
 
-    flex: 1;  /* This will allow the logo to take up as much space as possible pushing the welcome message to the right */
     display: flex;
     justify-content: center;  /* Center the logo */
 }
@@ -1374,9 +1375,17 @@ padding-left:13%;
 }
 
 
-.logo img {
-  height: 40px;
+.nav-container-menu .logo-placement .logo {
+  width: 30%;
 }
+
+#searchIcon{
+  width: 30px;
+  height: 30px;
+
+
+}
+
 
 .profile-dropdown {
   position: relative;
@@ -1446,16 +1455,15 @@ padding-left:13%;
 }
 
 #search-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding:5%;
+  flex:1;
+
+
 }
 #menu-wrapper {
   display: flex;
   flex-direction: row;
   margin-bottom: 10%;
+  padding-top:2%;
   padding-left: 5%;
   padding-right: 5%;
 }
@@ -1464,25 +1472,120 @@ padding-left:13%;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px; /* Adjust as needed */
   width: 80%;
+  margin-right:150px;
 }
 
 #menuGridclass {
-  width: 250px;
-  border: 1px solid black;
-  border-radius: 15px;
-  background-color: #fff;
-  padding: 20px;
-  text-align: center;
+  width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+
+
+.food-content {
+  position: relative;
+  padding:15px;
+  
+  background-color: white;
+}
+
+.foodtitle {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
 }
 
 .image-grid img {
-  width: 200px;        /* Adjust this value based on your desired size */
-  height: 200px;       /* Ensure the height is the same as the width to get a perfect circle */
-  border-radius: 50%;  /* This makes the image circular */
+  position: relative;
+  width:100%;   
+  height:200px;
   object-fit: cover;   /* This ensures the image scales and crops to fit the dimensions without distortion */
   display: block;
   margin: 0 auto;   
 }
+.food-content .price-container{
+  position: absolute;
+  top:0;
+  border:0px;
+  font-size:25px;
+  right:13px;
+  color: #333;
+  text-align: center;
+  transform: translateY(calc(-100% + 14px));
+  font-weight: bold;
+}
+
+.food-content .price-container .price{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 100px;
+  font-size: 8.5px;
+  font-weight: 600;
+  text-align: center;
+  margin: -8px 8px 0 0;
+  min-height: 33px;
+  line-height: normal;
+  letter-spacing: 0;
+  box-shadow: 0 4px 14px -4px #00000014;
+  padding: 6px 16px;
+  font-size: 20px;
+}
+
+.food-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* This will distribute space evenly */
+  height: 100%; /* Make sure all food-item divs have the same height */
+}
+
+.foodtitle-container, .food-description-container {
+  flex: 1; /* This will make them grow and fill the space */
+  display: flex;
+  align-items: center; /* Aligns content vertically in the center */
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+
+.food-description-container {
+  width:100%;
+  height:150px;
+}
+
+.quantity-control-container {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center the quantity controls horizontally */
+  align-items: center; /* Center the quantity controls vertically */
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control button {
+  background-color: white; /* Starting background color */
+  margin-left: 30px;
+  margin-right: 30px;
+  color: black; /* Starting font color */
+  padding: 5px 10px; /* Padding inside the button */
+  border: 1px solid #ddd; /* Border color */
+  cursor: pointer; /* Mouse cursor on hover */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for background and text color */
+}
+
+.quantity-control button:hover {
+  background-color: red; /* Background color on hover */
+  color: white; /* Font color on hover */
+}
+
+
+
 
 .order-card {
   width: 300px;
@@ -1526,6 +1629,9 @@ padding-left:13%;
 }
 
 #cuisine-buttons button {
+  font-size: 25px;
+  display:flex;
+  flex-direction: column;
   border: none;
   background-color: transparent;
   padding: 5px 10px;
@@ -1536,7 +1642,8 @@ padding-left:13%;
 
 /* Style for the hovered state of the button */
 #cuisine-buttons button:hover {
-  background-color: #f0f0f0;
+  background-color: red;
+  color:whitesmoke;
 }
 
 /* Style for the selected button */
@@ -1548,19 +1655,35 @@ padding-left:13%;
 #searchBar-container
 {
   position: relative;
-  width: 80%; /* Adjust width to your preference */
-  margin: 20px auto; /* Centers the search bar */
+
 
 }
 
 #searchBar{
-  width: 100%;
-  padding: 10px 40px 10px 20px; /* The right padding is to make space for the magnifying glass icon */
-  border: 1px solid #d4d4d4;
+  width:50%;
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  border: 3px solid black;
   border-radius: 50px; /* To achieve the rounded edges */
   font-size: 16px;
   outline: none; /* Removes default focus outline */
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05); /* Added a subtle shadow for depth */
+  padding-left:2%;
+  padding-right:2%;
+}
 
+#searchBar-container{
+  width: 70%;
+}
+
+#searchBar-container #input{
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  padding-right:50px;
+  font-size: 16px;
 }
 
 .search-icon {
@@ -1570,6 +1693,98 @@ padding-left:13%;
   transform: translateY(-50%);
   font-size: 16px;
   cursor: pointer; /* Makes the icon appear clickable */
+  color: #a3a3a3; /* Makes the icon color more subtle */
+}
+
+
+.content {
+  display: none;
+}
+
+.nav-menu{
+  display:flex;
+  flex-direction: column;
+}
+
+.nav-menu #cuisine{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:10px;
+  flex-direction: row;
+  margin-right: 60px;
+  margin-bottom:10px;
+}
+
+.nav-menu #cuisine .text{
+  width: 100%;
+  font-size: 30px;
+  padding-right:160px;
+
+}
+
+#menu-content{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+#deliveryLocation {
+  display:flex;
+  flex-direction: row;
+  background-color: white; /* Light grey background */
+  padding: 10px; /* Spacing around the content */
+  max-width: 300px; /* Maximum width */
+  font-family: Arial, sans-serif; /* Font family */
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e7e7;
+
+}
+
+#deliveryLocation .now {
+  color: #888; /* Grey color for the 'Now' text */
+  font-size: 0.8em; /* Smaller font size for 'Now' */
+  font-weight: bold; /* Make 'Now' bold */
+}
+
+#deliveryLocation .location {
+  color: #000; /* Black color for the location */
+  font-size: 1.2em; /* Larger font size for location */
+  margin-top: 5px; /* Spacing above the location */
+  display:flex;
+  flex-direction: column;
+}
+
+#deliveryLocation .icon {
+  width: 50px;
+  height: 50px; /* Height of the icon */
+  margin-right:20px;
+  vertical-align: middle; /* Align icon with the text */
+}
+
+.toggleButton {
+  background-color: white; /* Background color */
+  color: red; /* Text color */
+  font-size: 30px;
+  border:0px;
+  padding: 5px 10px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor to pointer to indicate it's clickable */
+  transition: all 0.3s ease; /* Smooth transition for color changes */
+}
+
+.toggleButton:hover {
+  background-color: red; /* Red background on hover */
+  color: white; /* White text on hover */
+}
+
+.toggleButton.active {
+  background-color: red; /* Red background when active */
+  color: white; /* White text when active */
 }
 
 

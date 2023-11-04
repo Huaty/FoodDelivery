@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   slidingBar(); ///Previewmenu slider
   menuFunction(); ///Entire User Menu Page Function
   adminPage();
+
+
   // ChangeEmail();
 });
 //Change Email
@@ -283,6 +285,22 @@ function menuFunction() {
       }
     });
   }
+
+  toggleButton = document.querySelector('.toggleButton');
+  if(toggleButton){
+    toggleButton.addEventListener('click', function() {
+      var content = document.querySelector(".content");
+      if(content.style.display === 'none') {
+        content.style.display = 'block';
+        this.textContent = '▲';  // Change arrow direction
+      } else {
+        content.style.display = 'none';
+        this.textContent = '▼';  // Change arrow direction
+      }
+    });
+
+  }
+
 }
 
 /////Preview Menu Slider
