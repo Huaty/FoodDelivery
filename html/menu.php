@@ -38,6 +38,7 @@ $items = [];
 $index = 0;
 $searchFood = '';
 $selectedCuisine = '';
+$selectedCategory = '';
 $cnt = 0;
 //// Session_start(); is in config_session.inc.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -50,6 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["cuisine"])) {
 
                 $selectedCuisine = isset($_POST['cuisine']) ? $_POST['cuisine'] : '';
+            }
+            break;
+        case 'searchCategory':
+            if (isset($_POST['category'])) {
+
+                $selectedCategory = isset($_POST['category']) ? $_POST['category'] : '';
             }
             break;
 
@@ -206,6 +213,36 @@ $stmt = null;
                 </div>
             </div>
 
+            <div class="content-category" style="display:none">
+                <form id="searchCuisine" action="" method="post">
+                    <input type="hidden" name="form_type" value="searchCategory">
+                    <div id="dropDown-container">
+                        <div id="cuisine-buttons">
+                            <button data-cuisine="all" class="<?php echo ($selectedCuisine == 'all') ? 'selected' : ''; ?>">All</button>
+                            <?php
+                            // Create an array to store all cuisines
+                            $allCuisines = [];
+
+                            // Populate the array with cuisines from each row
+                            foreach ($result as $row) {
+                                $allcategory_course[] = $row['category_course'];
+                            }
+
+                            // Remove duplicates from the array
+                            $uniqueCategoryCourse = array_unique($allcategory_course);
+
+
+                            // Loop through each unique cuisine to generate the buttons
+                            foreach ($uniqueCategoryCourse  as $categoryCourse) {
+                                $selectedClass = ($categoryCourse == $selectedCuisine) ? 'selected' : '';
+                                echo "<button type='submit' name ='category' class='cuisine-button' value ='" . $categoryCourse . "'>" . $categoryCourse . "</button>";
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
         </div>
 
         <div id="menu-content"> <?php
@@ -213,6 +250,7 @@ $stmt = null;
                                 foreach ($result as $row) {
                                     $foodNameProcessed = strtolower($row['foodname']);
                                     $cuisineProcessed = strtolower($row['cuisine']);
+                                    $categoryCourseProcessed = strtolower($row['category_course']);
 
 
                                     //// If food name does not contain search food, skip this food
@@ -220,6 +258,9 @@ $stmt = null;
                                     ///// $searchFood = berry
                                     ////There strpos will return 5, which is not false, so it will skip this food and go next interation
                                     if (strtolower($selectedCuisine) && $cuisineProcessed != strtolower($selectedCuisine)) {
+                                        continue;
+                                    }
+                                    if (strtolower($selectedCategory) && $categoryCourseProcessed != strtolower($selectedCategory)) {
                                         continue;
                                     }
                                     if ($searchFood && strpos($foodNameProcessed, $searchFood) === false) {

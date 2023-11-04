@@ -287,8 +287,8 @@ function menuFunction() {
   }
 
   toggleButtonCuisine = document.querySelector('.toggleButton-cuisine');
+  toggleButtonCategory = document.querySelector('.toggleButton-category');
 
-  toggleButtonCuisine = document.querySelector('.toggleButton-category');
   if(toggleButtonCuisine){
     toggleButtonCuisine.addEventListener('click', function() {
       var contentcuisine = document.querySelector(".content-cuisine");
@@ -300,8 +300,24 @@ function menuFunction() {
         this.textContent = '▼';  // Change arrow direction
       }
     });
-
   }
+
+
+  if(toggleButtonCategory){
+    toggleButtonCategory.addEventListener('click', function() {
+      console.log("click")
+      var contentCatergory = document.querySelector(".content-category");
+      if(contentCatergory.style.display === 'none') {
+        contentCatergory.style.display = 'block';
+        this.textContent = '▲';  // Change arrow direction
+      } else {
+        contentCatergory.style.display = 'none';
+        this.textContent = '▼';  // Change arrow direction
+      }
+    });
+  }
+
+
 
 }
 
