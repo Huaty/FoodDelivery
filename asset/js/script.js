@@ -286,15 +286,17 @@ function menuFunction() {
     });
   }
 
-  toggleButton = document.querySelector('.toggleButton');
-  if(toggleButton){
-    toggleButton.addEventListener('click', function() {
-      var content = document.querySelector(".content");
-      if(content.style.display === 'none') {
-        content.style.display = 'block';
+  toggleButtonCuisine = document.querySelector('.toggleButton-cuisine');
+
+  toggleButtonCuisine = document.querySelector('.toggleButton-category');
+  if(toggleButtonCuisine){
+    toggleButtonCuisine.addEventListener('click', function() {
+      var contentcuisine = document.querySelector(".content-cuisine");
+      if(contentcuisine.style.display === 'none') {
+        contentcuisine.style.display = 'block';
         this.textContent = '▲';  // Change arrow direction
       } else {
-        content.style.display = 'none';
+        contentcuisine.style.display = 'none';
         this.textContent = '▼';  // Change arrow direction
       }
     });
