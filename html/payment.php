@@ -98,6 +98,7 @@ if (isset($_POST['submit'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Koulen&family=Lalezar&family=Mitr:wght@200&display=swap" rel="stylesheet">
     <title>Menu</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
 </head>
 
 
@@ -124,14 +125,17 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
     </div>
-
-
     </div>
 
-    <div>
+    <div class= "payment-body">
         <div class="container-payment">
-            <h2>ORDER DETAILS:</h2>
-            <p>Create on Date at Time</p>
+            <div class="orderdetail">
+                <h2>ORDER DETAILS:</h2>
+                <p>Create on Date at Time</p>
+                <!-- <div class="payment-logo">
+                <p>p</p>
+                </div> -->
+            </div>
 
             <table>
                 <tr>
@@ -183,21 +187,40 @@ if (isset($_POST['submit'])) {
                     echo $result;
                 }
                 ?></p>
-
             <h2>PAYMENT METHOD:</h2>
-            <div class="payment-methods">
-                <label> CARD</label>
+            
+                <div class="payment-methods">
+                    <div class= "card space icon-relative">
+                        <label class = "label"> Card Holder: </label>
+                        <input type = "text" class="input-payment" name="card_holder" placeholder="Name">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class= "class space icon-relative">
+                        <label class = "label">Card Number:</label>
+                        <input type = "text" class="input-payment"data-mask="0000 0000 0000 0000" name="card_number" placeholder="Card Number">
+                        <i class="far fa-credit-card"></i>
+                    </div>
+                    <div class = "card-grp">
+                        <div class="card-item icon-relative">
+                            <label class ="label">Expiry Date:</label>
+                            <input type= "text" class="input-payment" name="expiry_date"placeholder ="00 / 00">
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                    <div class= "card-item icon-relative">
+                        <label class = "label">CVC:</label>
+                        <input type = "text" class ="input-payment"data-mask="000" name="cvc" placeholder="000">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
             </div>
-
+            
             <div>
                 <form method="post" action="">
 
-                    <button type="submit" name="submit">PAY</button>
+                    <button type="submit" name="submit"class="payment-btn">PAY</button>
                 </form>
-
             </div>
         </div>
-
     </div>
     <div>
         <footer>
