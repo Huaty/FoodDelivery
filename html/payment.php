@@ -27,6 +27,7 @@ if (isset($_POST['submit'])) {
         $orderStmt = $pdo->prepare($insertOrderQuery);
         $orderStmt->bindParam(":id", $id);
         $orderStmt->bindParam(":homeaddress", $results['homeaddress']);
+        date_default_timezone_set('Asia/Singapore');
         $orderDate = date("Y-m-d H:i:s");
         $orderStmt->bindParam(":OrderDate", $orderDate);
         $orderStmt->execute();
@@ -93,6 +94,9 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Koulen&family=Lalezar&family=Mitr:wght@200&display=swap" rel="stylesheet">
     <title>Menu</title>
 </head>
 

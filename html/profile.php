@@ -27,6 +27,9 @@ $stmt = null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Koulen&family=Lalezar&family=Mitr:wght@200&display=swap" rel="stylesheet">
     <title>Menu</title>
 </head>
 
@@ -57,28 +60,36 @@ $stmt = null;
     </div>
 
     </div>
+
+
+
     <div class="profile-container">
+        <nav>
 
-        <div class="profile-pic">
-            <img src="../asset/image/bingwei.jpeg" alt="Profile Picture">
+
+            <div class="profile-menu">
+                <a class="menu-item active" href="profile.php">Profile</a>
+                <a class="menu-item " href="changeEmail.php">Change Email</a>
+                <a class="menu-item" href="changePassword.php">Change Password</a>
+                <a class="menu-item" href="changeAddress.php">Change Address</a>
+            </div>
+
+        </nav>
+        <div class="profile-content-container">
+            <header class='title'><span>Profile</span></header>
+            <div class="profile-info">
+                <div>
+                    <img id="profile-page-img" src="../asset/image/bingwei.jpeg" alt="Profile Picture">
+                </div>
+                <?php
+                echo "<p><h3> " . $results[0]["firstname"] . "</h3></p>";
+                echo "<p><span class='icon'>📧 </span>Email:  " . $results[0]["email"] . "</p>";
+                echo "<p><span class='icon'>📍</span>Address:   " . $results[0]["homeaddress"] . "</p>";
+
+                ?>
+            </div>
         </div>
-        <div class="profile-info">
-            <?php
-
-            echo "<p><strong>Name:</strong> " . $results[0]["firstname"] . "</p>";
-            echo "<p><strong>Email:</strong> " . $results[0]["email"] . "</p>";
-            echo "<p><strong>Address:</strong> " . $results[0]["homeaddress"] . "</p>";
-
-            ?>
-        </div>
-        <div class="profile-links">
-            <a href="changeEmail.php">Change Email</a>
-            <a href="changePassword.php">Change Password</a>
-            <a href="changeAddress.php">Change Address</a>
-        </div>
-
     </div>
-
 
 
 

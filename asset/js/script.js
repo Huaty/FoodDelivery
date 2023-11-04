@@ -395,4 +395,33 @@ function signUpvalidation() {
       }
     });
   }
+
+
+  //// For Profile Password Vaildation
+
+  const changePasswordForm = document.getElementById("change-password-form");
+  const changePasswordInput = document.getElementById("newpwd");
+  const changepasswordError = document.getElementById("changepasswordError");
+
+
+
+  if(changePasswordForm){
+
+    changePasswordForm.addEventListener("submit", function (event) {
+      var flag = true;
+      if (!passwordRegex.test(changePasswordInput.value)) {
+        changepasswordError.textContent =
+          "Password must be at least 8 characters long and include at least 1 uppercase letter and 1 number. Special characters are not allowed";
+        changepasswordError.style.color = "red"; // Set the error message color to red
+        flag = false;
+      } else {
+        changepasswordError.textContent = "";
+      }
+
+      if(!flag){
+        event.preventDefault();
+      }
+
+    })
+  }
 }
