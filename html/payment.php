@@ -127,127 +127,112 @@ if (isset($_POST['submit'])) {
     </div>
     </div>
 
-    <div class= "payment-body">
+    <div class="payment-body card-content">
         <div class="container-payment">
             <div class="orderdetail">
-                <h2>ORDER DETAILS:</h2>
-                <p>Create on Date at Time</p>
+
                 <!-- <div class="payment-logo">
                 <p>p</p>
                 </div> -->
             </div>
-
-            <table>
-                <tr>
-                    <th>FOOD</th>
-                    <th>QUANTITY</th>
-                    <th>PRICE OF EACH ITEM</th>
-                </tr>
-                <?php
-                $totalAmount = 0;
-
-
-                foreach ($orders['indexfood'] as $index => $foodId) {
-
-                    $query = "SELECT foodname FROM menus WHERE item_id=:foodId";
-                    $stmt = $pdo->prepare($query);
-
-                    $stmt->bindParam(":foodId", $foodId);
-                    $stmt->execute();
-                    $resultFoodName = $stmt->fetch(PDO::FETCH_ASSOC);
-                    $itemName = $resultFoodName['foodname']; // Assuming you might want to look up the actual name based on this ID.
-                    $quantity = isset($orders['quantity'][$index]) ? intval($orders['quantity'][$index]) : 0;
-                    $price = isset($orders['price'][$index]) ? floatval($orders['price'][$index]) : 0;
-                    $itemTotal = $price * $quantity;
-
-                    echo "<tr>";
-                    echo "<td>" . $itemName . "</td>"; // As mentioned before, for safety
-                    echo "<td>" . $quantity . "</td>";
-                    echo "<td>" . number_format($itemTotal, 2) . "</td>";
-                    echo "</tr>";
-
-                    $totalAmount += $itemTotal;
-                }
-
-                // At the end, you can display the totalAmount if needed.
-                echo "Total Amount: " . number_format($totalAmount, 2);
-                ?>
-                <tr>
+            <div id="table-order-details">
+                <h2>ORDER DETAILS:</h2>
+                <table>
+                    <tr>
+                        <th>FOOD</th>
+                        <th>QUANTITY</th>
+                        <th>PRICE OF EACH ITEM</th>
+                    </tr>
                     <?php
-                    echo "<td>TOTAL:</td>";
-                    echo "<td></td>";
-                    echo "<td>$totalAmount</td>";
-                    ?>
-                </tr>
-            </table>
+                    $totalAmount = 0;
 
-            <h2>ADDRESS:</h2>
-            <p><?php
-                foreach ($results as $result) {
-                    echo $result;
-                }
-                ?></p>
-            <h2>PAYMENT METHOD:</h2>
-            
-                <div class="payment-methods">
-                    <div class= "card space icon-relative">
-                        <label class = "label"> Card Holder: </label>
-                        <input type = "text" class="input-payment" name="card_holder" placeholder="Name">
-                        <i class="fas fa-user"></i>
+
+                    foreach ($orders['indexfood'] as $index => $foodId) {
+
+                        $query = "SELECT foodname FROM menus WHERE item_id=:foodId";
+                        $stmt = $pdo->prepare($query);
+
+                        $stmt->bindParam(":foodId", $foodId);
+                        $stmt->execute();
+                        $resultFoodName = $stmt->fetch(PDO::FETCH_ASSOC);
+                        $itemName = $resultFoodName['foodname']; // Assuming you might want to look up the actual name based on this ID.
+                        $quantity = isset($orders['quantity'][$index]) ? intval($orders['quantity'][$index]) : 0;
+                        $price = isset($orders['price'][$index]) ? floatval($orders['price'][$index]) : 0;
+                        $itemTotal = $price * $quantity;
+
+                        echo "<tr>";
+                        echo "<td>" . $itemName . "</td>"; // As mentioned before, for safety
+                        echo "<td>" . $quantity . "</td>";
+                        echo "<td>" . number_format($itemTotal, 2) . "</td>";
+                        echo "</tr>";
+
+                        $totalAmount += $itemTotal;
+                    }
+
+                    // At the end, you can display the totalAmount if needed.
+
+                    ?>
+                    <tr>
+                        <?php
+                        echo "<td>TOTAL:</td>";
+                        echo "<td></td>";
+                        echo "<td>$totalAmount</td>";
+                        ?>
+                    </tr>
+                </table>
+                <div id="payment-address">
+                    <h2>ADDRESS:</h2>
+                    <p><?php
+                        foreach ($results as $result) {
+                            echo $result;
+                        }
+                        ?></p>
+                </div>
+            </div>
+
+
+
+            <div class="payment-methods card-content">
+                <h2>Payment Method:</h2>
+                <div class="card space icon-relative">
+                    <label class="label"> Card Holder: </label>
+                    <input type="text" class="input-payment" name="card_holder" placeholder="Name">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="class space icon-relative">
+                    <label class="label">Card Number:</label>
+                    <input type="tel" class="input-payment" data-mask="0000 0000 0000 0000" name="card_number" placeholder="Card Number">
+                    <i class="far fa-credit-card"></i>
+                </div>
+                <div class="card-grp">
+                    <div class="card-item icon-relative">
+                        <label class="label">Expiry Date:</label>
+                        <input type="number" class="input-payment" name="expiry_date" placeholder="00 / 00">
+                        <i class="far fa-calendar-alt"></i>
                     </div>
-                    <div class= "class space icon-relative">
-                        <label class = "label">Card Number:</label>
-                        <input type = "text" class="input-payment"data-mask="0000 0000 0000 0000" name="card_number" placeholder="Card Number">
-                        <i class="far fa-credit-card"></i>
-                    </div>
-                    <div class = "card-grp">
-                        <div class="card-item icon-relative">
-                            <label class ="label">Expiry Date:</label>
-                            <input type= "text" class="input-payment" name="expiry_date"placeholder ="00 / 00">
-                            <i class="far fa-calendar-alt"></i>
-                        </div>
-                    <div class= "card-item icon-relative">
-                        <label class = "label">CVC:</label>
-                        <input type = "text" class ="input-payment"data-mask="000" name="cvc" placeholder="000">
+                    <div class="card-item icon-relative">
+                        <label class="label">CVC:</label>
+                        <input type="number" class="input-payment" data-mask="000" name="cvc" placeholder="000">
                         <i class="fas fa-lock"></i>
                     </div>
                 </div>
-            </div>
-            
-            <div>
-                <form method="post" action="">
 
-                    <button type="submit" name="submit"class="payment-btn">PAY</button>
-                </form>
+                <div id="payment-btn-container">
+                    <form method="post" action="">
+                        <button type="submit" name="submit" class="button-3d gradient-animate pulse-icon">PAY</button>
+                    </form>
+                </div>
+                <div class="smallLogo">
+                    <object data="../asset/image/smallLogo.svg" Alt="smallLogo" id="img"></object>
+                    <p id="word">Munchies Together</p>
+                    <p>&copy 2023 Majulah Munchies. All rights reserved.</p>
+                </div>
             </div>
+
         </div>
     </div>
     <div>
         <footer>
-            <!-- Footer Top -->
-            <div class="top">
-                <div class="smallLogo">
-                    <object data="../asset/image/smallLogo.svg" Alt="smallLogo" id="img"></object>
-                    <p id="word">Munchies Together</p>
-                </div>
-                <div class="contact">
-                    <p>Contact Us </p>
-                    <div class="small-icon">
-                        <img src="../asset/image/instagram.png" alt="instagram" class="img">
-                        <img src="../asset/image/twitter.png" alt="twitter" class="img">
-                    </div>
-                </div>
-                <div class="statement">
-                    <p>Privacy Policy</p>
-                    <p>Terms & Conditions</p>
-                </div>
-
-            </div>
-            <!-- End Footer Top -->
-            <div class="bottom">
-                <p>&copy 2023 Majulah Munchies. All rights reserved.</p>
-
-            </div>
         </footer>
 </body>
 
