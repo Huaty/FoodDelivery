@@ -182,13 +182,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>View Orders</h2>
                     <thead>
                         <tr>
-                            <th>Food Name</th>
-                            <th>Cuisine</th>
-                            <th>Food Description</th>
-                            <th>Price</th>
-                            <th>Category Course</th>
-                            <th>Category Food</th>
-                            <th>Image</th>
+                            <th><label>Food Name</label></th>
+                            <th><label>Cuisine</label></th>
+                            <th><label>Food Description</label></th>
+                            <th><label>Price</label></th>
+                            <th><label>Category Course</label></th>
+                            <th><label>Category Food</label></th>
+                            <th><label>Image</label></th>
                         </tr>
 
                         <tr>
@@ -208,50 +208,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                 echo '<tr class = admin-food-menu>';
                                 // Displaying Food Name as simple text
+                                echo "<div class ='input-group'>";
                                 echo '<td class=admin-food-name>' . $row['foodname'] . '</td>';
+                                echo '</div>';
                                 // Displaying Cuisine as simple text
+                                echo "<div class ='input-group'>";
                                 echo '<td>' . $row['cuisine'] . '</td>';
-                                // Input field for Food Description
+                                echo '</div>';
+
                                 echo "<form method='POST' enctype='multipart/form-data' id='form-" . $row['foodname'] . "'>";
+
                                 echo "<input type=hidden name=form_type value=update_food id=>";
                                 echo "<input type=hidden name=foodname value='" . $row['foodname'] . "' id='foodname'>";
+                                // Input field for Food Description
                                 echo '<td>';
+                                echo "<div class ='input-group'>";
                                 echo "<textarea name='foodDescription[" . $row['foodname'] . "]'>" . $row['food_description'] . "</textarea>";
+                                echo '</div>';
                                 echo '</td>';
 
                                 // Input field for Price
                                 echo '<td>';
+                                echo "<div class ='input-group'>";
                                 echo "<input type='number' step='0.01' name='price[" . $row['foodname'] . "]' value='" . $row['price'] . "' id='price'>";
+                                echo '</div>';
                                 echo '</td>';
 
+
+                                // Input field for Category Course
                                 echo '<td>';
+                                echo "<div class ='input-group'>";
+
                                 echo '<select name="category_course[' . $row['foodname'] . ']" id="category_course">';
                                 foreach ($categories_course  as $category) {
                                     $selected = ($row['category_course'] == $category) ? "selected" : "";
                                     echo '<option value="' . $category . '" ' . $selected . '>' . $category . '</option>';
                                 }
                                 echo '</select>';
+                                echo '</div>';
                                 echo '</td>';
 
+                                // Input field for Category Food
+
                                 echo '<td>';
+                                echo "<div class ='input-group'>";
                                 echo '<select name="category_course[' . $row['foodname'] . ']" id="category_course">';
                                 foreach ($categories_food  as $category) {
                                     $selected = ($row['category_food'] == $category) ? "selected" : "";
                                     echo '<option value="' . $category . '" ' . $selected . '>' . $category . '</option>';
                                 }
                                 echo '</select>';
+                                echo '</div>';
                                 echo '</td>';
 
                                 // Display current Image and provide input for new Image
                                 echo '<td>';
+                                echo "<div class ='input-group'>";
                                 echo '<img src="data:image/jpeg;base64,' . base64_encode($row['image_data']) . '" width="100"/>';
-                                echo "<div> Upload new image </div>";
-                                echo "<input type='file' name='foodImage[" . $row['foodname'] . "]'>";
+                                echo "<label for='fileUpload' class='custom-file-upload'>Choose Image</label>";
+                                echo "<input  type='file' name='foodImage[" . $row['foodname'] . "]'>";
+                                echo '</div>';
                                 echo '</td>';
                                 echo '</form>';
                                 // Update button
                                 echo '<td>';
-                                echo "<input type='submit' id ='" . $row['foodname'] . "'>";
+                                echo "<input type='submit'" . $row['foodname'] . "'>";
                                 echo '</td>';
 
                                 echo '</tr>';
@@ -265,10 +286,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </table>
             </div>
         </div>
-        <div id="create-new-food-admin">
+        <div id="create-new-food-admin-container">
             <form action="" method="post" enctype="multipart/form-data" id="wrapper">
 
-                <div id="wrapper">Add Food </div>
+                <div id="wrapper">
+                    <h2>Add Food </h2>
+                </div>
                 <input type="hidden" name="form_type" value="create_new_food" id="create_new_food_hidden">
                 <label for="Foodname">Food name</label>
                 <input type="text" name="foodName" id="foodName">
@@ -296,19 +319,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "</select>";
                 ?>
 
-                <?php
-                // Ensure $uniqueCuisines and $selectedCuisines are defined above this point.
+                <div class="category-cuisine-container">
 
-                echo "<label for='categoryCuisine'>Category Cuisine</label>";
-                echo "<select name='categoryCuisine' id='categoryCuisine'>";
+                    <?php
+                    // Ensure $uniqueCuisines and $selectedCuisines are defined above this point.
 
-                foreach ($uniqueCuisines as $cuisine) {
-                    $selectedAttribute = ($cuisine == $selectedCuisines) ? ' selected' : '';
-                    echo "<option value='" . htmlspecialchars($cuisine, ENT_QUOTES) . "'" . $selectedAttribute . ">" . htmlspecialchars($cuisine) . "</option>";
-                }
+                    echo "<label for='categoryCuisine'>Category Cuisine</label>";
+                    echo "<select name='categoryCuisine' id='categoryCuisine'>";
 
-                echo "</select>";
-                ?>
+                    foreach ($uniqueCuisines as $cuisine) {
+                        $selectedAttribute = ($cuisine == $selectedCuisines) ? ' selected' : '';
+                        echo "<option value='" . htmlspecialchars($cuisine, ENT_QUOTES) . "'" . $selectedAttribute . ">" . htmlspecialchars($cuisine) . "</option>";
+                    }
+
+                    echo "</select>";
+                    ?>
+                </div>
 
 
                 <label for="foodImage">Food Image</label>
