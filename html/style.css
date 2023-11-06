@@ -2044,6 +2044,16 @@ td {
 } */
 
 /* Admin Page */
+
+#admin-title{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#admin-title h1{
+  font-size: 2em;
+  color: #333;
+}
 #admin-container {
   display: flex;
   flex-direction: column;
@@ -2061,6 +2071,20 @@ td {
   border:1px solid #ccc;
 }
 
+#submit-button-create-menu{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+#submit-button-create-menu:hover {
+  background-color: #0056b3;
+}
+
+
 #admin-container #initialize-db #wrapper{
   margin: 20px;
 
@@ -2071,32 +2095,131 @@ td {
   flex-direction: column;
   margin-bottom:3%;
   overflow-x: auto; 
-  border:1px solid #ccc;
   border-radius: 20px;
   box-shadow: 0px 4px 10px 0px rgb(0,0,0,0.5);
-  max-height: 500px;
+  max-height: 800px;
   
+}
+.food-admin-table{
+  padding:20px;
 }
 
 #admin-table-container table{
-  width: 100%; /* Full width of the container */
-  table-layout: fixed; /* Optional: makes columns a fixed width */
-  margin:20px;
-  border:1px solid black;
-  /* Other styling as needed */
+  width: 100%;
+  border-collapse: collapse;
+
 
 }
 #admin-table-container td,
 #admin-table-container th{
-  white-space: nowrap; 
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+
+}
+#admin-table-container th{
+  background-color: #f2f2f2;
+}
+
+#admin-table-container tr:hover {
+  background-color: #f5f5f5;
+}
+
+
+
+
+#admin-table-container .input-group {
+  margin-bottom: 15px;
+}
+
+#admin-table-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#admin-table-container .input-group input[type="text"],
+#admin-table-container .input-group input[type="number"],
+#admin-table-container .input-group select,
+#admin-table-container .input-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#admin-table-container .input-group input[type="file"] {
+  padding: 5px;
+  border: none;
+}
+
+#admin-table-container .input-group .button {
+  padding: 10px 15px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#admin-table-container .input-group .button:hover {
+  background-color: red;
+}
+
+
+#admin-container #create-new-food-admin-container{
+
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
 
 }
 
-#admin-container #create-new-food-admin{
+#admin-container #create-new-food-admin-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+#admin-container #create-new-food-admin-container input[type="text"],
+#admin-container #create-new-food-admin-container input[type="number"],
+#admin-container #create-new-food-admin-container select,
+#admin-container #create-new-food-admin-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
-  border-radius: 15px;
-  border:1px solid #ccc;
-  box-shadow: 0px 4px 10px 0px rgb(0,0,0,0.5);
+#admin-container #create-new-food-admin-container input[type="file"] {
+    margin-bottom: 15px;
+}
+
+#admin-container #create-new-food-admin-container input[type="submit"] {
+    width: 100%;
+    background: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#admin-container #create-new-food-admin-container input[type="submit"]:hover {
+    background: red;
+    color:white;
+    box-shadow: 0px 4px 12px 0px rgba(248, 82, 82, 0.5);
+}
+
+#admin-container #create-new-food-admin-container label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
 }
 
 
