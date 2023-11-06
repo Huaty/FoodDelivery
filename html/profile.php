@@ -11,8 +11,22 @@ try {
 } catch (PDOException $e) {
     die("ERROR: Could not execute $sql. " . $e->getMessage());
 }
+try {
+    $queryUser = "SELECT email FROM users WHERE id=:userID";
+    $stmt = $pdo->prepare($queryUser);
+    $stmt->bindParam(":userID", $userId);
+    $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
+    
+    if ($user['email'] === 'admin@gmail.com') {
+?>
+<?php
+    }
+} catch (PDOException $e) {
+    die("ERROR: Could not execute $sql. " . $e->getMessage());
+}
+?>
 
 
 $pdo = null;
@@ -72,6 +86,11 @@ $stmt = null;
                 <a class="menu-item " href="changeEmail.php">Change Email</a>
                 <a class="menu-item" href="changePassword.php">Change Password</a>
                 <a class="menu-item" href="changeAddress.php">Change Address</a>
+                <?php
+                if ($user['email'] === 'admin@gmail.com') {
+                    echo '<a class="menu-item" href="adminpage.php">Admin Page</a>';
+                }
+                ?>
             </div>
 
         </nav>
