@@ -21,6 +21,24 @@ if (($_SESSION["user_email"]) != "admin@gmail.com") {
     header("Location: menu.php");
 }
 
+$selectedCuisine = '';
+$selectedCategory = '';
+
+// Create an array to store all categories
+$allCategories = [];
+$allCuisines = [];
+
+// Populate the array with categories from each row
+foreach ($result as $row) {
+    $allCategories[] = $row['category_course'];
+    $allCuisines[] = $row['cuisine'];
+}
+
+// Remove duplicates from the array
+$uniqueCategories = array_unique($allCategories);
+$uniqueCuisines = array_unique($allCuisines);
+
+
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -38,13 +56,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $price = $_POST['price'];
                     $food_description = $_POST["foodDescription"];
                     $foodImage = file_get_contents($_FILES["foodImage"]["tmp_name"]);
+                    $category_course = $_POST['categoryCourse'];
+                    $category_food = $_POST['categoryCuisine'];
+                    echo $category_course;
+                    echo $category_food;
 
                     try {
-                        $insertNewFood = "INSERT INTO menus (foodname, cuisine, food_description,price,image_data) VALUES (:foodName, :cuisine, :food_description,:price,:image_data)";
+                        $insertNewFood = "INSERT INTO menus (foodname,cuisine,category_course,category_food,food_description,price,image_data) VALUES (:foodName, :cuisine,:category_course,:category_food,:food_description,:price,:image_data)";
                         $insertStmt = $pdo->prepare($insertNewFood);
                         $insertStmt->bindParam(':foodName', $foodName, PDO::PARAM_STR);
                         $insertStmt->bindParam(':cuisine', $cuisine, PDO::PARAM_STR);
                         $insertStmt->bindParam(':food_description', $food_description, PDO::PARAM_STR);
+                        $insertStmt->bindParam(':category_course', $category_course, PDO::PARAM_STR);
+                        $insertStmt->bindParam(':category_food', $category_food, PDO::PARAM_STR);
                         $insertStmt->bindParam(':price', $price, PDO::PARAM_STR);  // Assuming price is an integer
                         $insertStmt->bindParam(':image_data', $foodImage, PDO::PARAM_LOB);  // Using LOB for binary data
                         echo "working";
@@ -140,19 +164,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <div id="admin-container">
-        <h1>Welcome to Admin Page </h1>
-        <form action="adminpage.php" method="POST">
-            <div id="wrapper">Intialize Menu
-                <input type="hidden" name="form_type" value="create_menu" id="create_menu">
-                <div><button type="submit" id="submit-button-create-menu">Click me</button></div>
-            </div>
-        </form>
+        <div id="admin-title">
+            <h1>Welcome to Admin Page </h1>
+        </div>
+        <div id="initialize-db">
+            <form action="adminpage.php" method="POST">
+                <div id="wrapper">Intialize Menu
+                    <input type="hidden" name="form_type" value="create_menu" id="create_menu">
+                    <div><button type="submit" id="submit-button-create-menu">Click me</button></div>
+                </div>
+            </form>
+        </div>
 
-        <div id="wrapper">
-            <h2>View Orders</h2>
-            <div>
-                <table class="food-admin-table">
-
+        <div id="admin-table-container">
+            <div class="food-admin-table">
+                <table>
+                    <h2>View Orders</h2>
                     <thead>
                         <tr>
                             <th>Food Name</th>
@@ -238,30 +265,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </table>
             </div>
         </div>
+        <div id="create-new-food-admin">
+            <form action="" method="post" enctype="multipart/form-data" id="wrapper">
 
-        <form action="" method="post" enctype="multipart/form-data">
+                <div id="wrapper">Add Food </div>
+                <input type="hidden" name="form_type" value="create_new_food" id="create_new_food_hidden">
+                <label for="Foodname">Food name</label>
+                <input type="text" name="foodName" id="foodName">
 
-            <div id="wrapper">Add Food </div>
-            <input type="hidden" name="form_type" value="create_new_food" id="create_new_food_hidden">
-            <label for="Foodname">Food name</label>
-            <input type="text" name="foodName" id="foodName">
+                <label for="Cuisine">Cuisine</label>
+                <input type="text" name="cuisine" id="cuisine">
 
-            <label for="Cuisine">Cuisine</label>
-            <input type="text" name="cuisine" id="cuisine">
+                <label for="Food Description">Food Description</label>
+                <input type="text" name="foodDescription" id="foodDescription">
 
-            <label for="Food Description">Food Description</label>
-            <input type="text" name="foodDescription" id="foodDescription">
+                <label for="Price">Price</label>
+                <input type="number" name="price" id="price">
 
-            <label for="Price">Price</label>
-            <input type="number" name="price" id="price">
+                <?php
+                // Ensure $uniqueCategories and $selectedCategory are defined above this point.
 
-            <label for="foodImage">Food Image</label>
-            <input type="file" name="foodImage" id="foodImage">
+                echo "<label for='categoryCourse'>Category Course</label>";
+                echo "<select name='categoryCourse' id='categoryCourse'>";
 
-            <input type="submit" value="Upload Food" id="submit-button-create-new-food">
-        </form>
+                foreach ($uniqueCategories as $category) {
+                    $selectedAttribute = ($category == $selectedCategory) ? ' selected' : '';
+                    echo "<option value='" . htmlspecialchars($category, ENT_QUOTES) . "'" . $selectedAttribute . ">" . htmlspecialchars($category) . "</option>";
+                }
 
-    </div>
+                echo "</select>";
+                ?>
+
+                <?php
+                // Ensure $uniqueCuisines and $selectedCuisines are defined above this point.
+
+                echo "<label for='categoryCuisine'>Category Cuisine</label>";
+                echo "<select name='categoryCuisine' id='categoryCuisine'>";
+
+                foreach ($uniqueCuisines as $cuisine) {
+                    $selectedAttribute = ($cuisine == $selectedCuisines) ? ' selected' : '';
+                    echo "<option value='" . htmlspecialchars($cuisine, ENT_QUOTES) . "'" . $selectedAttribute . ">" . htmlspecialchars($cuisine) . "</option>";
+                }
+
+                echo "</select>";
+                ?>
+
+
+                <label for="foodImage">Food Image</label>
+                <input type="file" name="foodImage" id="foodImage">
+
+                <input type="submit" value="Upload Food" id="submit-button-create-new-food">
+            </form>
+        </div>
+
+
     </div>
     <footer>
         <!-- Footer Top -->
@@ -287,6 +344,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="bottom">
             <p>&copy 2023 Majulah Munchies. All rights reserved.</p>
 
+        </div>
         </div>
     </footer>
 </body>

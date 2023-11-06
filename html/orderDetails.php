@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<td>" . $orderDetailResult['Quantity'] . "</td>";
                 echo "<td>" . $orderDetailResult['TotalPrice'] . "</td>";
                 echo "</tr>";
-                $totalPrice += floatval($orderDetailResult['Quantity']) * floatval($orderDetailResult['TotalPrice']);
+                $totalPrice +=  floatval($orderDetailResult['TotalPrice']);
             }
             echo "</tbody>"; // Close table body
 
@@ -133,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<tr>";
             echo "<td colspan='2' style='text-align:right;'><strong>Total Price</strong></td>"; // Span two columns for total
 
-            echo "<td class='amount'>" . number_format($orderDetailResult['TotalPrice'], 2) . "</td>";
+            echo "<td class='amount'>" . number_format($totalPrice, 2) . "</td>";
             echo "</tr>";
             echo "</tfoot>"; // Close table footer
 

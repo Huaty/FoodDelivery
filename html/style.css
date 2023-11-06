@@ -2047,10 +2047,70 @@ td {
 #admin-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-left:10%;
+  margin-right: 10%;
+
+}
+#admin-container #initialize-db{
+  display:flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border:1px solid #ccc;
 }
 
-#admin-container #wrapper {
-  padding: 5%;
+#admin-container #initialize-db #wrapper{
+  margin: 20px;
+
+}
+
+#admin-container #admin-table-container{
+  display:flex;
+  flex-direction: column;
+  margin-bottom:3%;
+  overflow-x: auto; 
+  border:1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px 0px rgb(0,0,0,0.5);
+  max-height: 500px;
+  
+}
+
+#admin-table-container table{
+  width: 100%; /* Full width of the container */
+  table-layout: fixed; /* Optional: makes columns a fixed width */
+  margin:20px;
+  border:1px solid black;
+  /* Other styling as needed */
+
+}
+#admin-table-container td,
+#admin-table-container th{
+  white-space: nowrap; 
+
+}
+
+#admin-container #create-new-food-admin{
+
+  border-radius: 15px;
+  border:1px solid #ccc;
+  box-shadow: 0px 4px 10px 0px rgb(0,0,0,0.5);
+}
+
+
+#admin-container #create-new-food-admin #wrapper{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#admin-container #create-new-food-admin #wrapper input{
+margin-bottom:20px;
+
 }
 
 
