@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   adminPage();
 
 
+
   // ChangeEmail();
 });
 //Change Email
@@ -316,8 +317,6 @@ function menuFunction() {
       }
     });
   }
-
-
 
 }
 
