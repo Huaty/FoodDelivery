@@ -200,6 +200,7 @@ function menuFunction() {
         foodChoosenText = document.createElement("div");
         foodChoosenText.id = `food-choosen-text-${i}`;
         foodChoosen.appendChild(foodChoosenText);
+        foodChoosenText.classList.add("food-choosen-text");
       }
 
       const foodTitle = document.getElementById(`food-title-${i}`).innerText;

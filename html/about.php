@@ -50,9 +50,9 @@ unset($_SESSION['user_firstname']);
         </div>
         <div class="about-content">
           <h2>
-            MajulahMunchies
+            <span id="red">Majulah</span>Munchies
           </h2>
-          <p>
+          <p id="about-description">
             Welcome to MajulahMunchies,<br> your passport to a world of culinary delights delivered right to your doorstep!<br> We're more than just a food delivery service;<br> we're your partners in savoring the finest flavors from around the globe.<br>
           </p>
           <a href="" class="read-more"> Read More </a>
