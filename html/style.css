@@ -2069,6 +2069,7 @@ td {
   flex-direction: column;
   border-radius: 20px;
   border:1px solid #ccc;
+  margin-bottom: 50px;
 }
 
 #submit-button-create-menu{
@@ -2718,6 +2719,7 @@ tbody tr:hover {
 
 /* For phone or i dont know what  */
 @media only screen and (min-width: 1024px) {
+
   .slider-main-container {
     display: flex;
     flex-direction: column;
