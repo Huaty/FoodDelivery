@@ -16,7 +16,7 @@ function is_input_empty(string $username, string  $email, string  $pwd, string  
 function is_email_invalid(string $email) /// check if email is valid
 {
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    if (!$email) {
         return true;
     } else {
         return false;
