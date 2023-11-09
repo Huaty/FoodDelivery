@@ -2718,7 +2718,34 @@ tbody tr:hover {
 }
 
 /* For phone or i dont know what  */
+/* Preview Menu  */
 @media only screen and (min-width: 1024px) {
+ .previewMenu-container{
+margin:5%;
+ }
+
+ #title{
+  font-family: "Lalezar", cursive;
+  font-size: 63px;
+ }
+
+
+
+/* Apply the .glowing-text class to the element you want to glow */
+.previewMenu-container #title .red {
+  color: red; /* or use hex color code for a specific shade of red */
+  font-weight: bold;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+
+
+
+ .previewMenu-container #description{
+  font-family: "Mitr", sans-serif;
+  font-size:30px;
+ }
+
 
   .slider-main-container {
     display: flex;
@@ -2726,7 +2753,6 @@ tbody tr:hover {
     align-items: center;
     justify-content: center;
     min-height: 50vh;
-    padding-top: 5%;
     padding-bottom: 5%;
   }
 
