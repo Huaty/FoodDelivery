@@ -69,16 +69,17 @@ if (isset($_POST['submit'])) {
     // Your existing payment processing logic
 
     // After processing the payment, include the code to send an email
-    // require_once 'send_email.php';  Include the email sending script
+    // Include the email sending script
+    require_once 'send_email.php';
 
     // Check the $mailSent variable to confirm the email status
-    // if ($mailSent) {
+    if ($mailSent) {
 
-    //     echo "Payment successful and email sent!";
-    // } else {
+        echo "Payment successful and email sent!";
+    } else {
 
-    //     echo "Payment successful but failed to send an email. Please contact support.";
-    // }
+        echo "Payment successful but failed to send an email. Please contact support.";
+    }
     unset($_SESSION['orders']); // clear the order session
     header('Location: success.php');
 }
@@ -192,80 +193,80 @@ if (isset($_POST['submit'])) {
 
 
 
-    <div class="payment-methods card-content">
-        <h2>Payment Method:</h2>
-        <div class="card space icon-relative">
-            <label class="label"> Card Holder: </label>
-            <input type="text" class="input-payment" name="card_holder" placeholder="Name">
-            <i class="fas fa-user"></i>
-        </div>
-        <div class="class space icon-relative">
-            <label class="label">Card Number:</label>
-            <input type="tel" class="input-payment" data-mask="0000 0000 0000 0000" name="card_number" placeholder="Card Number" minlength="16">
-            <i class="far fa-credit-card"></i>
-        </div>
-        <div class="card-grp">
-            <div class="card-item icon-relative">
-                <label class="label">Expiry Date:</label>
-                <input type="number" class="input-payment" min="1000" name="expiry_date" placeholder="0000">
-                <i class="far fa-calendar-alt"></i>
+            <div class="payment-methods card-content">
+                <h2>Payment Method:</h2>
+                <div class="card space icon-relative">
+                    <label class="label"> Card Holder: </label>
+                    <input type="text" class="input-payment" name="card_holder" placeholder="Name">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="class space icon-relative">
+                    <label class="label">Card Number:</label>
+                    <input type="tel" class="input-payment" data-mask="0000 0000 0000 0000" name="card_number" placeholder="Card Number" minlength="16">
+                    <i class="far fa-credit-card"></i>
+                </div>
+                <div class="card-grp">
+                    <div class="card-item icon-relative">
+                        <label class="label">Expiry Date:</label>
+                        <input type="number" class="input-payment" min="1000" name="expiry_date" placeholder="0000">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <div class="card-item icon-relative">
+                        <label class="label">CVC:</label>
+                        <input type="number" class="input-payment" name="cvc" placeholder="000" minlength="3">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+
+                <div id="payment-btn-container">
+                    <form method="post" action="" onsubmit="return validateFormpayment()">
+                        <button type="submit" name="submit" class="button-3d gradient-animate pulse-icon">PAY</button>
+                    </form>
+                </div>
+                <div class="smallLogo">
+                    <object data="../asset/image/smallLogo.svg" Alt="smallLogo" id="img"></object>
+                    <p id="word">Munchies Together</p>
+                    <p>&copy; 2023 Majulah Munchies. All rights reserved.</p>
+                </div>
+
+                <script>
+                    function validateFormpayment() {
+                        const cardHolder = document.querySelector('input[name="card_holder"]').value;
+                        const cardNumber = document.querySelector('input[name="card_number"]').value;
+                        const expiryDate = document.querySelector('input[name="expiry_date"]').value;
+                        const cvc = document.querySelector('input[name="cvc"]').value;
+
+                        if (
+                            cardHolder.trim() === '' ||
+                            cardNumber.trim().length < 16 ||
+                            expiryDate.trim().length !== 4 ||
+                            cvc.trim().length < 3
+                        ) {
+                            let errorMessage = "Please fill in the payment details correctly: \n";
+                            if (cardHolder.trim() === '') {
+                                errorMessage += "- Card Holder name is required\n";
+                            }
+                            if (cardNumber.trim().length !== 16) {
+                                errorMessage += "- Card Number should have 16 digits\n";
+                            }
+                            if (expiryDate.trim().length !== 4) {
+                                errorMessage += "- Expiry Date should be 4 digits (MMYY format)\n";
+                            }
+                            if (cvc.trim().length !== 3) {
+                                errorMessage += "- CVC should be 3 digits\n";
+                            }
+                            alert(errorMessage);
+                            return false;
+                        }
+
+                        return true;
+                    }
+                </script>
+
             </div>
-            <div class="card-item icon-relative">
-                <label class="label">CVC:</label>
-                <input type="number" class="input-payment" name="cvc" placeholder="000" minlength="3">
-                <i class="fas fa-lock"></i>
-            </div>
-        </div>
-
-        <div id="payment-btn-container">
-            <form method="post" action="" onsubmit="return validateFormpayment()">
-                <button type="submit" name="submit" class="button-3d gradient-animate pulse-icon">PAY</button>
-            </form>
-        </div>
-        <div class="smallLogo">
-            <object data="../asset/image/smallLogo.svg" Alt="smallLogo" id="img"></object>
-            <p id="word">Munchies Together</p>
-            <p>&copy; 2023 Majulah Munchies. All rights reserved.</p>
-        </div>
-
-        <script>
-            function validateFormpayment() {
-                const cardHolder = document.querySelector('input[name="card_holder"]').value;
-                const cardNumber = document.querySelector('input[name="card_number"]').value;
-                const expiryDate = document.querySelector('input[name="expiry_date"]').value;
-                const cvc = document.querySelector('input[name="cvc"]').value;
-
-                if (
-                    cardHolder.trim() === '' ||
-                    cardNumber.trim().length < 16 ||
-                    expiryDate.trim().length !== 4 ||
-                    cvc.trim().length < 3
-                ) {
-                    let errorMessage = "Please fill in the payment details correctly: \n";
-                    if (cardHolder.trim() === '') {
-                        errorMessage += "- Card Holder name is required\n";
-                    }
-                    if (cardNumber.trim().length !== 16) {
-                        errorMessage += "- Card Number should have 16 digits\n";
-                    }
-                    if (expiryDate.trim().length !== 4) {
-                        errorMessage += "- Expiry Date should be 4 digits (MMYY format)\n";
-                    }
-                    if (cvc.trim().length !== 3) {
-                        errorMessage += "- CVC should be 3 digits\n";
-                    }
-                    alert(errorMessage);
-                    return false;
-                }
-
-                return true;
-            }
-        </script>
-
-    </div>
-    <div>
-        <footer>
-        </footer>
+            <div>
+                <footer>
+                </footer>
 </body>
 
 
