@@ -21,7 +21,7 @@ if (($_SESSION["user_email"]) != "admin@gmail.com") {
     header("Location: menu.php");
 }
 
-$selectedCuisine = '';
+$selectedFood = '';
 $selectedCategory = '';
 
 // Create an array to store all categories
@@ -30,13 +30,13 @@ $allCuisines = [];
 
 // Populate the array with categories from each row
 foreach ($result as $row) {
-    $allCategories[] = $row['category_course'];
-    $allCuisines[] = $row['cuisine'];
+    $allFood[] = $row['category_food'];
+    $allCourse[] = $row['category_course'];
 }
 
 // Remove duplicates from the array
-$uniqueCategories = array_unique($allCategories);
-$uniqueCuisines = array_unique($allCuisines);
+$uniqueFood = array_unique($allFood);
+$uniqueCourse = array_unique($allCourse);
 
 
 
@@ -311,9 +311,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<label for='categoryCourse'>Category Course</label>";
                 echo "<select name='categoryCourse' id='categoryCourse'>";
 
-                foreach ($uniqueCategories as $category) {
-                    $selectedAttribute = ($category == $selectedCategory) ? ' selected' : '';
-                    echo "<option value='" . htmlspecialchars($category, ENT_QUOTES) . "'" . $selectedAttribute . ">" . htmlspecialchars($category) . "</option>";
+                foreach ($uniqueCourse  as $course) {
+                    $selectedCourse = ($course == $selectedCourse) ? ' selected' : '';
+                    echo "<option value='" . htmlspecialchars($course, ENT_QUOTES) . "'" . $selectedCourse . ">" . htmlspecialchars($course) . "</option>";
                 }
 
                 echo "</select>";
@@ -324,12 +324,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php
                     // Ensure $uniqueCuisines and $selectedCuisines are defined above this point.
 
-                    echo "<label for='categoryCuisine'>Category Cuisine</label>";
+                    echo "<label for='categoryCuisine'>Category Food</label>";
                     echo "<select name='categoryCuisine' id='categoryCuisine'>";
 
-                    foreach ($uniqueCuisines as $cuisine) {
-                        $selectedAttribute = ($cuisine == $selectedCuisines) ? ' selected' : '';
-                        echo "<option value='" . htmlspecialchars($cuisine, ENT_QUOTES) . "'" . $selectedAttribute . ">" . htmlspecialchars($cuisine) . "</option>";
+                    foreach ($uniqueFood as $food) {
+                        $selectedFood = ($food == $selectedFood) ? ' selected' : '';
+                        echo "<option value='" . htmlspecialchars($food, ENT_QUOTES) . "'" . $selectedFood . ">" . htmlspecialchars($food) . "</option>";
                     }
 
                     echo "</select>";

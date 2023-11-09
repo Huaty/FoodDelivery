@@ -18,7 +18,7 @@ try {
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    
+
     if ($user['email'] === 'admin@gmail.com') {
 ?>
 <?php
@@ -26,14 +26,10 @@ try {
 } catch (PDOException $e) {
     die("ERROR: Could not execute $sql. " . $e->getMessage());
 }
-?>
-
-
 $pdo = null;
 $stmt = null;
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

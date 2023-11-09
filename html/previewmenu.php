@@ -38,6 +38,12 @@ unset($_SESSION['user_firstname']); ?>
     <!-- End Header -->
 
     <!-- Main Body -->
+    <div class="previewMenu-title-container">
+        <h1>A Palette of Flavors</h1>
+        <div>
+            Our menu is a carefully crafted tapestry of tastes, each dish born from the freshest ingredients and brought to life with culinary prowess. Whether you're craving the comfort of a classic or the thrill of something new, our menu is poised to please.
+        </div>
+    </div>
     <div class="slider-main-container">
         <section class="slider-container">
             <button class="slider-btn slider-btn-left">&lt;</button>
