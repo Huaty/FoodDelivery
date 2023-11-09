@@ -382,7 +382,7 @@ function signUpvalidation() {
         nameError.textContent = "";
       }
 
-      if (!emailRegex.test(emailInput.value)) {
+      if (!emailRegex.test(emailInput.value) && !specificEmails.includes(emailInput.value)) {
         emailError.textContent = "Please enter a valid email address";
         emailError.style.color = "red"; // Set the error message color to red
         valid = false;
