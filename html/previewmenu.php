@@ -38,10 +38,12 @@ unset($_SESSION['user_firstname']); ?>
     <!-- End Header -->
 
     <!-- Main Body -->
-    <div class="previewMenu-title-container">
-        <h1>A Palette of Flavors</h1>
-        <div>
-            Our menu is a carefully crafted tapestry of tastes, each dish born from the freshest ingredients and brought to life with culinary prowess. Whether you're craving the comfort of a classic or the thrill of something new, our menu is poised to please.
+    <div class="previewMenu-container">
+        <div id="content">
+            <h1 id="title">A <span class="red glowing-text">Palette</span> of Flavors</h1>
+            <div id="description">
+                Our menu is a carefully crafted tapestry of tastes, each dish born from the freshest ingredients and brought to life with culinary prowess. Whether you're craving the comfort of a classic or the thrill of something new, our menu is poised to please.
+            </div>
         </div>
     </div>
     <div class="slider-main-container">
@@ -68,33 +70,37 @@ unset($_SESSION['user_firstname']); ?>
         </section>
     </div>
 
-    <!--Footer -->
     <footer>
         <!-- Footer Top -->
         <div class="top">
             <a href="index.php">
                 <div class="smallLogo">
-                    <object data="../asset/image/smallLogo.svg" Alt="smallLogo" id="img"></object>
+                    <object data="../asset/image/smallLogo.svg" alt="smallLogo" id="img"></object>
                     <p id="word">Munchies Together</p>
                 </div>
-                <div class="contact">
-                    <p>Contact Us </p>
-                    <div class="small-icon">
-                        <a href="https://www.instagram.com/" target="_blank">
-                            <img src="../asset/image/instagram.png" alt="instagram" class="img">
-                        </a>
-                        <a href="https://www.twitter.com/" target="_blank">
-                            <img src="../asset/image/twitter.png" alt="Twitter" class="img">
-                        </a>
-                    </div>
+            </a>
+            <div class="contact">
+                <p>Contact Us </p>
+                <div class="small-icon">
+                    <a href="https://www.instagram.com/" target="_blank">
+                        <img src="../asset/image/instagram.png" alt="instagram" class="img">
+                    </a>
+                    <a href="https://www.twitter.com/" target="_blank">
+                        <img src="../asset/image/twitter.png" alt="Twitter" class="img">
+                    </a>
                 </div>
-                <div class="statement">
-                    <p><a href="privacy_policy.html">Privacy Policy</a></p>
-                    <p><a href="terms_conditions.html">Terms & Conditions</a></p>
-                </div>
-                <!-- End Footer Top -->
-                <div class="bottom">
-                    <p>&copy 2023 Majulah Munchies. All rights reserved.</p>
+            </div>
+            <div class="statement">
+                <p><a href="privacy_policy.html">Privacy Policy</a></p>
+                <p><a href="terms_conditions.html">Terms & Conditions</a></p>
+            </div>
+
+        </div>
+        <!-- End Footer Top -->
+        <div class="bottom">
+            <p>&copy 2023 Majulah Munchies. All rights reserved.</p>
+
+        </div>
     </footer>
 </body>
 
