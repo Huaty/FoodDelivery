@@ -25,8 +25,8 @@ $selectedFood = '';
 $selectedCategory = '';
 
 // Create an array to store all categories
-$allCategories = [];
-$allCuisines = [];
+$allFood = [];
+$allCourse = [];
 
 // Populate the array with categories from each row
 foreach ($result as $row) {
