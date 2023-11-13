@@ -2,8 +2,7 @@
 require_once "../asset/includePHP/config_session.inc.php";
 require_once "../asset/includePHP/dbh.inc.php";
 require_once "error.php";
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
+
 if ($_SESSION['orders'] === null) {
     header("Location:menu.php");
 }

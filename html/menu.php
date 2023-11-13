@@ -1,6 +1,5 @@
 <?php
 require_once "error.php";
-require_once "menu_view.inc.php";
 require_once "../asset/includePHP/config_session.inc.php";
 
 

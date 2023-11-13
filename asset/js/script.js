@@ -3,54 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   slidingBar(); ///Previewmenu slider
   menuFunction(); ///Entire User Menu Page Function
   adminPage();
-
-
-
-  // ChangeEmail();
 });
-//Change Email
-// function ChangeEmail() {
-//   document.querySelector('form').addEventListener('submit', function(event) {
-//       const newEmail = document.getElementById('newEmail').value;
-//       const confirmNewEmail = document.getElementById('confirmNewEmail').value;
-//       const currentEmail = document.getElementById('currentEmail') // Replace with the PHP variable
-
-//       const newEmailError = document.getElementById('newEmailError');
-//       const confirmNewEmailError = document.getElementById('confirmNewEmailError');
-
-//       let isValid = true;
-
-//       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-
-//       if (!emailRegex.test(newEmail)) {
-//           newEmailError.textContent = 'Invalid email format for the new email address.';
-//           isValid = false;
-//       } else {
-//           newEmailError.textContent = '';
-//       }
-
-//       if (newEmail.toLowerCase() !== currentEmail.toLowerCase()) {
-//           newEmailError.textContent = 'The provided current email does not match your account.';
-//           isValid = false;
-//       } else {
-//           newEmailError.textContent = '';
-//       }
-
-//       if (newEmail !== confirmNewEmail) {
-//           confirmNewEmailError.textContent = 'New email and confirm email do not match.';
-//           isValid = false;
-//       } else {
-//           confirmNewEmailError.textContent = '';
-//       }
-
-//       if (!isValid) {
-//           event.preventDefault(); // Prevents the form from being submitted
-//       } else {
-//         errorDisplay.textContent = 'Change email successful!';
-//       }
-//   });
-// }
-
 
 //// Admin Page 
 function adminPage(){
