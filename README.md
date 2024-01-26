@@ -1,11 +1,11 @@
+# Get started 
+Download XAMPP 
 
 # Majulah Munchies (Food Delivery System)
 IE4717 Web Application
 This project aims to create a food delivery system for different types of cuisine
 
 ![LOGO](https://github.com/Huaty/MajulahMunchies/blob/main/asset/image/Logo.png)
-
-# Project Requirements 
 
 
 # Built With 
