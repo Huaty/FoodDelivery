@@ -1,5 +1,8 @@
 # Get started 
 Download XAMPP 
+https://www.apachefriends.org/download.html
+<img width="671" alt="Screenshot 2024-01-27 at 1 33 08 AM" src="https://github.com/Huaty/MajulahMunchies/assets/50129813/fe0b86ae-cdbe-407d-83a5-14c15a0a0bf1">
+
 
 # Majulah Munchies (Food Delivery System)
 IE4717 Web Application
